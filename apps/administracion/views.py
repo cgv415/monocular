@@ -3,7 +3,6 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView,FormView
 from django.core.urlresolvers import reverse_lazy
-from apps.base.models import Menu
 from apps.servicios.models import Corto
 from .forms import UserForm
 from .models import Cliente
@@ -14,19 +13,15 @@ from django.core.urlresolvers import reverse
 
 # Create your views here.
 def Principal(request):
-    menus = Menu.objects.all()
-    return render_to_response('administracion/admin.html',{'menus':menus},context_instance=RequestContext(request))
+    return render_to_response('administracion/admin.html',context_instance=RequestContext(request))
 
 def main(request):
-    menus = Menu.objects.all()
-    return render_to_response('administracion/main.html', {'menus':menus}, context_instance=RequestContext(request))
+    return render_to_response('administracion/main.html', context_instance=RequestContext(request))
 
 # Clase en desuso
 class Registrarse(FormView):
     template_name='administracion/signup.html'
     form_class=UserForm
-    model = Menu
-    fields=['titulo']
     success_url = reverse_lazy('registrarse')
     
     def form_valid(self,form):
