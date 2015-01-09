@@ -4,4 +4,5 @@ from django.conf.urls import url
 urlpatterns = [
    #url(r'^$' , 'apps.inicio.views.index'),
    url(r'^$' , 'apps.noticias.views.Noticias',name="noticias"),
+   url(r'^post/(\d+)/$', 'apps.noticias.views.Post', name="post"),
 ]

@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/noticias.css">
+{% endblock %}
+
+{% block contenido %}	
+	<div class="noticias">	
+	<h1>{{noticia.titulo}}</h1>
+	<img src="{{MEDIA_URL}}{{noticia.imagen}}" class="imagen">
+	<h2>{{noticia.texto}}</h2>
+	<h3>{{noticia.fecha}}</h3>
+	</div>
+{%endblock%}

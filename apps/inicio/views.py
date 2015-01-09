@@ -12,8 +12,8 @@ from .models import Vimeo
 # Create your views here.
 def inicio(request):
     noticias = Noticia.objects.order_by('fecha').reverse()
-    vimeo = Vimeo.objects.filter(activo = True).reverse()[0]
-    #vimeo = Vimeo.objects.get_or_create(codigo='32423533')
+    #vimeo = Vimeo.objects.filter(activo = True).reverse()[0]
+    vimeo = Vimeo.objects.get_or_create(codigo='32423533')
     return render_to_response('inicio/inicio.html',{'vimeo':vimeo,'noticias':noticias},context_instance=RequestContext(request))
 
 def contacto(request):

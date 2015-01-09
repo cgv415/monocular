@@ -7,19 +7,19 @@ ESTADOS = (
 )
 # Create your models here.
 class Corto(models.Model):
+    cliente = models.OneToOneField(Cliente)
     titulo=models.CharField(max_length=100)
-    palmares=models.TextField()
-    duracion = models.IntegerField(default='0')
-    anyo=models.DateField('yyyy')
+    sinopsis = models.TextField()
+    duracion = models.CharField(max_length=50)
+    anyo=models.DateField()
     pais=models.CharField(max_length=50)
     director = models.CharField(max_length=50)
     reparto =models.CharField(max_length=50)
     productora =models.CharField(max_length=100)
     genero = models.CharField(max_length=100)
-    sinopsis = models.TextField()
-    trailer = models.CharField(max_length=100,null=True)
+    trailer = models.CharField(max_length=150,null=True)
     imagen = models.ImageField(upload_to = 'cortometrajes')
-    cliente = models.OneToOneField(Cliente)
+    
     
     
 class Festival(models.Model):
