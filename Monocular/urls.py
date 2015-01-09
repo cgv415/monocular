@@ -9,7 +9,6 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('apps.inicio.urls')),
-    #url(r'^base$', include('apps.base.urls')),
     url(r'^autor/', include('apps.autores.urls')),
     url(r'^noticias/', include('apps.noticias.urls')),
     url(r'^servicios/', include('apps.servicios.urls')),
