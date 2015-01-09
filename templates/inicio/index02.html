@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
+</head>
+<body>
+<div class="contenido">
+Esta es mi primera vista basada en clases en django 1.5
+
+<ul>
+<li><b>Nombre</b></li>
+<li><b>Edad</b></li>
+<li><b>Fecha</b></li>
+</ul>
+
+<ul>
+{%for entrada in entradass %}
+<li><b>Nombre</b> {{entrada.nombre}}</li>
+<li><b>Edad</b>{{entrada.edad}}</li>
+<li><b>Fecha</b>{{entrada.fecha}}</li>
+{%endfor%}
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>{%block titulo%} {%endblock%}</title> {%block head%} {%endblock%}
+{% comment %} {%endcomment %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/base.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/{%block style%}{%endblock%}.css">
+</head>
+<body>
+	<Header>
+		<div class="nav">
+			<!-- 			<a href="{{MEDIA_URL}}logo.png" target="blank"><img src="{{MEDIA_URL}}logo.png" id="logo"></a> -->
+			<a href="/inicio"><img
+				src="{{MEDIA_URL}}logo.png" id="logo"></a>
+			
+			<div class="social">
+				<ul>
+					<li class="vimeo"><a href="http://vimeo.com/user8482573" target="blank"><img src="{{STATIC_URL}}img/social/vimeo.jpg" width="30px" height="30px"></a></li>
+					<li class="twitter"><a href="http://www.twitter.com" target="blank"><img src="{{STATIC_URL}}img/social/twitter.jpg" width="30px" height="30px"></a></li>
+					<li class="facebook"><a href="http://www.facebook.com" target="blank"><img src="{{STATIC_URL}}img/social/facebook.jpg" width="30px" height="30px"></a></li>
+				</ul>
+			</div>
+
+			<div class="menu">
+				<ul class="menu-ul">
+					{%for menu in menus%}
+					<li><a href="/{{menu.titulo|lower}}">
+							{{menu.titulo}}</a></li> {%endfor%}
+				</ul>
+			</div>
+		</div>
+	</Header>
+	{%block contenido%} {%endblock%}
+	<div class="wrapper"></div>
+	<footer>
+		<div class="cont-footer">Datos Personales<br>
+		<h1>Pagina web desarrollada por:</h1>
+		<h3>Cristian Alvarez</h3>
+		<h3>Carlos Garrido</h3>
+		<h3>Alejandro Fenoy</h3>
+		<h3>Jose Luis Navarro</h3>
+		
+		</div>
+	</footer>
+</body>
+</html>

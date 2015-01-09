@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+{%block style%}admin{%endblock%}
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+	<h1>Administracion de {{user.username|capfirst}}</h1>
+	
+	{%if user.is_staff %}
+	<h1>Eres Administrador Total</h1>
+	
+	
+	<h3>
+		<a href="/registrar">Administrar Noticias</a>
+	</h3>
+	<h3>
+		<a href="/administracion/registrarCorto">Administrar Corto</a>
+	</h3>
+	<h3>
+		<a href="/administracion/signup">Administrar Usuarios</a>
+	</h3>
+	<h2>
+		<a href="/administracion/logout/">Salir de
+			aqui</a>
+	</h2>
+	{%else%}
+	<h1>Tu no pintas nada aqui ... ;)</h1>
+	<a href="/administracion/logout/">Salir de
+			aqui</a>
+	{%endif%}
+</div>
+
+
+{%endblock%}

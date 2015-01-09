@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/cortometraje.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+	<img src="{{MEDIA_URL}}{{corto.imagen}}" class="imagen"></a>
+	<u><h1>{{corto.titulo}}</h1></u>
+	<h2>Palmares:</h2>
+	<h3>{{corto.palmares}}</h3>
+	<b>Agno:</b> {{corto.ano}}<br>
+	<b>Pais:</b> {{corto.pais}}<br>
+	<b>Director:</b> {{corto.director}}<br>
+	<b>Reparto:</b> {{corto.reparto}}<br>
+	<b>Productora:</b> {{corto.productora}}<br>
+	<b>Genero:</b> {{corto.genero}}<br>
+	
+	<h3>Sinopsis:</h3>
+	
+	<div class="sinopsis">
+	{{corto.sinopsis}}
+	</div>
+	
+</div>
+
+
+{%endblock%}

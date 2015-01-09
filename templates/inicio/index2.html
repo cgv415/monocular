@@ -1,0 +1,11 @@
+from django.template import Library
+
+register = Library()
+
+@register.filter
+def get_range( value ):
+  """
+
+    <ul>{% for i in 3|get_range %}
+      <li>{{ i }}. Do something</li>
+    {% endfor %}</ul>

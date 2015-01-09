@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
+{% endblock %} {% block contenido %}
+
+<div class="video">
+	<iframe src="//player.vimeo.com/video/{{vimeo.codigo}}" width="600"
+		height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen
+		allowfullscreen></iframe>
+</div>
+<div class="contenido">
+<h1>Hoy es {% now "l, j \d\e F \d\e Y" %}</h1>
+	<div class="noticias">
+		{%for noticia in noticias|slice:":2"%}
+		<div class="noticia">
+			<h1>{{noticia.titulo}}</h1>
+			<img src="{{MEDIA_URL}}{{noticia.imagen}}" class="imagen" width="40%"><br>
+			<h2>{{noticia.resumen}}</h2>
+			<a href="#">ver mas</a> 
+		</div>
+		{%endfor%}
+	</div>
+
+	<div class="portafolio">
+		<h1>Portafolio</h1>
+	</div>
+</div>
+
+
+{%endblock%}

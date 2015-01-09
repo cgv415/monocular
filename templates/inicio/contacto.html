@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/contacto.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+	<h1>Contacto</h1>
+
+	{%if exito%}
+	<div class="exito">
+	<h1>Formulario enviado con exito</h1>
+	</div>
+	{%else%}
+	<div class="contacto"></div>
+	<form action="/contacto" method="post">
+		{% csrf_token%} {{form.as_p}} <input type="submit" value="Enviar" />
+	</form>
+</div>
+{%endif%} {%endblock%}

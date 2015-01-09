@@ -1,0 +1,8 @@
+@CHARSET "ISO-8859-1";
+.contenido{
+	margin-top:70px;
+}
+
+tr{
+	border:2px solid black;
+}

@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+
+.noticias {
+	position: relative;
+	padding-left: 15px;
+	top: 150px;
+	left: 20%;
+	border: 3px solid black;
+	border-radius: 5px;
+	background-color: #d7edff;
+	margin-top: 30px;
+	width: 50%;
+}
+
+h1 {
+	font-size: 200%;
+}
+
+.imagen{
+	width: 75%;
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+	<h1>Servicios</h1>
+	<ul>
+	<li><a href="produccion">Produccion</a></li>
+	<li><a href="postproduccion">PostProduccion</a></li>
+	<li><a href="publicidad">Publicidad</a></li>
+	<li><a href="distribucion">Distribucion</a></li>
+	</ul>
+</div>
+
+
+{%endblock%}

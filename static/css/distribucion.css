@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+.contenido {
+	position: relative;
+	top: 140px;
+	left: 20px;
+	border: 2px solid black;
+	width: 90%;
+	height: 400px;
+	border: 2px solid black;
+}
+
+.cortos {
+	float: left;
+	width: 250px;
+}
+
+.contenido li {
+	list-style: none;
+}
+
+.portada {
+	max-width: 60%;
+}

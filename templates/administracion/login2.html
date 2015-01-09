@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+	<h1>Login</h1>
+	<form method="POST">{%csrf_token%}
+		<label>Usuario</label> <input name="username" type="text"
+			id="inputEmail" placeholder="Usuario"><br> <label>Password</label>
+		<input name="password" type="password" id="inputPassword"
+			placeholder="Password">
+			<br>
+			<button type="submit" class="btn btn-info">Ingresar</button>
+			<a href="http://127.0.0.1:8000/administracion/registrarse/">Registrarse</a>
+	</form>
+</div>
+
+
+{%endblock%}

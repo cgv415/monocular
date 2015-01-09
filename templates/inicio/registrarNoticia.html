@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registrar Noticia</title>
+</head>
+<body>
+	<h1>Registrar Noticia</h1>
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %} {{form.as_p}} <input type="submit" value="Create" />
+	</form>
+</body>
+</html>

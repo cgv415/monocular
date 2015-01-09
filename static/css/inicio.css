@@ -1,0 +1,36 @@
+@CHARSET "ISO-8859-1";
+.contenido {
+	position: relative;
+	top: 90px;
+	width: 95%;/* 
+	height: 900px;
+	border: 2px solid black; */
+}
+
+.video {
+	position: relative;
+	margin-left: 25%;
+	top: 90px;
+	margin-left: 25%;
+}
+
+.noticias {
+	position: relative;
+	width: 45%;
+	left: 20px;
+}
+.noticia{
+	border :3px solid black;
+	background-color : #c6ffc6;
+	padding: 10px;
+	border-radius:5px;
+	margin-top:20px;
+}
+
+.portafolio {
+	position: absolute;
+	left: 50%;
+	top:10%;
+	border: 2px solid red;
+	width: 45%;
+}
