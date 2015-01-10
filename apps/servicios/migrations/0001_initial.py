@@ -2,12 +2,13 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('administracion', '0001_initial'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -26,7 +27,7 @@ class Migration(migrations.Migration):
                 ('genero', models.CharField(max_length=100)),
                 ('trailer', models.CharField(max_length=150, null=True)),
                 ('imagen', models.ImageField(upload_to=b'cortometrajes')),
-                ('cliente', models.OneToOneField(to='administracion.Cliente')),
+                ('cliente', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
             },
@@ -37,7 +38,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('estado', models.CharField(blank=True, max_length=30, null=True, choices=[(b'seleccionado', b'Seleccionado'), (b'premiado', b'Premiado')])),
-                ('corto', models.OneToOneField(to='servicios.Corto')),
+                ('corto', models.ForeignKey(to='servicios.Corto')),
             ],
             options={
             },
@@ -61,7 +62,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='estado_corto',
             name='festival',
-            field=models.OneToOneField(to='servicios.Festival'),
+            field=models.ForeignKey(to='servicios.Festival'),
             preserve_default=True,
         ),
     ]

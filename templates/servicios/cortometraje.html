@@ -25,6 +25,13 @@
 		allowfullscreen></iframe>
 	</div>
 	
+	<h1>Servicios de {{user.username|capfirst}}</h1>
+	{%ifequal user.id corto.cliente_id %}
+	<h1>Bienvenido a tu corto</h1>
+	{%else%}
+	<h1>Este no es tu corto</h1>
+	{%endifequal%}
+	
 </div>
 
 

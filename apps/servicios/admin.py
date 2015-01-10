@@ -11,5 +11,5 @@ class FestivalAdmin(admin.ModelAdmin):
 admin.site.register(Festival, FestivalAdmin)
 
 class Estado_CortoAdmin(admin.ModelAdmin):
-    list_display = ('festival','corto','estado')
+    list_display = ('corto','festival','estado')
 admin.site.register(Estado_Corto, Estado_CortoAdmin)

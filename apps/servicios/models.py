@@ -1,5 +1,6 @@
 from django.db import models
-from apps.administracion.models import Cliente
+#from apps.administracion.models import Cliente
+from django.contrib.auth.models import User
 
 ESTADOS = (
    ('seleccionado', 'Seleccionado'),
@@ -7,7 +8,7 @@ ESTADOS = (
 )
 # Create your models here.
 class Corto(models.Model):
-    cliente = models.OneToOneField(Cliente)
+    cliente = models.ForeignKey(User)
     titulo=models.CharField(max_length=100)
     sinopsis = models.TextField()
     duracion = models.CharField(max_length=50)
@@ -35,6 +36,6 @@ class Festival(models.Model):
     
 
 class Estado_Corto(models.Model):
-    festival = models.OneToOneField(Festival)
-    corto = models.OneToOneField(Corto)
+    festival = models.ForeignKey(Festival)
+    corto = models.ForeignKey(Corto)
     estado = models.CharField(max_length=30,null=True,blank=True,choices=ESTADOS)
