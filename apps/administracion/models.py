@@ -8,6 +8,13 @@ SERVICIO_CONTRATADO = (
    ('videoclip', 'Videoclip'),
    ('otro', 'Otro'),
 )
+
+class Usuario(User):
+    ciudad = models.CharField(max_length=50,null=True, blank=True)
+    telefono = models.PositiveIntegerField(null=True, blank=True)
+    servicio_Contratado = models.CharField(max_length=50,choices=SERVICIO_CONTRATADO,null=True, blank=True)
+    proyecto = models.CharField(max_length=50,null=True, blank=True)
+    
 class Cliente(models.Model):
     usuario = models.OneToOneField(User)
     ciudad = models.CharField(max_length=50)

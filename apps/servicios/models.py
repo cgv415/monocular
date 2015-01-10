@@ -19,7 +19,8 @@ class Corto(models.Model):
     genero = models.CharField(max_length=100)
     trailer = models.CharField(max_length=150,null=True)
     imagen = models.ImageField(upload_to = 'cortometrajes')
-    
+    def __unicode__(self):
+        return self.titulo
     
     
 class Festival(models.Model):
@@ -29,7 +30,10 @@ class Festival(models.Model):
     anyo = models.PositiveIntegerField()
     fecha = models.CharField(max_length=100,null=True,blank=True)
     web = models.URLField(null=True,blank=True)
+    def __unicode__(self):
+        return self.nombre
     
+
 class Estado_Corto(models.Model):
     festival = models.OneToOneField(Festival)
     corto = models.OneToOneField(Corto)

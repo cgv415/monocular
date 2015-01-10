@@ -8,6 +8,7 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('auth', '0005_alter_user_last_login_null'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -20,10 +21,46 @@ class Migration(migrations.Migration):
                 ('servicio_Contratado', models.CharField(max_length=50, choices=[(b'cortometraje', b'Cortometraje'), (b'publicidad', b'Publicidad'), (b'etanolaje', b'Etanolaje'), (b'videoclip', b'Videoclip'), (b'otro', b'Otro')])),
                 ('proyecto', models.CharField(max_length=50)),
                 ('telefono', models.IntegerField()),
-                ('usuario', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Empleado',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Usuario',
+            fields=[
+                ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
+                ('ciudad', models.CharField(max_length=50, null=True, blank=True)),
+                ('telefono', models.PositiveIntegerField(null=True, blank=True)),
+                ('servicio_Contratado', models.CharField(blank=True, max_length=50, null=True, choices=[(b'cortometraje', b'Cortometraje'), (b'publicidad', b'Publicidad'), (b'etanolaje', b'Etanolaje'), (b'videoclip', b'Videoclip'), (b'otro', b'Otro')])),
+                ('proyecto', models.CharField(max_length=50, null=True, blank=True)),
+            ],
+            options={
+                'abstract': False,
+                'verbose_name': 'user',
+                'verbose_name_plural': 'users',
+            },
+            bases=('auth.user',),
+        ),
+        migrations.AddField(
+            model_name='empleado',
+            name='usuario',
+            field=models.OneToOneField(to=settings.AUTH_USER_MODEL),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='cliente',
+            name='usuario',
+            field=models.OneToOneField(to=settings.AUTH_USER_MODEL),
+            preserve_default=True,
         ),
     ]
