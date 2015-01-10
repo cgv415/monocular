@@ -7,6 +7,10 @@
 	<img src="{{MEDIA_URL}}{{corto.imagen}}" class="imagen"></a>
 	<u><h1>{{corto.titulo}}</h1></u>
 	<h2>Palmares:</h2>
+	{%for estado in estados%}	
+	<h3>{{estado.estado|upper}} - {{corto.anyo}} {{estado.festival|upper}},{{estado.festival.ciudad|upper}}</h3>
+
+	{%endfor%}
 	<h3>{{corto.palmares}}</h3>
 	<b>Agno:</b> {{corto.anyo}}<br>
 	<b>Pais:</b> {{corto.pais}}<br>
@@ -25,9 +29,30 @@
 		allowfullscreen></iframe>
 	</div>
 	
-	<h1>Servicios de {{user.username|capfirst}}</h1>
 	{%ifequal user.id corto.cliente_id %}
-	<h1>Bienvenido a tu corto</h1>
+	<table class="tabla" width="100%" border="2" cellspacing="0" bordercolor="#000000">		
+		<tr>
+			<th scope="col">CORTOMETRAJE</th>
+			<th scope="col">ANO DE PRODUCCION</th>
+			<th scope="col">FESTIVAL/ANO</th>
+			<th scope="col">CIUDAD/PAIS</th>
+			<th scope="col">FECHA</th>
+			<th scope="col">WEB</th>
+			<th scope="col">ESTADO</th>
+		</tr>
+		{%for estado in estados%}	
+		<tr>
+			<td>{{corto.titulo}}</td>
+			<td>{{corto.anyo}}</td>
+			<td>{{estado.festival}}/{{estado.festival.anyo}}</td>
+			<td>{{estado.festival.ciudad}}/{{estado.festival.pais}}</td>
+			<td>{{estado.festival.fecha}}</td>
+			<td>{{estado.festival.web}}</td>
+			<td>{{estado.estado}}</td>
+		</tr>
+
+	{%endfor%}
+		</table>
 	{%else%}
 	<h1>Este no es tu corto</h1>
 	{%endifequal%}
