@@ -1,12 +1,21 @@
 {% extends "base.html" %}
-{%block style%}login{%endblock%}
+{% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/login.css">
+{% endblock %}
 {% block contenido %}
- <div class="contenido">
-	<h1>Login</h1>
-	<form method="POST">
-		{%csrf_token%} 
-		{{form.as_p}} 
-		<input type="submit" value="Login">
-	</form>
-</div>
+{%if user.is_active%}
+	{%if user.is_staff%}
+	<META HTTP-EQUIV="REFRESH" CONTENT="1;URL=/administracion/admin">
+	{%else%}
+	<META HTTP-EQUIV="REFRESH" CONTENT="1;URL=/servicios/mificha">
+	{%endif%}
+{%endif%}
+<div class="login">
+			<h1>Login</h1>
+			<form method="POST">
+				{%csrf_token%} 
+				{{form.as_p}} 
+				<input type="submit" value="Login">
+			</form>
+		</div>
 {% endblock %}

@@ -1,7 +1,14 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from .models import Corto,Estado_Corto
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+@login_required()
+def MiFicha(request):
+    usuario = request.user
+    cortos = Corto.objects.filter(cliente_id = usuario.id)
+    return render_to_response('servicios/mificha.html',{'cortos':cortos},context_instance=RequestContext(request))
+
 def Servicios(request):
     return render_to_response('servicios/servicios.html',context_instance=RequestContext(request))
 

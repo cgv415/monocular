@@ -42,9 +42,13 @@ class RegistrarCorto(CreateView):
 
 @login_required()
 def home(request):
+    usuario = request.user
+    if usuario.is_staff:
+        return render_to_response('administracion/admin.html', {'user': request.user}, context_instance=RequestContext(request)) 
+    else:
+        return render_to_response('administracion/admin.html', {'user': request.user}, context_instance=RequestContext(request)) 
     
-    return render_to_response('administracion/home.html', {'user': request.user}, context_instance=RequestContext(request)) 
-
+        
 def signup(request):
     if request.method == 'POST':  # If the form has been submitted...
         form = SignUpForm(request.POST)  # A form bound to the POST data

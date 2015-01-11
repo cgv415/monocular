@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+	<h1>Ficha de {{user.username|capfirst}}</h1>
+	<a href="/administracion/logout/">Desconectar</a><br>
+	<h2>Cortometrajes</h2>
+	{%for corto in cortos%}
+	<a href="corto/{{corto.id}}"><img src="{{MEDIA_URL}}{{corto.imagen}}"></a>
+	
+	{%endfor%}
+</div>
+
+{%endblock%}
