@@ -24,9 +24,7 @@
 	<div class="sinopsis">
 	{{corto.sinopsis}}
 	<br>
-	<iframe src="{{corto.trailer}}" width="600"
-		height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen
-		allowfullscreen></iframe>
+	<iframe width="560" height="315" src="//www.youtube.com/embed/WQYvP0XE7bg" frameborder="0" allowfullscreen></iframe>
 	</div>
 	
 	{%ifequal user.id corto.cliente_id %}
@@ -53,8 +51,6 @@
 
 	{%endfor%}
 		</table>
-	{%else%}
-	<h1>Este no es tu corto</h1>
 	{%endifequal%}
 	
 </div>

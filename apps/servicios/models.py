@@ -18,7 +18,7 @@ class Corto(models.Model):
     reparto =models.CharField(max_length=50)
     productora =models.CharField(max_length=100)
     genero = models.CharField(max_length=100)
-    trailer = models.CharField(max_length=150,null=True)
+    trailer = models.CharField(max_length=50,null=True,blank=True)
     imagen = models.ImageField(upload_to = 'cortometrajes')
     def __unicode__(self):
         return self.titulo
