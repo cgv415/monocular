@@ -1,12 +1,19 @@
 from django.conf.urls import url
-from .views import Registrarse, RegistrarCorto
-from django.contrib.auth.views import login,logout
+from .views import Registrarse, RegistrarCorto,RegistrarNoticia,RegistrarFestival
+from django.contrib.auth.views import login
 #from django.contrib.auth.views import logout
 
 urlpatterns = [
    #url(r'^$' , 'apps.inicio.views.index'),
    url(r'^admin/$' , 'apps.administracion.views.Principal',name="principal"),
    url(r'^registrarCorto/', RegistrarCorto.as_view(), name="registrar_corto"),
+   url(r'^verCortos/', 'apps.administracion.views.VerCortos', name="ver_cortos"),
+   url(r'^registrarFestival/', RegistrarFestival.as_view(), name="registrar_festival"),
+   url(r'^registrarNoticia/', RegistrarNoticia.as_view(), name="registrar_noticia"),
+   url(r'^verNoticias/', 'apps.administracion.views.VerNoticias', name="ver_noticias"),
+   url(r'^verUsuarios/', 'apps.administracion.views.VerUsuarios', name="ver_usuarios"),
+   url(r'^verAdministradores/', 'apps.administracion.views.VerAdministradores', name="ver_administradores"),
+   url(r'^verFestivales/', 'apps.administracion.views.VerFestivales', name="ver_festivales"),
    url(r'^registrarse/$' , Registrarse.as_view(),name="registrarse"),
    url(r'^main$', 'apps.administracion.views.main', name='main'),
    url(r'^signup$', 'apps.administracion.views.signup', name='signup'),

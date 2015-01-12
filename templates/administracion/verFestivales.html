@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/ver.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+<h1>FESTIVALES</h1>
+{%for festival in festivales%}
+		<h2>{{festival.nombre}}</h2>
+{%endfor%}
+</div>
+
+
+{%endblock%}

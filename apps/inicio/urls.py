@@ -1,10 +1,9 @@
 from django.conf.urls import url
-from .views import index2,RegistrarNoticia
+from .views import index2
 from django.views.generic import TemplateView
 
 urlpatterns = [
    #url(r'^$' , 'apps.inicio.views.index'),
-   url(r'^registrar/', RegistrarNoticia.as_view(), name="registrar_noticia"),
    url(r'^$' , 'apps.inicio.views.index'),
    url(r'^inicio' , 'apps.inicio.views.inicio'),
    url(r'^contacto' , 'apps.inicio.views.contacto',name="contacto"),

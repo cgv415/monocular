@@ -27,3 +27,10 @@ class UserForm(UserCreationForm):
     servicio_Contratado = forms.CharField(max_length=50)
     proyecto =forms.CharField(max_length=50)
     telefono = forms.IntegerField()
+    
+class Noticia(forms.Form):
+    titulo= forms.CharField()
+    texto=forms.Textarea()
+    imagen = forms.ImageField()
+    resumen = forms.Textarea()
+    fecha = forms.DateField()

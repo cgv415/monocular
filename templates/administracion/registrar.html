@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/registrar.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+	<h1>Registrar</h1>
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %} {{form.as_p}} <input type="submit" value="Crear y ver" />
+	</form>
+</div>
+
+
+{%endblock%}

@@ -1,15 +1,18 @@
-from django.shortcuts import render_to_response
-from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
+from django.http.response import HttpResponseRedirect
 from django.views.generic import CreateView,FormView
 from django.core.urlresolvers import reverse_lazy
-from apps.servicios.models import Corto
+from django.shortcuts import render_to_response
+from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
+from django.template import RequestContext
+
+from apps.servicios.models import Corto, Festival
+from apps.noticias.models import Noticia
 from .forms import UserForm
 from .models import Cliente
 from forms import SignUpForm
-from django.contrib.auth.models import User
-from django.http.response import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+
 
 # Create your views here.
 def Principal(request):
@@ -35,10 +38,16 @@ class Registrarse(FormView):
         return super(Registrarse,self).form_valid(form)
 
 class RegistrarCorto(CreateView):
-    template_name='administracion/registrarCorto.html'
+    template_name='administracion/registrar.html'
     model = Corto
-    fields=['titulo','palmares','anyo','pais','director','reparto','productora','genero','sinopsis','imagen']
-    success_url = reverse_lazy('distribucion')
+    fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
+    success_url = reverse_lazy('administracion')
+
+class RegistrarFestival(CreateView):
+    template_name='administracion/registrar.html'
+    model = Festival
+    fields=['nombre','ciudad','pais','anyo','fecha','web']
+    success_url = reverse_lazy('administracion')
 
 @login_required()
 def home(request):
@@ -87,5 +96,29 @@ def signup(request):
         'form': form,
     }
     return render_to_response('administracion/signup.html', data, context_instance=RequestContext(request))
-
+   
+class RegistrarNoticia(CreateView):
+    template_name='administracion/registrar.html'
+    model = Noticia
+    fields=['titulo','resumen','texto','fecha','imagen']
+    success_url = reverse_lazy('noticias')
     
+def VerCortos(request):
+    cortos = Corto.objects.all().order_by('id').reverse()
+    return render_to_response('administracion/verCortos.html',{'cortos': cortos},context_instance=RequestContext(request))
+
+def VerNoticias(request):
+    noticias = Noticia.objects.all().order_by('id').reverse()
+    return render_to_response('administracion/verNoticias.html',{'noticias': noticias},context_instance=RequestContext(request))
+
+def VerUsuarios(request):
+    usuarios = User.objects.all().filter(is_staff=False)
+    return render_to_response('administracion/verUsuarios.html',{'usuarios': usuarios},context_instance=RequestContext(request))
+
+def VerAdministradores(request):
+    administradores = User.objects.all().filter(is_staff=True)
+    return render_to_response('administracion/verAdministradores.html',{'administradores': administradores},context_instance=RequestContext(request))
+
+def VerFestivales(request):
+    festivales = Festival.objects.all()
+    return render_to_response('administracion/verFestivales.html',{'festivales': festivales},context_instance=RequestContext(request))

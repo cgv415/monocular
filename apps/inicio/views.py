@@ -1,7 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.views.generic import ListView,CreateView
-from django.core.urlresolvers import reverse_lazy
+from django.views.generic import ListView
 from django.core.mail.message import EmailMessage
 from apps.noticias.models import Noticia
 from .forms import Formulario
@@ -44,10 +43,3 @@ class index2(ListView):
     template_name='inicio/index2.html'
     model = Noticia
     context_object_name = 'noticias'
-    
-
-class RegistrarNoticia(CreateView):
-    template_name='inicio/registrarNoticia.html'
-    model = Noticia
-    fields=['titulo','texto','fecha','imagen']
-    success_url = reverse_lazy('noticias')

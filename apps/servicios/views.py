@@ -22,7 +22,7 @@ def Publicidad(request):
     return render_to_response('servicios/publicidad.html',context_instance=RequestContext(request))
 
 def Distribucion(request):
-    cortos = Corto.objects.all()
+    cortos = Corto.objects.all().order_by('id').reverse()
     return render_to_response('servicios/distribucion.html',{'cortos':cortos},context_instance=RequestContext(request))
 
 def Cortometraje(request,offset):
