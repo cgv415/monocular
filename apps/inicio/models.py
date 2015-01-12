@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Vimeo(models.Model):
-    codigo = models.IntegerField()
+    codigo = models.CharField(max_length=50)
     activo = models.BooleanField(default=True)
 
     
