@@ -5,9 +5,17 @@
 
 <div class="contenido">
 <h1>Noticias</h1>
-{%for noticia in noticias%}
-<h2><a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a></h2>
+<h2><a href="/administracion/registrarNoticia">Add</a></h2>
+
+<table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">	
+{%for noticia in noticias%}	
+		<tr>
+			<th scope="col"><a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a></th>
+			<td><a href="{% url "modificarNoticia" object.id %}">Modificar</a></td>
+			<td><a href="">Borrar</a></td>
+		</tr>
 {%endfor%}
+</table>
 </div>
 
 

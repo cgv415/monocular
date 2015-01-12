@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/ver.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+ <form enctype="multipart/form-data" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        </form>
+</div>
+
+{%endblock%}

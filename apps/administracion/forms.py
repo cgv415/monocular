@@ -28,7 +28,7 @@ class UserForm(UserCreationForm):
     proyecto =forms.CharField(max_length=50)
     telefono = forms.IntegerField()
     
-class Noticia(forms.Form):
+class FormNoticia(forms.Form):
     titulo= forms.CharField()
     texto=forms.Textarea()
     imagen = forms.ImageField()

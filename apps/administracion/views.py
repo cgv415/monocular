@@ -12,6 +12,8 @@ from apps.noticias.models import Noticia
 from .forms import UserForm
 from .models import Cliente
 from forms import SignUpForm
+from django.views.generic.edit import UpdateView
+from apps.administracion.forms import FormNoticia
 
 
 # Create your views here.
@@ -21,34 +23,7 @@ def Principal(request):
 def main(request):
     return render_to_response('administracion/main.html', context_instance=RequestContext(request))
 
-# Clase en desuso
-class Registrarse(FormView):
-    template_name='administracion/signup.html'
-    form_class=UserForm
-    success_url = reverse_lazy('registrarse')
-    
-    def form_valid(self,form):
-        user = form.save()
-        cliente = Cliente()
-        cliente.usuario = user
-        cliente.telefono = form.cleaned_data['telefono']
-        cliente.servicio_Contratado = form.cleaned_data['servicio_Contratado']
-        cliente.proyecto = form.cleaned_data['proyecto']
-        cliente.save()
-        return super(Registrarse,self).form_valid(form)
-
-class RegistrarCorto(CreateView):
-    template_name='administracion/registrar.html'
-    model = Corto
-    fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
-    success_url = reverse_lazy('administracion')
-
-class RegistrarFestival(CreateView):
-    template_name='administracion/registrar.html'
-    model = Festival
-    fields=['nombre','ciudad','pais','anyo','fecha','web']
-    success_url = reverse_lazy('administracion')
-
+#Sin uso
 @login_required()
 def home(request):
     usuario = request.user
@@ -57,7 +32,7 @@ def home(request):
     else:
         return render_to_response('administracion/admin.html', {'user': request.user}, context_instance=RequestContext(request)) 
     
-        
+#Sin uso       
 def signup(request):
     if request.method == 'POST':  # If the form has been submitted...
         form = SignUpForm(request.POST)  # A form bound to the POST data
@@ -96,12 +71,47 @@ def signup(request):
         'form': form,
     }
     return render_to_response('administracion/signup.html', data, context_instance=RequestContext(request))
+
+#Sin uso
+class Registrarse(FormView):
+    template_name='administracion/signup.html'
+    form_class=UserForm
+    success_url = reverse_lazy('registrarse')
+    
+    def form_valid(self,form):
+        user = form.save()
+        cliente = Cliente()
+        cliente.usuario = user
+        cliente.telefono = form.cleaned_data['telefono']
+        cliente.servicio_Contratado = form.cleaned_data['servicio_Contratado']
+        cliente.proyecto = form.cleaned_data['proyecto']
+        cliente.save()
+        return super(Registrarse,self).form_valid(form)
+    
+class RegistrarCorto(CreateView):
+    template_name='administracion/registrar.html'
+    model = Corto
+    fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
+    success_url = reverse_lazy('administracion')
    
 class RegistrarNoticia(CreateView):
     template_name='administracion/registrar.html'
     model = Noticia
     fields=['titulo','resumen','texto','fecha','imagen']
     success_url = reverse_lazy('noticias')
+
+class RegistrarFestival(CreateView):
+    template_name='administracion/registrar.html'
+    model = Festival
+    fields=['nombre','ciudad','pais','anyo','fecha','web']
+    success_url = reverse_lazy('administracion')
+
+class ModificarNoticia(UpdateView):
+    model = Noticia
+    fields=['titulo','resumen','texto','fecha','imagen']
+    #template_name = '/administracion/modificarNoticia.html'
+    template_name_suffix = '_update_form'
+    success_url = '/inicio/'
     
 def VerCortos(request):
     cortos = Corto.objects.all().order_by('id').reverse()
