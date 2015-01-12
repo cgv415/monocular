@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 #from apps.administracion.models import Cliente
 from django.contrib.auth.models import User
@@ -12,13 +13,13 @@ class Corto(models.Model):
     titulo=models.CharField(max_length=100)
     sinopsis = models.TextField()
     duracion = models.CharField(max_length=50)
-    anyo=models.DateField()
+    anyo=models.PositiveIntegerField(u'año')
     pais=models.CharField(max_length=50)
     director = models.CharField(max_length=50)
     reparto =models.CharField(max_length=50)
     productora =models.CharField(max_length=100)
     genero = models.CharField(max_length=100)
-    trailer = models.CharField(max_length=50,null=True,blank=True)
+    trailer = models.TextField(null=True,blank=True)
     imagen = models.ImageField(upload_to = 'cortometrajes')
     def __unicode__(self):
         return self.titulo
@@ -28,7 +29,7 @@ class Festival(models.Model):
     nombre = models.CharField(max_length=100)
     ciudad = models.CharField(max_length=100)
     pais = models.CharField(max_length=100)
-    anyo = models.PositiveIntegerField()
+    anyo = models.PositiveIntegerField(u'año')
     fecha = models.CharField(max_length=100,null=True,blank=True)
     web = models.URLField(null=True,blank=True)
     def __unicode__(self):

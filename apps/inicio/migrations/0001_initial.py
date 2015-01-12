@@ -11,10 +11,10 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Vimeo',
+            name='VideoInicial',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('codigo', models.IntegerField()),
+                ('codigo', models.TextField()),
                 ('activo', models.BooleanField(default=True)),
             ],
             options={

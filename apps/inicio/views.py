@@ -4,16 +4,16 @@ from django.views.generic import ListView
 from django.core.mail.message import EmailMessage
 from apps.noticias.models import Noticia
 from .forms import Formulario
-from .models import Vimeo
+from .models import VideoInicial
 #55951136
 #32423533
 #116108307
 # Create your views here.
 def inicio(request):
     noticias = Noticia.objects.order_by('fecha').reverse()
-    vimeo = Vimeo.objects.filter(activo = True).order_by('id').reverse()[0]
-    #vimeo = Vimeo.objects.get_or_create(codigo='32423533')
-    return render_to_response('inicio/inicio.html',{'vimeo':vimeo,'noticias':noticias},context_instance=RequestContext(request))
+    video = VideoInicial.objects.filter(activo = True).order_by('id').reverse()[0]
+    #video = VideoInicial.objects.get_or_create(codigo='32423533')
+    return render_to_response('inicio/inicio.html',{'video':video,'noticias':noticias},context_instance=RequestContext(request))
 
 def contacto(request):
     exito=False

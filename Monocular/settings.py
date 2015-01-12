@@ -65,7 +65,6 @@ ROOT_URLCONF = 'Monocular.urls'
 
 WSGI_APPLICATION = 'Monocular.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
