@@ -5,10 +5,16 @@
 
 <div class="contenido">
 <h1>FESTIVALES</h1>
+<h2><a href="/administracion/registrarFestival">Add</a></h2>
+<table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">	
 {%for festival in festivales%}
-		<h2>{{festival.nombre}}</h2>
+		<tr>
+			<th scope="col"><a href="/noticias/post/{{festival.id}}">{{festival.nombre}}</a></th>
+			<td><a href="/administracion/modificarFestival/{{festival.id}}">Modificar</a></td>
+			<td><a href="">Borrar</a></td>
+		</tr>
 {%endfor%}
 </div>
-
+</table>
 
 {%endblock%}

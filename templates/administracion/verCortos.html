@@ -5,9 +5,16 @@
 
 <div class="contenido">
 <h1>CORTOS</h1>
+<h2><a href="/administracion/registrarCorto">Add</a></h2>
+<table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">	
 {%for corto in cortos%}
-<h2><a href="/servicios/corto/{{corto.id}}">{{corto.titulo|capfirst}}</a></h2>
+		<tr>
+			<th scope="col"><a href="/servicios/corto/{{corto.id}}">{{corto.titulo}}</a></th>
+			<td><a href="/administracion/modificarCorto/{{corto.id}}">Modificar</a></td>
+			<td><a href="">Borrar</a></td>
+		</tr>
 {%endfor%}
+</table>
 </div>
 
 

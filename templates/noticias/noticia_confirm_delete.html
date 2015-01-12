@@ -4,12 +4,9 @@
 {% endblock %} {% block contenido %}
 
 <div class="contenido">
- <form enctype="multipart/form-data" method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-        <a class='btn' href="{% url 'photo-list' %}">Cancel</a>
-    </form>
-</div>
-
-
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type="submit" value="Confirm" />
+</form>
+</div
 {%endblock%}

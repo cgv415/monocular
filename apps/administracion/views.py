@@ -12,7 +12,7 @@ from apps.noticias.models import Noticia
 from .forms import UserForm
 from .models import Cliente
 from forms import SignUpForm
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, DeleteView
 from apps.administracion.forms import FormNoticia
 
 
@@ -109,7 +109,13 @@ class RegistrarFestival(CreateView):
 class ModificarNoticia(UpdateView):
     model = Noticia
     fields=['titulo','resumen','texto','fecha','imagen']
-    #template_name = '/administracion/modificarNoticia.html'
+    #template_name = '/administracion/modificar.html'
+    template_name_suffix = '_update_form'
+    success_url = '/inicio/'
+    
+class ModificarCorto(UpdateView):
+    model = Corto
+    fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
     template_name_suffix = '_update_form'
     success_url = '/inicio/'
     
@@ -132,3 +138,7 @@ def VerAdministradores(request):
 def VerFestivales(request):
     festivales = Festival.objects.all()
     return render_to_response('administracion/verFestivales.html',{'festivales': festivales},context_instance=RequestContext(request))
+
+class DeleteNoticia(DeleteView):
+    model = Noticia
+    success_url = reverse_lazy('inicio')
