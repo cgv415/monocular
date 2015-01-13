@@ -8,11 +8,14 @@ ESTADOS = (
    ('premiado', 'Premiado'),
 )
 # Create your models here.
+
+#Model Cortometraje
 class Corto(models.Model):
     cliente = models.ForeignKey(User)
     titulo=models.CharField(max_length=100)
     sinopsis = models.TextField()
     duracion = models.CharField(max_length=50)
+    #Para mostrar ñ y acentos se escribe con la cadena u'texto con ñ'
     anyo=models.PositiveIntegerField(u'año')
     pais=models.CharField(max_length=50)
     director = models.CharField(max_length=50)
@@ -21,10 +24,11 @@ class Corto(models.Model):
     genero = models.CharField(max_length=100)
     trailer = models.TextField(null=True,blank=True)
     imagen = models.ImageField(upload_to = 'cortometrajes')
+    #Por defecto se muestra el titulo del cortometraje
     def __unicode__(self):
         return self.titulo
     
-    
+#Modelo Festivales
 class Festival(models.Model):
     nombre = models.CharField(max_length=100)
     ciudad = models.CharField(max_length=100)
@@ -35,7 +39,7 @@ class Festival(models.Model):
     def __unicode__(self):
         return self.nombre
     
-
+#Modelo para los estados de los cortos
 class Estado_Corto(models.Model):
     festival = models.ForeignKey(Festival)
     corto = models.ForeignKey(Corto)

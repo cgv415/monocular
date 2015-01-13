@@ -5,16 +5,19 @@ from django.core.mail.message import EmailMessage
 from apps.noticias.models import Noticia
 from .forms import Formulario
 from .models import VideoInicial
-#55951136
-#32423533
-#116108307
 # Create your views here.
+
+#Vista principal de la pagina web
 def inicio(request):
+    #Creamos un objeto noticias, no hace falta tiparlo
+    #Lo igualamos a todos los objetos noticias (se tipa automaticamente a lista de noticias)
+    #Ordenamos las noticias por fecha y le damos la vuelta, para que la primera noticia sea la ultima creada
     noticias = Noticia.objects.order_by('fecha').reverse()
     video = VideoInicial.objects.filter(activo = True).order_by('id').reverse()[0]
     #video = VideoInicial.objects.get_or_create(codigo='32423533')
     return render_to_response('inicio/inicio.html',{'video':video,'noticias':noticias},context_instance=RequestContext(request))
 
+#vista para el contacto
 def contacto(request):
     exito=False
     if request.method == 'POST':
@@ -33,12 +36,12 @@ def contacto(request):
         form = Formulario()
     return render_to_response('inicio/contacto.html',{'form':form,'exito':exito},context_instance=RequestContext(request))
 
-
+#En desuso
 def index(request):
     noticias = Noticia.objects.all()
     return render_to_response('inicio/index.html',{'noticias':noticias},context_instance=RequestContext(request))
 
-
+#Buen ejemplo para listview (mostrar objetos de forma sencilla)
 class index2(ListView):
     template_name='inicio/index2.html'
     model = Noticia

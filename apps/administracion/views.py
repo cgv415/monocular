@@ -13,13 +13,14 @@ from .forms import UserForm
 from .models import Cliente
 from forms import SignUpForm
 from django.views.generic.edit import UpdateView, DeleteView
-from apps.administracion.forms import FormNoticia
 
 
 # Create your views here.
+#Vista principal de la administracion
 def Principal(request):
     return render_to_response('administracion/admin.html',context_instance=RequestContext(request))
 
+#Sin uso
 def main(request):
     return render_to_response('administracion/main.html', context_instance=RequestContext(request))
 
@@ -87,7 +88,9 @@ class Registrarse(FormView):
         cliente.proyecto = form.cleaned_data['proyecto']
         cliente.save()
         return super(Registrarse,self).form_valid(form)
-    
+
+#Comienzan las vistas para crear objetos con create view
+
 class RegistrarCorto(CreateView):
     template_name='administracion/registrar.html'
     model = Corto
@@ -106,6 +109,8 @@ class RegistrarFestival(CreateView):
     fields=['nombre','ciudad','pais','anyo','fecha','web']
     success_url = reverse_lazy('administracion')
 
+#Comienzan las vistas para modificar objetos con update view
+
 class ModificarNoticia(UpdateView):
     model = Noticia
     fields=['titulo','resumen','texto','fecha','imagen']
@@ -119,6 +124,7 @@ class ModificarCorto(UpdateView):
     template_name_suffix = '_update_form'
     success_url = '/inicio/'
     
+#Comienzan las vistas para ver los objetos, lo ideal seria con listview pero ya esta hecho y no hay tiempo
 def VerCortos(request):
     cortos = Corto.objects.all().order_by('id').reverse()
     return render_to_response('administracion/verCortos.html',{'cortos': cortos},context_instance=RequestContext(request))
@@ -139,6 +145,8 @@ def VerFestivales(request):
     festivales = Festival.objects.all()
     return render_to_response('administracion/verFestivales.html',{'festivales': festivales},context_instance=RequestContext(request))
 
+
+#Comienzan las vistas para eliminar objetos de la base de datos con delete view
 class DeleteNoticia(DeleteView):
     model = Noticia
     success_url = reverse_lazy('inicio')
