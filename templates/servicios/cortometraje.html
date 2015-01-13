@@ -4,27 +4,27 @@
 {% endblock %} {% block contenido %}
 
 <div class="contenido">
-	<img src="{{MEDIA_URL}}{{corto.imagen}}" class="imagen"></a>
+	
 	<u><h1>{{corto.titulo}}</h1></u>
 	<h2>Palmares:</h2>
 	{%for estado in estados%}	
 	<h3>{{estado.estado|upper}} - {{corto.anyo}} {{estado.festival|upper}},{{estado.festival.ciudad|upper}}</h3>
-
 	{%endfor%}
-	<h3>{{corto.palmares}}</h3>
-	<b>Agno:</b> {{corto.anyo}}<br>
-	<b>Pais:</b> {{corto.pais}}<br>
-	<b>Director:</b> {{corto.director}}<br>
-	<b>Reparto:</b> {{corto.reparto}}<br>
-	<b>Productora:</b> {{corto.productora}}<br>
-	<b>Genero:</b> {{corto.genero}}<br>
 	
-	<h3>Sinopsis:</h3>
-	
+	<br><img src="{{MEDIA_URL}}{{corto.imagen}}" class="imagen"></a>
+	<div class="informacion">
+		<b>Agno:</b> {{corto.anyo}}<br>
+		<b>Pais:</b> {{corto.pais}}<br>
+		<b>Director:</b> {{corto.director}}<br>
+		<b>Reparto:</b> {{corto.reparto}}<br>
+		<b>Productora:</b> {{corto.productora}}<br>
+		<b>Genero:</b> {{corto.genero}}<br><br><br>
+	</div>
 	<div class="sinopsis">
+	<b>Sinopsis:</b><br>
 	{{corto.sinopsis}}
-	<br>
-	<iframe width="560" height="315" src="//{{corto.trailer}}" frameborder="0" allowfullscreen></iframe>
+	<br><br><h1> </h1>
+	{{corto.trailer|safe}}
 	</div>
 	
 	{%ifequal user.id corto.cliente_id %}

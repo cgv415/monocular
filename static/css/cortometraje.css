@@ -14,8 +14,13 @@ h2{
 
 .imagen{
 	position: absolute;
-	top:65%;
+	top:75%;
 	left:65%;
+	width: 25%;
+}
+
+.informacion{
+	position: relative;
 	width: 25%;
 }
 

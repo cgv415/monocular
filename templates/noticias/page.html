@@ -18,10 +18,15 @@
 	{% endfor %}
 	<div class="paginacion">
 	{%if has_prev%}
+		{%if has_next%}
 		<h1 class="anterior"><a href="/noticias/page/{{ant}}">pagina anterior</a></h1>
-	{%endif%}
-	{%if has_next%}
 		<h1 class="siguiente"><a href="/noticias/page/{{sig}}">pagina siguiente</a></h1>
+		{%else%}
+		<h1 class="anterior"><a href="/noticias/page/{{ant}}">pagina anterior</a></h1>
+		{%endif%}
+	{%elif has_next%}	
+		<h1 class="anterior"><a href="/noticias/page/{{sig}}">pagina siguiente</a></h1>
 	{%endif%}
+	
 	</div>
 {%endblock%}

@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 #En esta vista lo que se hace es mostrar todos los objetos creados a nombre del usuario que accede
 def MiFicha(request):
     usuario = request.user
-    cortos = Corto.objects.filter(cliente_id = usuario.id)
+    cortos = Corto.objects.filter(cliente_id = usuario.id).order_by('-id')
     return render_to_response('servicios/mificha.html',{'cortos':cortos},context_instance=RequestContext(request))
 
 #Muestra todos los servicios que se prestan
