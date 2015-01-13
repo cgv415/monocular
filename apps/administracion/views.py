@@ -13,6 +13,7 @@ from .forms import UserForm
 from .models import Cliente
 from forms import SignUpForm
 from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.list import ListView
 
 
 # Create your views here.
@@ -95,19 +96,19 @@ class RegistrarCorto(CreateView):
     template_name='administracion/registrar.html'
     model = Corto
     fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
-    success_url = reverse_lazy('administracion')
+    success_url = reverse_lazy('servicios')
    
 class RegistrarNoticia(CreateView):
     template_name='administracion/registrar.html'
     model = Noticia
     fields=['titulo','resumen','texto','fecha','imagen']
-    success_url = reverse_lazy('noticias')
+    success_url = reverse_lazy('/administracion/')
 
 class RegistrarFestival(CreateView):
     template_name='administracion/registrar.html'
     model = Festival
     fields=['nombre','ciudad','pais','anyo','fecha','web']
-    success_url = reverse_lazy('administracion')
+    success_url = '/administracion/'
 
 #Comienzan las vistas para modificar objetos con update view
 
@@ -125,13 +126,23 @@ class ModificarCorto(UpdateView):
     success_url = '/inicio/'
     
 #Comienzan las vistas para ver los objetos, lo ideal seria con listview pero ya esta hecho y no hay tiempo
+
+#En desuso
 def VerCortos(request):
-    cortos = Corto.objects.all().order_by('id').reverse()
+    cortos = Corto.objects.all().order_by('-id')
     return render_to_response('administracion/verCortos.html',{'cortos': cortos},context_instance=RequestContext(request))
 
+#En desuso
 def VerNoticias(request):
-    noticias = Noticia.objects.all().order_by('id').reverse()
+    noticias = Noticia.objects.all().order_by('-id')
     return render_to_response('administracion/verNoticias.html',{'noticias': noticias},context_instance=RequestContext(request))
+
+#Vista de los objetos con listview
+class NoticiasList(ListView):
+    model = Noticia
+
+class CortosList(ListView):
+    model = Corto
 
 def VerUsuarios(request):
     usuarios = User.objects.all().filter(is_staff=False)

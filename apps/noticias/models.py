@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 # Create your models here.
 
 #Model Noticias
@@ -10,4 +11,3 @@ class Noticia(models.Model):
     fecha = models.DateTimeField()
     def __unicode__(self):
         return self.titulo
-    

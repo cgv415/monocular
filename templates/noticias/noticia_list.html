@@ -7,11 +7,11 @@
 <h1>NOTICIAS</h1>
 <h2><a href="/administracion/registrarNoticia">Add</a></h2>
 <table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">	
-{%for noticia in noticias%}	
+{%for noticia in object_list%}	
 		<tr>
 			<th scope="col"><a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a></th>
 			<td><a href="/administracion/modificarNoticia/{{noticia.id}}">Modificar</a></td>
-			<td><a href="">Borrar</a></td>
+			<td><a href="/administracion/eliminarNoticia/{{noticia.id}}">Borrar</a></td>
 		</tr>
 {%endfor%}
 </table>

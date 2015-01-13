@@ -12,7 +12,7 @@ def inicio(request):
     #Creamos un objeto noticias, no hace falta tiparlo
     #Lo igualamos a todos los objetos noticias (se tipa automaticamente a lista de noticias)
     #Ordenamos las noticias por fecha y le damos la vuelta, para que la primera noticia sea la ultima creada
-    noticias = Noticia.objects.order_by('fecha').reverse()
+    noticias = Noticia.objects.order_by('-fecha')
     video = VideoInicial.objects.filter(activo = True).order_by('id').reverse()[0]
     #video = VideoInicial.objects.get_or_create(codigo='32423533')
     return render_to_response('inicio/inicio.html',{'video':video,'noticias':noticias},context_instance=RequestContext(request))

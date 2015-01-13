@@ -16,6 +16,12 @@
 			<a href="post/{{noticia.id}}">ver mas</a>
 		</div>
 	{% endfor %}
-
-
+	<div class="paginacion">
+	{%if has_prev%}
+		<h1 class="anterior"><a href="/noticias/page/{{ant}}">pagina anterior</a></h1>
+	{%endif%}
+	{%if has_next%}
+		<h1 class="siguiente"><a href="/noticias/page/{{sig}}">pagina siguiente</a></h1>
+	{%endif%}
+	</div>
 {%endblock%}

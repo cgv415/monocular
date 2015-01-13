@@ -1,7 +1,8 @@
 from django.conf.urls import url
 from .views import Registrarse, RegistrarCorto,RegistrarNoticia,RegistrarFestival,ModificarNoticia
 from django.contrib.auth.views import login
-from apps.administracion.views import ModificarCorto, DeleteNoticia
+from apps.administracion.views import ModificarCorto, DeleteNoticia,\
+    NoticiasList, CortosList
 #from django.contrib.auth.views import logout
 
 urlpatterns = [
@@ -18,6 +19,9 @@ urlpatterns = [
    url(r'^verAdministradores/', 'apps.administracion.views.VerAdministradores', name="ver_administradores"),
    url(r'^verFestivales/', 'apps.administracion.views.VerFestivales', name="ver_festivales"),
    
+   url(r'^noticiaslist$', NoticiasList.as_view(), name='noticiaslist'),
+   url(r'^cortoslist$', CortosList.as_view(), name='cortos-list'),
+  
    url(r'^modificarNoticia/(?P<pk>\d+)/$', ModificarNoticia.as_view(), name='modificar_noticia'),
    url(r'^modificarCorto/(?P<pk>\d+)/$', ModificarCorto.as_view(), name='modificar_corto'),
    url(r'^eliminarNoticia/(?P<pk>\d+)/$', DeleteNoticia.as_view(), name='eliminar_noticia'),
