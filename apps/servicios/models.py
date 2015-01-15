@@ -11,6 +11,7 @@ ESTADOS = (
 SERVICIO = (
    ('distribucion', 'Distribucion'),
    ('produccion', 'Produccion'),
+   ('colaboracion', 'Colaboracion'),
 )
 # Create your models here.
 
