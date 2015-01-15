@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.template import RequestContext
 
-from apps.servicios.models import Corto, Festival
+from apps.servicios.models import Proyecto, Festival
 from apps.noticias.models import Noticia
 from .forms import UserForm
 from .models import Cliente
@@ -94,7 +94,7 @@ class Registrarse(FormView):
 
 class RegistrarCorto(CreateView):
     template_name='administracion/registrar.html'
-    model = Corto
+    model = Proyecto
     fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
     success_url = reverse_lazy('servicios')
    
@@ -120,7 +120,7 @@ class ModificarNoticia(UpdateView):
     success_url = '/inicio/'
     
 class ModificarCorto(UpdateView):
-    model = Corto
+    model = Proyecto
     fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
     template_name_suffix = '_update_form'
     success_url = '/inicio/'
@@ -129,7 +129,7 @@ class ModificarCorto(UpdateView):
 
 #En desuso
 def VerCortos(request):
-    cortos = Corto.objects.all().order_by('-id')
+    cortos = Proyecto.objects.all().order_by('-id')
     return render_to_response('administracion/verCortos.html',{'cortos': cortos},context_instance=RequestContext(request))
 
 #En desuso
@@ -141,8 +141,8 @@ def VerNoticias(request):
 class NoticiasList(ListView):
     model = Noticia
 
-class CortosList(ListView):
-    model = Corto
+class ProyectosList(ListView):
+    model = Proyecto
 
 def VerUsuarios(request):
     usuarios = User.objects.all().filter(is_staff=False)

@@ -10,5 +10,5 @@ urlpatterns = [
    url(r'^distribucion' , 'apps.servicios.views.Distribucion',name="distribucion"),
    url(r'^mificha' , 'apps.servicios.views.MiFicha',name="mificha"),
    
-   url(r'^corto/(\d+)/$', 'apps.servicios.views.Cortometraje', name="cortometraje"),
+   url(r'^ficha/(\d+)/$', 'apps.servicios.views.Ficha', name="ficha"),
 ]

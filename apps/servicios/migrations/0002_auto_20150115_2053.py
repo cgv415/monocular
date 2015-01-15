@@ -9,11 +9,12 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('servicios', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Corto',
+            name='Proyecto',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('servicio', models.CharField(max_length=50, choices=[(b'distribucion', b'Distribucion'), (b'produccion', b'Produccion')])),
@@ -36,36 +37,17 @@ class Migration(migrations.Migration):
             },
             bases=(models.Model,),
         ),
-        migrations.CreateModel(
-            name='Estado_Corto',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('estado', models.CharField(blank=True, max_length=30, null=True, choices=[(b'seleccionado', b'Seleccionado'), (b'premiado', b'Premiado')])),
-                ('corto', models.ForeignKey(to='servicios.Corto')),
-            ],
-            options={
-            },
-            bases=(models.Model,),
+        migrations.RemoveField(
+            model_name='corto',
+            name='cliente',
         ),
-        migrations.CreateModel(
-            name='Festival',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nombre', models.CharField(max_length=100)),
-                ('ciudad', models.CharField(max_length=100)),
-                ('pais', models.CharField(max_length=100)),
-                ('anyo', models.PositiveIntegerField(verbose_name='a\xf1o')),
-                ('fecha', models.CharField(max_length=100, null=True, blank=True)),
-                ('web', models.URLField(null=True, blank=True)),
-            ],
-            options={
-            },
-            bases=(models.Model,),
-        ),
-        migrations.AddField(
+        migrations.AlterField(
             model_name='estado_corto',
-            name='festival',
-            field=models.ForeignKey(to='servicios.Festival'),
+            name='corto',
+            field=models.ForeignKey(to='servicios.Proyecto'),
             preserve_default=True,
+        ),
+        migrations.DeleteModel(
+            name='Corto',
         ),
     ]

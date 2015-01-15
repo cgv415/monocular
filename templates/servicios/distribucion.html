@@ -7,8 +7,8 @@
 	<h1>Apartado de Distribucion</h1>
 	<p>{{texto.texto}}</p>
 	<ul >
-		{%for corto in cortos|slice:":16"%}
-		<li class="cortos"><a href="corto/{{corto.id}}"><img src="{{MEDIA_URL}}{{corto.imagen}}" class="portada"></a></li>
+		{%for proyecto in proyectos|slice:":16"%}
+		<li class="cortos"><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" class="portada"></a></li>
 		{%endfor%}
 	</ul>
 

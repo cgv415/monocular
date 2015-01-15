@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Corto,Festival,Estado_Corto
+from .models import Proyecto,Festival,Estado_Corto
 # Register your models here.
 
-class CortoAdmin(admin.ModelAdmin):
+class ProyectoAdmin(admin.ModelAdmin):
     list_display = ('titulo',)
-admin.site.register(Corto, CortoAdmin)
+admin.site.register(Proyecto, ProyectoAdmin)
 
 class FestivalAdmin(admin.ModelAdmin):
     list_display = ('nombre','anyo')

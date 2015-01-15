@@ -3,7 +3,7 @@ from .models import Cliente,Empleado,Usuario,TextoDescriptivo
 # Register your models here.
 
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('usuario','servicio_Contratado','proyecto')
+    list_display = ('usuario',)
 admin.site.register(Cliente, ClienteAdmin)
 
 class UsuarioAdmin(admin.ModelAdmin):

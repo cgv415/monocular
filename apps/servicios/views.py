@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from .models import Corto,Estado_Corto
+from .models import Proyecto,Estado_Corto
 from apps.administracion.models import TextoDescriptivo
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -9,8 +9,8 @@ from django.contrib.auth.decorators import login_required
 #En esta vista lo que se hace es mostrar todos los objetos creados a nombre del usuario que accede
 def MiFicha(request):
     usuario = request.user
-    cortos = Corto.objects.filter(cliente_id = usuario.id).order_by('-id')
-    return render_to_response('servicios/mificha.html',{'cortos':cortos},context_instance=RequestContext(request))
+    proyectos = Proyecto.objects.filter(cliente_id = usuario.id).order_by('-id')
+    return render_to_response('servicios/mificha.html',{'proyectos':proyectos},context_instance=RequestContext(request))
 
 #Muestra todos los servicios que se prestan
 def Servicios(request):
@@ -34,12 +34,12 @@ def Publicidad(request):
 #Muestra todos los objetos de distribucion que se han creado
 def Distribucion(request):
     texto = TextoDescriptivo.objects.filter(tipo = 'distribucion')[0]
-    cortos = Corto.objects.all().order_by('id').reverse()
-    return render_to_response('servicios/distribucion.html',{'texto':texto,'cortos':cortos},context_instance=RequestContext(request))
+    proyectos = Proyecto.objects.all().order_by('-id')
+    return render_to_response('servicios/distribucion.html',{'texto':texto,'proyectos':proyectos},context_instance=RequestContext(request))
 
 #Muestra un cortometraje 
-def Cortometraje(request,offset):
+def Ficha(request,offset):
     cod = int(offset)
-    corto = Corto.objects.filter(id=cod)[0]
+    proyecto = Proyecto.objects.filter(id=cod)[0]
     estados = Estado_Corto.objects.filter(corto_id=cod)
-    return render_to_response('servicios/cortometraje.html',{'corto':corto,'estados':estados},context_instance=RequestContext(request))
+    return render_to_response('servicios/proyecto.html',{'proyecto':proyecto,'estados':estados},context_instance=RequestContext(request))

@@ -7,21 +7,29 @@ ESTADOS = (
    ('seleccionado', 'Seleccionado'),
    ('premiado', 'Premiado'),
 )
+
+SERVICIO = (
+   ('distribucion', 'Distribucion'),
+   ('produccion', 'Produccion'),
+)
 # Create your models here.
 
 #Model Cortometraje
-class Corto(models.Model):
-    cliente = models.ForeignKey(User)
+class Proyecto(models.Model):
+    cliente = models.ForeignKey(User,null=True,blank=True)
+    servicio = models.CharField(max_length=50,choices=SERVICIO)
     titulo=models.CharField(max_length=100)
-    sinopsis = models.TextField()
-    duracion = models.CharField(max_length=50)
     #Para mostrar ñ y acentos se escribe con la cadena u'texto con ñ'
-    anyo=models.PositiveIntegerField(u'año')
-    pais=models.CharField(max_length=50)
-    director = models.CharField(max_length=50)
-    reparto =models.CharField(max_length=50)
-    productora =models.CharField(max_length=100)
-    genero = models.CharField(max_length=100)
+    anyo=models.PositiveIntegerField(u'año',null=True,blank=True)
+    duracion = models.CharField(max_length=50,null=True,blank=True)
+    soporte = models.CharField(max_length=20,null=True,blank=True)
+    formato = models.CharField(max_length=20,null=True,blank=True)
+    director = models.CharField(max_length=50,null=True,blank=True)
+    productora =models.CharField(max_length=100,null=True,blank=True)
+    reparto =models.CharField(max_length=50,null=True,blank=True)
+    sinopsis = models.TextField()
+    pais=models.CharField(max_length=50,null=True,blank=True)
+    genero = models.CharField(max_length=100,null=True,blank=True)
     trailer = models.TextField(null=True,blank=True)
     imagen = models.ImageField(upload_to = 'cortometrajes')
     #Por defecto se muestra el titulo del cortometraje
@@ -42,5 +50,5 @@ class Festival(models.Model):
 #Modelo para los estados de los cortos
 class Estado_Corto(models.Model):
     festival = models.ForeignKey(Festival)
-    corto = models.ForeignKey(Corto)
+    corto = models.ForeignKey(Proyecto)
     estado = models.CharField(max_length=30,null=True,blank=True,choices=ESTADOS)

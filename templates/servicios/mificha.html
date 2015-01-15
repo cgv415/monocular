@@ -4,11 +4,12 @@
 {% endblock %} {% block contenido %}
 
 <div class="contenido">
-	<h1>Ficha de {{user.username|capfirst}}</h1>
+
 	<a href="/administracion/logout/">Desconectar</a><br>
-	<h2>Cortometrajes</h2>
-	{%for corto in cortos%}
-	<a href="corto/{{corto.id}}"><img src="{{MEDIA_URL}}{{corto.imagen}}"></a>
+	<h1>Ficha de {{user.username|capfirst}}</h1>
+	<h2>Proyectos</h2>
+	{%for proyecto in proyectos%}
+	<a href="proyecto/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}"></a>
 	
 	{%endfor%}
 </div>

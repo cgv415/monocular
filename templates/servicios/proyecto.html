@@ -5,29 +5,33 @@
 
 <div class="contenido">
 	
-	<u><h1>{{corto.titulo}}</h1></u>
+	<u><h1>{{proyecto.titulo}}</h1></u>
 	<h2>Palmares:</h2>
 	{%for estado in estados%}	
-	<h3>{{estado.estado|upper}} - {{corto.anyo}} {{estado.festival|upper}},{{estado.festival.ciudad|upper}}</h3>
+	<h3>{{estado.estado|upper}} - {{proyecto.anyo}} {{proyecto.festival|upper}},{{estado.festival.ciudad|upper}}</h3>
 	{%endfor%}
 	
-	<br><img src="{{MEDIA_URL}}{{corto.imagen}}" class="imagen"></a>
+	<br><img src="{{MEDIA_URL}}{{proyecto.imagen}}" class="imagen"></a>
 	<div class="informacion">
-		<b>Agno:</b> {{corto.anyo}}<br>
-		<b>Pais:</b> {{corto.pais}}<br>
-		<b>Director:</b> {{corto.director}}<br>
-		<b>Reparto:</b> {{corto.reparto}}<br>
-		<b>Productora:</b> {{corto.productora}}<br>
-		<b>Genero:</b> {{corto.genero}}<br><br><br>
+		
+		<b>Agno:</b> {{proyecto.anyo}}<br>
+		
+		{% ifnotequal proyecto.pais '' %}
+		<b>Pais:</b> {{proyecto.pais}}<br>
+		{%  endifnotequal %}
+		<b>Director:</b> {{proyecto.director}}<br>
+		<b>Reparto:</b> {{proyecto.reparto}}<br>
+		<b>Productora:</b> {{proyecto.productora}}<br>
+		<b>Genero:</b> {{proyecto.genero}}<br><br><br>
 	</div>
 	<div class="sinopsis">
 	<b>Sinopsis:</b><br>
-	{{corto.sinopsis}}
+	{{proyecto.sinopsis}}
 	<br><br><h1> </h1>
-	{{corto.trailer|safe}}
+	{{proyecto.trailer|safe}}
 	</div>
 	
-	{%ifequal user.id corto.cliente_id %}
+	{%ifequal user.id proyecto.cliente_id %}
 	<table class="tabla" width="100%" border="2" cellspacing="0" bordercolor="#000000">		
 		<tr>
 			<th scope="col">CORTOMETRAJE</th>
@@ -40,8 +44,8 @@
 		</tr>
 		{%for estado in estados%}	
 		<tr>
-			<td>{{corto.titulo}}</td>
-			<td>{{corto.anyo}}</td>
+			<td>{{proyecto.titulo}}</td>
+			<td>{{proyecto.anyo}}</td>
 			<td>{{estado.festival}}/{{estado.festival.anyo}}</td>
 			<td>{{estado.festival.ciudad}}/{{estado.festival.pais}}</td>
 			<td>{{estado.festival.fecha}}</td>
