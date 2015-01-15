@@ -47,7 +47,7 @@ INSTALLED_APPS = (
     'apps.noticias',
     'apps.servicios',
     'apps.administracion',
-    'apps.portfolios',
+    'apps.portfolio',
 )
 
 MIDDLEWARE_CLASSES = (
