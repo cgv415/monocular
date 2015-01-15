@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^servicios/', include('apps.servicios.urls')),
     url(r'^administracion/', include('apps.administracion.urls')),
     url(r'^contacto/', include('apps.administracion.urls')),
-    url(r'^portfolio/', include('apps.portfolios.urls')),
+    url(r'^portfolio/', include('apps.portfolio.urls')),
     
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),
     url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_ROOT,}),
