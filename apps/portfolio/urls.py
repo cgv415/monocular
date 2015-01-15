@@ -3,5 +3,5 @@ from django.conf.urls import url
 
 urlpatterns = [
    #url(r'^$' , 'apps.inicio.views.index'),
-   url(r'^$' , 'apps.portafolios.views.Portafolios',name="portafolios"),
+   url(r'^$' , 'apps.portfolios.views.Portfolio',name="portfolio"),
 ]
