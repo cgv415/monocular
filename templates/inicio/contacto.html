@@ -4,7 +4,9 @@
 {% endblock %} {% block contenido %}
 
 <div class="contenido">
-	<h1>Contacto</h1>
+	
+	<div class="contacto">
+	<h1>Deja un mensaje</h1>
 
 	{%if exito%}
 	<div class="exito">
@@ -15,5 +17,12 @@
 	<form action="/contacto" method="post">
 		{% csrf_token%} {{form.as_p}} <input type="submit" value="Enviar" />
 	</form>
+	</div>
+	<div class="informacion">
+	<h1>Contacto:</h1>
+	<h2>Correo: </h2>
+	<h2>Telefono: </h2>
+	<h2>Direccion: </h2>
+	</div>
 </div>
 {%endif%} {%endblock%}
