@@ -4,7 +4,8 @@
 {% endblock %} {%block titulo%} Distribucion {%endblock%} 
 {% block contenido %}
 <div class="contenido">
-	<h1>Este es el apartado de distribucion</h1>
+	<h1>Apartado de Distribucion</h1>
+	<p>{{texto.texto}}</p>
 	<ul >
 		{%for corto in cortos|slice:":16"%}
 		<li class="cortos"><a href="corto/{{corto.id}}"><img src="{{MEDIA_URL}}{{corto.imagen}}" class="portada"></a></li>

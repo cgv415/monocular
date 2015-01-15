@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from .models import Corto,Estado_Corto
+from apps.administracion.models import TextoDescriptivo
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 #Ponemos login_required cuando queremos que solo usuarios autentificados puedan acceder a la vista
@@ -17,20 +18,24 @@ def Servicios(request):
 
 #Muestra todos los objetos de produccion que se han creado
 def Produccion(request):
-    return render_to_response('servicios/produccion.html',context_instance=RequestContext(request))
+    texto = TextoDescriptivo.objects.filter(tipo = 'produccion')[0]
+    return render_to_response('servicios/produccion.html',{'texto':texto},context_instance=RequestContext(request))
 
 #Muestra todos los objetos de postproduccion que se han creado
 def Postproduccion(request):
-    return render_to_response('servicios/postproduccion.html',context_instance=RequestContext(request))
+    texto = TextoDescriptivo.objects.filter(tipo = 'postproduccion')[0]
+    return render_to_response('servicios/postproduccion.html',{'texto':texto},context_instance=RequestContext(request))
 
 #Muestra todos los objetos de publicidad que se han creado
 def Publicidad(request):
-    return render_to_response('servicios/publicidad.html',context_instance=RequestContext(request))
+    texto = TextoDescriptivo.objects.filter(tipo = 'publicidad')[0]
+    return render_to_response('servicios/publicidad.html',{'texto':texto},context_instance=RequestContext(request))
 
 #Muestra todos los objetos de distribucion que se han creado
 def Distribucion(request):
+    texto = TextoDescriptivo.objects.filter(tipo = 'distribucion')[0]
     cortos = Corto.objects.all().order_by('id').reverse()
-    return render_to_response('servicios/distribucion.html',{'cortos':cortos},context_instance=RequestContext(request))
+    return render_to_response('servicios/distribucion.html',{'texto':texto,'cortos':cortos},context_instance=RequestContext(request))
 
 #Muestra un cortometraje 
 def Cortometraje(request,offset):
