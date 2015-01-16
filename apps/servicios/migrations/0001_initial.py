@@ -9,7 +9,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('administracion', '0001_initial'),
     ]
 
     operations = [
@@ -39,6 +38,17 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
+            name='Galeria',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('titulo', models.CharField(max_length=30)),
+                ('imagen', models.ImageField(upload_to=b'galeria')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='Proyecto',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -56,22 +66,39 @@ class Migration(migrations.Migration):
                 ('trailer', models.TextField(null=True, blank=True)),
                 ('imagen', models.ImageField(upload_to=b'cortometrajes')),
                 ('cliente', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True)),
-                ('servicio', models.ManyToManyField(to='administracion.Servicio')),
+                ('galeria', models.ManyToManyField(to='servicios.Galeria')),
             ],
             options={
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='ServicioProyecto',
+            name='Publicidad',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('proyecto', models.ForeignKey(to='servicios.Proyecto')),
-                ('servicio', models.ForeignKey(to='administracion.Servicio')),
+                ('imagen', models.ImageField(upload_to=b'publicidad')),
+                ('video', models.URLField()),
+                ('titulo', models.CharField(max_length=60)),
             ],
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Servicio',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('nombre', models.CharField(max_length=15)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='proyecto',
+            name='servicio',
+            field=models.ManyToManyField(to='servicios.Servicio'),
+            preserve_default=True,
         ),
         migrations.AddField(
             model_name='estado_corto',

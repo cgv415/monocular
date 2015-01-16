@@ -5,6 +5,7 @@ from django.core.mail.message import EmailMessage
 from apps.noticias.models import Noticia
 from .forms import Formulario
 from .models import VideoInicial
+from apps.servicios.models import Proyecto
 # Create your views here.
 
 #Vista principal de la pagina web
@@ -14,8 +15,8 @@ def inicio(request):
     #Ordenamos las noticias por fecha y le damos la vuelta, para que la primera noticia sea la ultima creada
     noticias = Noticia.objects.order_by('-fecha')
     video = VideoInicial.objects.filter(activo = True).order_by('id').reverse()[0]
-    #video = VideoInicial.objects.get_or_create(codigo='32423533')
-    return render_to_response('inicio/inicio.html',{'video':video,'noticias':noticias},context_instance=RequestContext(request))
+    producciones = Proyecto.objects.filter(servicio__nombre='Produccion').order_by('-id')
+    return render_to_response('inicio/inicio.html',{'video':video,'noticias':noticias,'producciones':producciones},context_instance=RequestContext(request))
 
 #vista para el contacto
 def contacto(request):

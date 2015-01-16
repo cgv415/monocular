@@ -8,7 +8,6 @@
 {{video.codigo|safe}}
 </div>
 <div class="contenido">
-<h1>Hoy es {% now "l, j \d\e F \d\e Y" %}</h1>
 	<div class="noticias">
 		{%for noticia in noticias|slice:":2"%}
 		<div class="noticia">
@@ -18,9 +17,13 @@
 		</div>
 		{%endfor%}
 	</div>
-
-	<div class="portafolio">
-		<h1>Portafolio</h1>
+	
+	<div class="portfolio">
+		<h1>PORTFOLIO</h1>
+		{%for produccion in producciones|slice:":16"%}
+			<li class="cortos"><a href="ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada"></a></li>
+			<li>{{produccion.titulo}}</li>
+		{%endfor%}
 	</div>
 </div>
 

@@ -20,6 +20,13 @@ class Servicio(models.Model):
     def __unicode__(self):
         return self.nombre
 
+  
+class Galeria(models.Model):
+    titulo = models.CharField(max_length=30)
+    imagen = models.ImageField(upload_to = 'galeria')
+    def __unicode__(self):
+        return self.titulo
+    
 #Model Cortometraje
 class Proyecto(models.Model):
     cliente = models.ForeignKey(User,null=True,blank=True)
@@ -38,13 +45,10 @@ class Proyecto(models.Model):
     genero = models.CharField(max_length=100,null=True,blank=True)
     trailer = models.TextField(null=True,blank=True)
     imagen = models.ImageField(upload_to = 'cortometrajes')
+    galeria = models.ManyToManyField(Galeria)
     #Por defecto se muestra el titulo del cortometraje
     def __unicode__(self):
         return self.titulo
-    
-class ServicioProyecto(models.Model):
-    proyecto = models.ForeignKey(Proyecto)
-    servicio = models.ForeignKey(Servicio)
 
     #Modelo Festivales
 class Festival(models.Model):
@@ -62,3 +66,9 @@ class Estado_Corto(models.Model):
     festival = models.ForeignKey(Festival)
     corto = models.ForeignKey(Proyecto)
     estado = models.CharField(max_length=30,null=True,blank=True,choices=ESTADOS)
+    
+#Modelo Publicidad
+class Publicidad(models.Model):
+    imagen = models.ImageField(upload_to = 'publicidad')
+    video = models.URLField()
+    titulo = models.CharField(max_length=60)
