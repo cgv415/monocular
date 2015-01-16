@@ -19,7 +19,8 @@ def Servicios(request):
 #Muestra todos los objetos de produccion que se han creado
 def Produccion(request):
     texto = TextoDescriptivo.objects.filter(tipo = 'produccion')[0]
-    return render_to_response('servicios/produccion.html',{'texto':texto},context_instance=RequestContext(request))
+    proyectos = Proyecto.objects.filter(servicio__nombre='Produccion').order_by('-id')
+    return render_to_response('servicios/produccion.html',{'texto':texto,'proyectos':proyectos},context_instance=RequestContext(request))
 
 #Muestra todos los objetos de postproduccion que se han creado
 def Postproduccion(request):
@@ -34,7 +35,7 @@ def Publicidad(request):
 #Muestra todos los objetos de distribucion que se han creado
 def Distribucion(request):
     texto = TextoDescriptivo.objects.filter(tipo = 'distribucion')[0]
-    proyectos = Proyecto.objects.all().order_by('-id')
+    proyectos = Proyecto.objects.filter(servicio__nombre='Distribucion').order_by('-id')
     return render_to_response('servicios/distribucion.html',{'texto':texto,'proyectos':proyectos},context_instance=RequestContext(request))
 
 #Muestra un cortometraje 

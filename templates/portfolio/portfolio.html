@@ -9,12 +9,15 @@
 
 <h2>A lo mejor aqui va el texto descriptivo del portfolio.. quien sabe</h2>
 
-{%for produccion in produccion|slice:":16"%}
+{%for produccion in producciones|slice:":16"%}
 <li class="cortos"><a href="ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada"></a></li>
 <li>{{produccion.titulo}}</li>
 {%endfor%}
 
 <h1>Colaboraciones</h1>
-
+{%for colaboracion in colaboraciones|slice:":16"%}
+<li class="cortos"><a href="ficha/{{colaboracion.id}}"><img src="{{MEDIA_URL}}{{colaboracion.imagen}}" class="portada"></a></li>
+<li>{{produccion.titulo}}</li>
+{%endfor%}
 </div>
 {%endblock%}

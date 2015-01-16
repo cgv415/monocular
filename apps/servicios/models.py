@@ -15,10 +15,15 @@ SERVICIO = (
 )
 # Create your models here.
 
+class Servicio(models.Model):
+    nombre = models.CharField(max_length=15)
+    def __unicode__(self):
+        return self.nombre
+
 #Model Cortometraje
 class Proyecto(models.Model):
     cliente = models.ForeignKey(User,null=True,blank=True)
-    servicio = models.CharField(max_length=50,choices=SERVICIO)
+    servicio = models.ManyToManyField(Servicio)
     titulo=models.CharField(max_length=100)
     #Para mostrar ñ y acentos se escribe con la cadena u'texto con ñ'
     anyo=models.PositiveIntegerField(u'año',null=True,blank=True)
@@ -37,7 +42,11 @@ class Proyecto(models.Model):
     def __unicode__(self):
         return self.titulo
     
-#Modelo Festivales
+class ServicioProyecto(models.Model):
+    proyecto = models.ForeignKey(Proyecto)
+    servicio = models.ForeignKey(Servicio)
+
+    #Modelo Festivales
 class Festival(models.Model):
     nombre = models.CharField(max_length=100)
     ciudad = models.CharField(max_length=100)

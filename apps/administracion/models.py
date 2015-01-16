@@ -27,3 +27,4 @@ class Empleado(models.Model):
     usuario = models.OneToOneField(User)
     def __unicode__(self):
         return self.usuario.username
+    

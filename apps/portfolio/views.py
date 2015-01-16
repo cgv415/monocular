@@ -4,6 +4,6 @@ from apps.servicios.models import Proyecto
 
 # Create your views here.
 def Portfolio(request):
-    produccion = Proyecto.objects.filter(servicio='produccion').order_by('-id')
-    colaboracion = Proyecto.objects.filter(servicio='colaboracion').order_by('-id')
-    return render_to_response('portfolio/portfolio.html',{'produccion':produccion,'colaboracion':colaboracion},context_instance=RequestContext(request))
+    producciones = Proyecto.objects.filter(servicio__nombre='Produccion').order_by('-id')
+    colaboraciones = Proyecto.objects.filter(servicio__nombre='Colaboracion').order_by('-id')
+    return render_to_response('portfolio/portfolio.html',{'producciones':producciones,'colaboraciones':colaboraciones},context_instance=RequestContext(request))
