@@ -3,6 +3,7 @@ from django.template import RequestContext
 from .models import Proyecto,Estado_Corto,Galeria
 from apps.administracion.models import TextoDescriptivo
 from django.contrib.auth.decorators import login_required
+from apps.servicios.models import Festival
 # Create your views here.
 #Ponemos login_required cuando queremos que solo usuarios autentificados puedan acceder a la vista
 @login_required()
@@ -44,3 +45,9 @@ def Ficha(request,offset):
     proyecto = Proyecto.objects.filter(id=cod)[0]
     estados = Estado_Corto.objects.filter(corto_id=cod)
     return render_to_response('servicios/proyecto.html',{'proyecto':proyecto,'estados':estados},context_instance=RequestContext(request))
+
+#Muestra un Festival
+def Festival(request,offset):
+    cod = int(offset)
+    festival = Festival.objects.filter(id=cod)[0]
+    return render_to_response('servicios/festival.html',{'festival':festival},context_instance=RequestContext(request))

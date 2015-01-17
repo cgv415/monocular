@@ -4,17 +4,18 @@
 {% endblock %} {% block contenido %}
 
 <div class="contenido">
-<h1>FESTIVALES</h1>
+<h1>PROYECTOS</h1>
 <h2><a href="/administracion/registrarFestival">Add</a></h2>
 <table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">	
-{%for festival in festivales%}
+{%for festival in object_list%}
 		<tr>
-			<th scope="col"><a href="/noticias/post/{{festival.id}}">{{festival.nombre}}</a></th>
+			<th scope="col"><a href="/servicios/festival/{{festival.id}}">{{festival.nombre}}</a></th>
 			<td><a href="/administracion/modificarFestival/{{festival.id}}">Modificar</a></td>
-			<td><a href="">Borrar</a></td>
+			<td><a href="/administracion/eliminarProyecto/{{festival.id}}">Borrar</a></td>
 		</tr>
 {%endfor%}
-</div>
 </table>
+</div>
+
 
 {%endblock%}

@@ -11,4 +11,5 @@ urlpatterns = [
    url(r'^mificha' , 'apps.servicios.views.MiFicha',name="mificha"),
    
    url(r'^ficha/(\d+)/$', 'apps.servicios.views.Ficha', name="ficha"),
+   url(r'^festival/(\d+)/$', 'apps.servicios.views.Festival', name="festival"),
 ]
