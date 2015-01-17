@@ -21,7 +21,7 @@
 	<div class="portfolio">
 		<h1>PORTFOLIO</h1>
 		{%for produccion in producciones|slice:":16"%}
-			<li class="cortos"><a href="ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada"></a></li>
+			<li class="cortos"><a href="/servicios/ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada"></a></li>
 			<li>{{produccion.titulo}}</li>
 		{%endfor%}
 	</div>

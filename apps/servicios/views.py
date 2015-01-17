@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from .models import Proyecto,Estado_Corto
+from .models import Proyecto,Estado_Corto,Galeria
 from apps.administracion.models import TextoDescriptivo
 from django.contrib.auth.decorators import login_required
 # Create your views here.
