@@ -10,8 +10,8 @@
 {%for corto in object_list%}
 		<tr>
 			<th scope="col"><a href="/servicios/ficha/{{corto.id}}">{{corto.titulo}}</a></th>
-			<td><a href="/administracion/modificarCorto/{{corto.id}}">Modificar</a></td>
-			<td><a href="">Borrar</a></td>
+			<td><a href="/administracion/modificarProyecto/{{corto.id}}">Modificar</a></td>
+			<td><a href="/administracion/eliminarProyecto/{{corto.id}}">Borrar</a></td>
 		</tr>
 {%endfor%}
 </table>

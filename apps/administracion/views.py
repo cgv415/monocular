@@ -22,7 +22,7 @@ class RegistrarCorto(CreateView):
     template_name='administracion/registrar.html'
     model = Proyecto
     fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
-    success_url = reverse_lazy('servicios')
+    success_url = '/administracion/proyectoslist'
    
 class RegistrarNoticia(CreateView):
     template_name='administracion/registrar.html'
@@ -40,15 +40,14 @@ class RegistrarFestival(CreateView):
 class ModificarNoticia(UpdateView):
     model = Noticia
     fields=['titulo','resumen','texto','fecha','imagen']
-    #template_name = '/administracion/modificar.html'
-    template_name_suffix = '_update_form'
-    success_url = '/inicio/'
+    template_name='administracion/modificar.html'
+    success_url = '/administracion/noticiaslist'
     
 class ModificarCorto(UpdateView):
     model = Proyecto
     fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
-    template_name_suffix = '_update_form'
-    success_url = '/inicio/'
+    template_name='administracion/modificar.html'
+    success_url = '/administracion/proyectoslist'
     
 #Vista de los objetos con listview
 class NoticiasList(ListView):
@@ -75,3 +74,8 @@ def VerFestivales(request):
 class DeleteNoticia(DeleteView):
     model = Noticia
     success_url = '/administracion/noticiaslist'
+    
+class DeleteProyecto(DeleteView):
+    template_name='administracion/delete.html'
+    model = Proyecto
+    success_url = '/administracion/proyectoslist'
