@@ -7,11 +7,13 @@
 <h1>ESTADOS</h1>
 <h2><a href="/administracion/registrarEstado">Add</a></h2>
 <table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">	
-{%for festival in object_list%}
+{%for estado in object_list%}
 		<tr>
 			<th scope="col"><a href="/servicios/festival/{{festival.id}}">{{estado.corto.titulo}}</a></th>
-			<td><a href="/administracion/modificarFestival/{{festival.id}}">Modificar</a></td>
-			<td><a href="/administracion/eliminarProyecto/{{festival.id}}">Borrar</a></td>
+			<th scope="col"><a href="/servicios/festival/{{festival.id}}">{{estado.festival.nombre}}</a></th>
+			<th scope="col"><b>{{estado.estado}}</b></th>
+			<td><a href="/administracion/modificarEstado/{{estado.id}}">Modificar</a></td>
+			<td><a href="/administracion/eliminarEstado/{{estado.id}}">Borrar</a></td>
 		</tr>
 {%endfor%}
 </table>

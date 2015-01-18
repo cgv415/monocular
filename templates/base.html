@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta charset="ISO-8859-1">
 <title>{%block titulo%} {%endblock%}</title> {%block head%} {%endblock%}
 {% comment %} {%endcomment %}
@@ -27,29 +28,39 @@
 			</div>
 		</div>
 	</Header>
-	{%block contenido%} {%endblock%}
-	{%block javascript%} {%endblock%}
-	<div class="wrapper"></div>
-	<div class="row" id="footer">
-	<footer>
-		<div class="social col-md-6">
-				<ul>
-					<li class="vimeo"><a href=" https://vimeo.com/user36352296" target="blank"><img src="{{STATIC_URL}}img/social/vimeo.jpg" width="30px" height="30px"></a></li>
+	<li class="vimeo"><a href=" https://vimeo.com/user36352296" target="blank"><img src="{{STATIC_URL}}img/social/vimeo.jpg" width="30px" height="30px"></a></li>
 					<li class="twitter"><a href="https://twitter.com/MonocularFilms" target="blank"><img src="{{STATIC_URL}}img/social/twitter.jpg" width="30px" height="30px"></a></li>
 					<li class="facebook"><a href="https://www.facebook.com/pages/Monocular-Films/636013676504940" target="blank"><img src="{{STATIC_URL}}img/social/facebook.jpg" width="30px" height="30px"></a></li>
-				</ul>
+				
+	{%block contenido%} {%endblock%}
+	{%block javascript%} {%endblock%}
+	<div class="footer" >
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8" style="font-color: white; background: black;" >
+            <div class="col-md-6">Síguenos
+			    <ul>
+				    <li><a href=" https://vimeo.com/user36352296" target="blank"><img src="{{STATIC_URL}}img/social/vimeo.jpg" width="30px" height="30px"></a>     <a href="https://es-es.facebook.com/" target="_new"><strong>Facebook</strong></a></li>
+				    <li><a href="https://twitter.com/MonocularFilms" target="blank"><img src="{{STATIC_URL}}img/social/twitter.jpg" width="30px" height="30px"></a>      <a href="https://twitter.com/?lang=es" target="_new"><strong>Twitter</strong></a></li>
+				    <li><a href="https://www.facebook.com/pages/Monocular-Films/636013676504940" target="blank"><img src="{{STATIC_URL}}img/social/facebook.jpg" width="30px" height="30px"></a>      <a href="https://accounts.google.com/" target="_new"><strong>Google+</strong></a></li>
+				    <li><a href="https://es.linkedin.com/" target="_new"><strong>LinkedIn</strong></a></li>
+				    <li>	<a href="https://www.blogger.com/" target="_new"><strong>Blogger</strong></a></li>
+			    </ul>
+		    </div>
+			<div class="col-md-6">Menú General
+			<ul>
+				<li><a href="#">¿Quiénes somos?</a></li>
+				<li><a href="#">Información</a></li>
+				<li><a href="#">Publicidad</a></li>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="#">Contacto</a></li>
+				<li><a href="#">Recomiéndanos</a></li>
+				<li><a href="/administracion/">Privado</a></li>
+			</ul>
 			</div>
-			<div class="col-md-6">
-		<h5>Pagina web desarrollada por:</h5>
-		<h6>Cristian Alvarez<h6>
-		<h6>Carlos Garrido</h6>
-		<h6>Alejandro Fenoy</h6>
-		<h6>Jose Luis Navarro</h6>
-		<a href="/administracion/">Privado</a>
-		
 		</div>
-		</div>
-	</footer>
+        <div class="col-md-2"></div>
 	</div>
+</div>
 </body>
 </html>

@@ -66,7 +66,8 @@ class Estado_Corto(models.Model):
     festival = models.ForeignKey(Festival)
     corto = models.ForeignKey(Proyecto)
     estado = models.CharField(max_length=30,null=True,blank=True,choices=ESTADOS)
-    
+    def __unicode__(self):
+        return self.estado
 #Modelo Publicidad
 class Publicidad(models.Model):
     imagen = models.ImageField(upload_to = 'publicidad')

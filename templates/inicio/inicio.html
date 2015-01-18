@@ -4,27 +4,38 @@
 <link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
 {% endblock %} {% block contenido %}
 
-<div class="video">
-{{video.codigo|safe}}
-</div>
-<div class="contenido">
-	<div class="noticias">
-		{%for noticia in noticias|slice:":2"%}
-		<div class="noticia">
-			<h1>{{noticia.titulo}}</h1>
-			<img src="{{MEDIA_URL}}{{noticia.imagen}}" class="imagen" width="40%"><br>
-			<a href="/noticias/post/{{noticia.id}}">ver mas</a>
-		</div>
-		{%endfor%}
+
+<div class="row">
+	<div align="center">
+		{{vimeo.codigo| safe}}
 	</div>
-	
-	<div class="portfolio">
-		<h1>PORTFOLIO</h1>
+
+            <div class="col-md-6">
+            	<h1 style="background: black; color: white; padding: 5px;">Noticias</h1>
+				<div>
+
+					{%for noticia in noticias|slice:":2"%}
+					<div>
+						<h1>{{noticia.titulo}}</h1>
+
+						<img src="{{MEDIA_URL}}{{noticia.imagen}}" class="imagen col-md-6" width="40%"><br>
+						<div class="col-md-6">
+						<p >{{noticia.resumen}}</p>
+						<a href="/noticias/post/{{noticia.id}}" >ver mas</a> </div>
+					</div>
+					{%endfor%}
+				</div>
+		    </div>
+
+			<div class="col-md-6">
+					<h1 style="background: black; color: white; padding: 5px;">Portafolio</h1>
+					<h1>PORTFOLIO</h1>
 		{%for produccion in producciones|slice:":16"%}
-			<li class="cortos"><a href="/servicios/ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada"></a></li>
-			<li>{{produccion.titulo}}</li>
+			<li class="cortos"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada"></li>
+			<li><a href="/servicios/ficha/{{produccion.id}}">{{produccion.titulo}}</a></li>
 		{%endfor%}
-	</div>
+			</div>
+		
 </div>
 
 
