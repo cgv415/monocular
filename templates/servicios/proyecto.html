@@ -14,22 +14,53 @@
 	<br><img src="{{MEDIA_URL}}{{proyecto.imagen}}" class="imagen"></a>
 	<div class="informacion">
 		
+		{% ifnotequal proyecto.anyo '' %}
 		<b>Agno:</b> {{proyecto.anyo}}<br>
+		{%  endifnotequal %} 
 		
 		{% ifnotequal proyecto.pais '' %}
 		<b>Pais:</b> {{proyecto.pais}}<br>
 		{%  endifnotequal %} 
 		
+		{% ifnotequal proyecto.duracion '' %}
+		<b>Duracion:</b>{{proyecto.duracion}}
+		{%  endifnotequal %} 
+		
+		{% ifnotequal proyecto.soporte '' %}
+		<b>soporte:</b>{{proyecto.soporte}}
+		{%  endifnotequal %} 
+		
+		{% ifnotequal proyecto.formato '' %}
+		<b>Formato:</b>{{proyecto.formato}}
+		{%  endifnotequal %} 
+		
+		{% ifnotequal proyecto.director '' %}
 		<b>Director:</b> {{proyecto.director}}<br>
-		<b>Reparto:</b> {{proyecto.reparto}}<br>
+		{%  endifnotequal %} 
+		
+		{% ifnotequal proyecto.productora '' %}
 		<b>Productora:</b> {{proyecto.productora}}<br>
-		<b>Genero:</b> {{proyecto.genero}}<br><br><br>
+		{%  endifnotequal %} 
+		
+		{% ifnotequal proyecto.reparto '' %}
+		<b>Reparto:</b> {{proyecto.reparto}}<br>
+		{%  endifnotequal %} 
+		
+		{% ifnotequal proyecto.genero '' %}
+		<b>Genero:</b> {{proyecto.genero}}<br>
+		{%  endifnotequal %} 
+		
+		
+		<br><br>
 	</div>
 	<div class="sinopsis">
 	<b>Sinopsis:</b><br>
 	{{proyecto.sinopsis}}
-	<br><br><h1> </h1>
-	{{proyecto.trailer|safe}}
+	<br><br>
+	{% ifnotequal proyecto.trailer '' %}
+	<a href="{{proyecto.trailer|safe}}" target="blank">Enlace a Trailer</a>
+		{%  endifnotequal %} 
+	
 	</div>
 	
 	{%ifequal user.id proyecto.cliente_id %}
