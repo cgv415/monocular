@@ -16,16 +16,9 @@ SERVICIO = (
 # Create your models here.
 
 class Servicio(models.Model):
-    nombre = models.CharField(max_length=15)
+    nombre = models.CharField(max_length=100)
     def __unicode__(self):
         return self.nombre
-
-  
-class Galeria(models.Model):
-    titulo = models.CharField(max_length=30)
-    imagen = models.ImageField(upload_to = 'galeria')
-    def __unicode__(self):
-        return self.titulo
     
 #Model Cortometraje
 class Proyecto(models.Model):
@@ -34,22 +27,27 @@ class Proyecto(models.Model):
     titulo=models.CharField(max_length=100)
     #Para mostrar ñ y acentos se escribe con la cadena u'texto con ñ'
     anyo=models.PositiveIntegerField(u'año',null=True,blank=True)
-    duracion = models.CharField(max_length=50,null=True,blank=True)
-    soporte = models.CharField(max_length=20,null=True,blank=True)
-    formato = models.CharField(max_length=20,null=True,blank=True)
-    director = models.CharField(max_length=50,null=True,blank=True)
+    duracion = models.CharField(max_length=100,null=True,blank=True)
+    soporte = models.CharField(max_length=100,null=True,blank=True)
+    formato = models.CharField(max_length=100,null=True,blank=True)
+    director = models.CharField(max_length=100,null=True,blank=True)
     productora =models.CharField(max_length=100,null=True,blank=True)
-    reparto =models.CharField(max_length=50,null=True,blank=True)
+    reparto =models.CharField(max_length=100,null=True,blank=True)
     sinopsis = models.TextField()
-    pais=models.CharField(max_length=50,null=True,blank=True)
+    pais=models.CharField(max_length=100,null=True,blank=True)
     genero = models.CharField(max_length=100,null=True,blank=True)
     trailer = models.TextField(null=True,blank=True)
     imagen = models.ImageField(upload_to = 'cortometrajes')
-    galeria = models.ManyToManyField(Galeria)
     #Por defecto se muestra el titulo del cortometraje
     def __unicode__(self):
         return self.titulo
 
+class Galeria(models.Model):
+    titulo = models.CharField(max_length=50)
+    imagen = models.ImageField(upload_to = 'galeria')
+    proyecto = models.ForeignKey(Proyecto)
+    def __unicode__(self):
+        return self.titulo
     #Modelo Festivales
 class Festival(models.Model):
     nombre = models.CharField(max_length=100)
@@ -69,7 +67,10 @@ class Estado_Corto(models.Model):
     def __unicode__(self):
         return self.estado
 #Modelo Publicidad
+
 class Publicidad(models.Model):
-    imagen = models.ImageField(upload_to = 'publicidad')
-    video = models.URLField()
-    titulo = models.CharField(max_length=60)
+    imagen = models.ImageField(upload_to = 'publicidadgallery')
+    video = models.CharField(max_length=100)
+    titulo = models.CharField(max_length=100)
+    def __unicode__(self):
+        return self.titulo

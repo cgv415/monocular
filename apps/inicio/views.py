@@ -16,6 +16,7 @@ def inicio(request):
     noticias = Noticia.objects.order_by('-fecha')
     video = VideoInicial.objects.filter(activo = True).order_by('id').reverse()[0]
     producciones = Proyecto.objects.filter(servicio__nombre='Produccion').order_by('-id')
+
     return render_to_response('inicio/inicio.html',{'video':video,'noticias':noticias,'producciones':producciones},context_instance=RequestContext(request))
 
 #vista para el contacto

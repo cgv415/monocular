@@ -1,9 +1,8 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from .models import Proyecto,Estado_Corto,Galeria
+from .models import Proyecto,Estado_Corto,Galeria,Festival,Publicidad
 from apps.administracion.models import TextoDescriptivo
 from django.contrib.auth.decorators import login_required
-from apps.servicios.models import Festival
 from apps.noticias.models import Noticia
 # Create your views here.
 #Ponemos login_required cuando queremos que solo usuarios autentificados puedan acceder a la vista
@@ -30,9 +29,10 @@ def Postproduccion(request):
     return render_to_response('servicios/postproduccion.html',{'texto':texto},context_instance=RequestContext(request))
 
 #Muestra todos los objetos de publicidad que se han creado
-def Publicidad(request):
+def PublicidadView(request):
+    publicidad = Publicidad.objects.all().order_by('-id')
     texto = TextoDescriptivo.objects.filter(tipo = 'publicidad')[0]
-    return render_to_response('servicios/publicidad.html',{'texto':texto},context_instance=RequestContext(request))
+    return render_to_response('servicios/publicidad.html',{'texto':texto,'publicidad':publicidad},context_instance=RequestContext(request))
 
 #Muestra todos los objetos de distribucion que se han creado
 def Distribucion(request):
@@ -48,10 +48,10 @@ def Ficha(request,offset):
     return render_to_response('servicios/proyecto.html',{'proyecto':proyecto,'estados':estados},context_instance=RequestContext(request))
 
 #Muestra un Festival
-def Festival(request,offset):
+def FestivalView(request,offset):
     cod = int(offset)
-    noticia = Noticia.objects.filter(id=cod)[0]
-    return render_to_response('/noticias/post.html',{'noticia':noticia},context_instance=RequestContext(request))
+    festival = Festival.objects.filter(id=cod)[0]
+    return render_to_response('/servicios/festival.html',{'festival':festival},context_instance=RequestContext(request))
 
 #     festival = Festival.objects.filter(id=cod)[0]
 #     return render_to_response('servicios/festival.html',{'festival':festival},context_instance=RequestContext(request))
