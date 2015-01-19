@@ -52,6 +52,7 @@ class Migration(migrations.Migration):
             name='Proyecto',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('portfolio', models.BooleanField()),
                 ('titulo', models.CharField(max_length=100)),
                 ('anyo', models.PositiveIntegerField(null=True, verbose_name='a\xf1o', blank=True)),
                 ('duracion', models.CharField(max_length=100, null=True, blank=True)),

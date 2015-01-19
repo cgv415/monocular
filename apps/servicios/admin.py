@@ -23,5 +23,5 @@ class PublicidadAdmin(admin.ModelAdmin):
 admin.site.register(Publicidad, PublicidadAdmin)
 
 class GaleriaAdmin(admin.ModelAdmin):
-    list_display = ('titulo',)
+    list_display = ('imagen','proyecto')
 admin.site.register(Galeria, GaleriaAdmin)

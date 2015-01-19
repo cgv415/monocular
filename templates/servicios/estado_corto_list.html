@@ -9,7 +9,7 @@
 <table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">	
 {%for estado in object_list%}
 		<tr>
-			<th scope="col"><a href="/servicios/festival/{{festival.id}}">{{estado.corto.titulo}}</a></th>
+			<th scope="col"><a href="/servicios/ficha/{{estado.corto.id}}">{{estado.corto.titulo}}</a></th>
 			<th scope="col"><a href="/servicios/festival/{{festival.id}}">{{estado.festival.nombre}}</a></th>
 			<th scope="col"><b>{{estado.estado}}</b></th>
 			<td><a href="/administracion/modificarEstado/{{estado.id}}">Modificar</a></td>

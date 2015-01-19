@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/festival.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+	<u><h1>{{anuncio.titulo}}</h1></u>
+	<img src="{{MEDIA_URL}}{{anuncio.imagen}}"><br>
+	<a href="{{anuncio.video}}">Trailer</a>
+</div>
+
+{%endblock%}

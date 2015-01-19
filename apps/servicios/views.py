@@ -29,7 +29,7 @@ def Postproduccion(request):
     return render_to_response('servicios/postproduccion.html',{'texto':texto},context_instance=RequestContext(request))
 
 #Muestra todos los objetos de publicidad que se han creado
-def PublicidadView(request):
+def PublicidadPage(request):
     publicidad = Publicidad.objects.all().order_by('-id')
     texto = TextoDescriptivo.objects.filter(tipo = 'publicidad')[0]
     return render_to_response('servicios/publicidad.html',{'texto':texto,'publicidad':publicidad},context_instance=RequestContext(request))
@@ -43,15 +43,20 @@ def Distribucion(request):
 #Muestra un cortometraje 
 def Ficha(request,offset):
     cod = int(offset)
-    proyecto = Proyecto.objects.filter(id=cod)[0]
+    proyectoR = Proyecto.objects.filter(id=cod)[0]
     estados = Estado_Corto.objects.filter(corto_id=cod)
-    return render_to_response('servicios/proyecto.html',{'proyecto':proyecto,'estados':estados},context_instance=RequestContext(request))
+    galeria = Galeria.objects.filter(proyecto=proyectoR).order_by('-id')
+    return render_to_response('servicios/proyecto.html',{'proyecto':proyectoR,'estados':estados,'galeria':galeria},context_instance=RequestContext(request))
 
 #Muestra un Festival
 def FestivalView(request,offset):
     cod = int(offset)
     festival = Festival.objects.filter(id=cod)[0]
-    return render_to_response('/servicios/festival.html',{'festival':festival},context_instance=RequestContext(request))
+    proyectos = Estado_Corto.objects.filter(festival__id=cod)
+    return render_to_response('servicios/festival.html',{'festival':festival,'proyectos':proyectos},context_instance=RequestContext(request))
 
-#     festival = Festival.objects.filter(id=cod)[0]
-#     return render_to_response('servicios/festival.html',{'festival':festival},context_instance=RequestContext(request))
+#Muestra un anuncio
+def Anuncio(request,offset):
+    cod = int(offset)
+    anuncio = Publicidad.objects.filter(id=cod)[0]
+    return render_to_response('servicios/anuncio.html',{'anuncio':anuncio,},context_instance=RequestContext(request))

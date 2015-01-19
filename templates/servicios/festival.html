@@ -5,8 +5,20 @@
 
 <div class="contenido">
 	<u><h1>{{festival.nombre}}</h1></u>
-	<h4>{{festival.ciudad}}</h4>
-	<h4>{{festival.anyo}}</h4>
+	<h4><b>Pais: </b>{{festival.pais}}</h4>
+	<h4><b>Ciudad: </b>{{festival.ciudad}}</h4>
+	<h4><b>Anyo: </b>{{festival.anyo}}</h4>
+	{%ifnotequal festival.fecha ''%}
+	<h4><b>Fecha: </b>{{festival.fecha}}</h4>
+	{%endifnotequal%}
+	{%ifnotequal festival.web ''%}
+	<h4><b>Web: </b>{{festival.web}}</h4>
+	{%endifnotequal%}
+	
+	{%for proyecto in proyectos%}
+		<h2>{{proyecto.corto.titulo}}</h2>
+		<h4>{{proyecto.estado}}</h4>
+	{%endfor%}
 </div>
 
 {%endblock%}

@@ -32,8 +32,8 @@
 			<div class="col-md-6">
 					<h1 style="background: black; color: white; padding: 5px;">Portafolio</h1>
 					<h1>PORTFOLIO</h1>
-		{%for produccion in producciones|slice:":16"%}
-			<li class="cortos"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada"></li>
+		{%for produccion in producciones|slice:":4"%}
+			<li class="cortos"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada" width="100px"></li>
 			<li><a href="/servicios/ficha/{{produccion.id}}">{{produccion.titulo}}</a></li>
 		{%endfor%}
 			</div>

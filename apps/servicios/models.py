@@ -24,6 +24,7 @@ class Servicio(models.Model):
 class Proyecto(models.Model):
     cliente = models.ForeignKey(User,null=True,blank=True)
     servicio = models.ManyToManyField(Servicio)
+    portfolio = models.BooleanField(default=False)
     titulo=models.CharField(max_length=100)
     #Para mostrar ñ y acentos se escribe con la cadena u'texto con ñ'
     anyo=models.PositiveIntegerField(u'año',null=True,blank=True)
@@ -43,7 +44,6 @@ class Proyecto(models.Model):
         return self.titulo
 
 class Galeria(models.Model):
-    titulo = models.CharField(max_length=50)
     imagen = models.ImageField(upload_to = 'galeria')
     proyecto = models.ForeignKey(Proyecto)
     def __unicode__(self):

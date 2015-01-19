@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.models import User
 from django.template import RequestContext
 
-from apps.servicios.models import Proyecto, Festival, Estado_Corto
+from apps.servicios.models import Proyecto, Festival, Estado_Corto,Publicidad
 from apps.noticias.models import Noticia
 from django.views.generic.edit import UpdateView, DeleteView
 from django.views.generic.list import ListView
@@ -87,7 +87,29 @@ class DeleteEstado(DeleteView):
     template_name='administracion/delete.html'
     model = Estado_Corto
     success_url = '/administracion/estadoslist'   
-    
+
+#Operaciones sobre Estados
+class PublicidadDetails(ListView):
+    model = Publicidad
+
+class CreateAnuncio(CreateView):
+    template_name='administracion/registrar.html'
+    model = Publicidad
+    fields=['titulo','imagen','video']
+    success_url = '/administracion/publicidadDetails'
+
+class UpdateAnuncio(UpdateView):
+    template_name='administracion/modificar.html'
+    model = Publicidad
+    fields=['titulo','imagen','video']
+    success_url = '/administracion/publicidadDetails'
+
+class DeleteAnuncio(DeleteView):
+    template_name='administracion/delete.html'
+    model = Publicidad
+    fields=['titulo','imagen','video']
+    success_url = '/administracion/publicidadDetails'
+
 #Cambiar
 def VerUsuarios(request):
     usuarios = User.objects.all().filter(is_staff=False)

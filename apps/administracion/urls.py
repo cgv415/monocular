@@ -2,7 +2,8 @@ from django.conf.urls import url
 from .views import RegistrarCorto, RegistrarNoticia, RegistrarFestival, ModificarNoticia
 from django.contrib.auth.views import login
 from apps.administracion.views import ModificarCorto, DeleteNoticia, NoticiasList, ProyectosList,\
- FestivalesList, DeleteProyecto,EstadosList,ModificarEstado,DeleteEstado,ModificarFestival,DeleteFestival,RegistrarEstado
+ FestivalesList, DeleteProyecto,EstadosList,ModificarEstado,DeleteEstado,ModificarFestival,DeleteFestival,RegistrarEstado,\
+    PublicidadDetails, CreateAnuncio, DeleteAnuncio, UpdateAnuncio
 # from django.contrib.auth.views import logout
 
 urlpatterns = [
@@ -28,8 +29,14 @@ urlpatterns = [
    url(r'^estadoslist$', EstadosList.as_view(), name='estados-list'), 
    url(r'^modificarEstado/(?P<pk>\d+)/$', ModificarEstado.as_view(), name='modificar_estado'),
    url(r'^eliminarEstado/(?P<pk>\d+)/$', DeleteEstado.as_view(), name='eliminar_estado'),
-   
    url(r'^registrarEstado/', RegistrarEstado.as_view(), name="registrar_estado"),
+   
+   url(r'^publicidadDetails$', PublicidadDetails.as_view(), name='publicidad-details'), 
+   url(r'^updateAnuncio/(?P<pk>\d+)/$', UpdateAnuncio.as_view(), name='update-anuncio'),
+   url(r'^deleteAnuncio/(?P<pk>\d+)/$', DeleteAnuncio.as_view(), name='delete-anuncio'),
+   url(r'^createAnuncio/', CreateAnuncio.as_view(), name="create-anuncio"),
+   
+   
    url(r'^verUsuarios/', 'apps.administracion.views.VerUsuarios', name="ver_usuarios"),
    url(r'^verAdministradores/', 'apps.administracion.views.VerAdministradores', name="ver_administradores"),
    

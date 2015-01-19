@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/ver.css">
+{% endblock %} {% block contenido %}
+
+<div class="contenido">
+<h1>FESTIVALES</h1>
+<h2><a href="/administracion/createAnuncio">Add</a></h2>
+<table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">	
+{%for anuncio in object_list%}
+		<tr>
+			<th scope="col"><a href="/servicios/anuncio/{{anuncio.id}}">{{anuncio.titulo}}</a></th>
+			<td><a href="/administracion/updateAnuncio/{{anuncio.id}}">Modificar</a></td>
+			<td><a href="/administracion/deleteAnuncio/{{anuncio.id}}">Borrar</a></td>
+		</tr>
+{%endfor%}
+</table>
+</div>
+
+
+{%endblock%}
