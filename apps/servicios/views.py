@@ -3,8 +3,8 @@ from django.template import RequestContext
 from .models import Proyecto,Estado_Corto,Galeria,Festival,Publicidad
 from apps.administracion.models import TextoDescriptivo
 from django.contrib.auth.decorators import login_required
-from apps.noticias.models import Noticia
 # Create your views here.
+
 #Ponemos login_required cuando queremos que solo usuarios autentificados puedan acceder a la vista
 @login_required()
 #En esta vista lo que se hace es mostrar todos los objetos creados a nombre del usuario que accede
@@ -17,7 +17,7 @@ def MiFicha(request):
 def Servicios(request):
     return render_to_response('servicios/servicios.html',context_instance=RequestContext(request))
 
-#Muestra todos los objetos de produccion que se han creado
+#Muestra todos los s de produccion que se han creado
 def Produccion(request):
     texto = TextoDescriptivo.objects.filter(tipo = 'produccion')[0]
     proyectos = Proyecto.objects.filter(servicio__nombre='Produccion').order_by('-id')
@@ -28,19 +28,19 @@ def Postproduccion(request):
     texto = TextoDescriptivo.objects.filter(tipo = 'postproduccion')[0]
     return render_to_response('servicios/postproduccion.html',{'texto':texto},context_instance=RequestContext(request))
 
-#Muestra todos los objetos de publicidad que se han creado
+#Muestra todos los anuncios que se han creado
 def PublicidadPage(request):
     publicidad = Publicidad.objects.all().order_by('-id')
     texto = TextoDescriptivo.objects.filter(tipo = 'publicidad')[0]
     return render_to_response('servicios/publicidad.html',{'texto':texto,'publicidad':publicidad},context_instance=RequestContext(request))
 
-#Muestra todos los objetos de distribucion que se han creado
+#Muestra todos los proyectos de distribucion que se han creado
 def Distribucion(request):
     texto = TextoDescriptivo.objects.filter(tipo = 'distribucion')[0]
     proyectos = Proyecto.objects.filter(servicio__nombre='Distribucion').order_by('-id')
     return render_to_response('servicios/distribucion.html',{'texto':texto,'proyectos':proyectos},context_instance=RequestContext(request))
 
-#Muestra un cortometraje 
+#Muestra un proyecto
 def Ficha(request,offset):
     cod = int(offset)
     proyectoR = Proyecto.objects.filter(id=cod)[0]

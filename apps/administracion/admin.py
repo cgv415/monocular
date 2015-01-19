@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Cliente,Empleado,Usuario,TextoDescriptivo
 # Register your models here.
 
+
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('usuario',)
 admin.site.register(Cliente, ClienteAdmin)
