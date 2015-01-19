@@ -69,8 +69,8 @@ class Estado_Corto(models.Model):
 #Modelo Publicidad
 
 class Publicidad(models.Model):
-    imagen = models.ImageField(upload_to = 'publicidadgallery')
-    video = models.CharField(max_length=100)
     titulo = models.CharField(max_length=100)
+    imagen = models.ImageField(upload_to = 'publicidadgallery',null=True,blank=True)
+    video = models.CharField(max_length=100,null=True,blank=True)
     def __unicode__(self):
         return self.titulo
