@@ -48,6 +48,8 @@ INSTALLED_APPS = (
     'apps.servicios',
     'apps.administracion',
     'apps.portfolio',
+    #'tinymce'
+    #'ckeditor'
 )
 
 MIDDLEWARE_CLASSES = (

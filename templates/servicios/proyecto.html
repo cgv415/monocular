@@ -53,79 +53,47 @@
         });
     </script>
 	{%endblock%}
-	
-<div class="contenido">	
-	<u><h1>{{proyecto.titulo}}</h1></u>
-	<h2>Palmares:</h2>
-	{%for estado in estados%}	
-	<h3>{{estado.estado|upper}} - {{proyecto.anyo}} {{proyecto.festival|upper}},{{estado.festival.ciudad|upper}}</h3>
-	{%endfor%}
-	
-	<br><img src="{{MEDIA_URL}}{{proyecto.imagen}}" class="imagen"></a>
-	<div class="informacion">
-		
-		{% ifnotequal proyecto.anyo '' %}
-		<b>Agno:</b> {{proyecto.anyo}}<br>
-		{%  endifnotequal %} 
-		
-		{% ifnotequal proyecto.pais '' %}
-		<b>Pais:</b> {{proyecto.pais}}<br>
-		{%  endifnotequal %} 
-		
-		{% ifnotequal proyecto.duracion '' %}
-		<b>Duracion:</b>{{proyecto.duracion}}
-		{%  endifnotequal %} 
-		
-		{% ifnotequal proyecto.soporte '' %}
-		<b>soporte:</b>{{proyecto.soporte}}
-		{%  endifnotequal %} 
-		
-		{% ifnotequal proyecto.formato '' %}
-		<b>Formato:</b>{{proyecto.formato}}
-		{%  endifnotequal %} 
-		
-		{% ifnotequal proyecto.director '' %}
-		<b>Director:</b> {{proyecto.director}}<br>
-		{%  endifnotequal %} 
-		
-		{% ifnotequal proyecto.productora '' %}
-		<b>Productora:</b> {{proyecto.productora}}<br>
-		{%  endifnotequal %} 
-		
-		{% ifnotequal proyecto.reparto '' %}
-		<b>Reparto:</b> {{proyecto.reparto}}<br>
-		{%  endifnotequal %} 
-		
-		{% ifnotequal proyecto.genero '' %}
-		<b>Genero:</b> {{proyecto.genero}}<br>
-		{%  endifnotequal %} 
-		
-		
-		<br><br>
-	</div>
-	<div class="sinopsis">
-	<b>Sinopsis:</b><br>
-	{{proyecto.sinopsis}}
-	<br><br>
-	{% ifnotequal proyecto.trailer '' %}
-	<a href="{{proyecto.trailer|safe}}" target="blank">Enlace a Trailer</a>
-		{%  endifnotequal %} 
-	
-	</div>
-	
-	 <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 800px;
+	<table width="991" border="0" align="center">
+	  <tr>
+	    <td height="64" colspan="2" align="center" valign="middle"><u><strong><h1>{{proyecto.titulo|upper}}</h1></strong></u></td>
+      </tr>
+	  <tr>
+	    <td height="82" colspan="2"><h2>Palmares:</h2>
+        {%for estado in estados%}
+        <h3>{{estado.estado|upper}} - {{estado.festival.anyo}} {{estado.festival|upper}},{{estado.festival.ciudad|upper}}</h3>
+  		{%endfor%}
+  </td>
+      </tr>
+	  <tr>
+	    <td width="487" height="71">
+        {% ifnotequal proyecto.anyo '' %} <h5>Agno: {{proyecto.anyo}}</h5> {% endifnotequal %} 
+        {% ifnotequal proyecto.pais '' %} <h5>Pais: {{proyecto.pais}}</h5> {% endifnotequal %} 
+        {% ifnotequal proyecto.duracion '' %} <h5>Duracion:{{proyecto.duracion}}</h5> {% endifnotequal %} 
+        {% ifnotequal proyecto.soporte '' %} <h5>soporte:{{proyecto.soporte}}</h5> {% endifnotequal %} 
+        {% ifnotequal proyecto.formato '' %} <h5>Formato:{{proyecto.formato}}</h5> {% endifnotequal %} 
+        {% ifnotequal proyecto.director '' %} <h5>Director: {{proyecto.director}}</h5> {% endifnotequal %} 
+        {% ifnotequal proyecto.productora '' %} <h5>Productora: {{proyecto.productora}}</h5> {% endifnotequal %} 
+        {% ifnotequal proyecto.reparto '' %} <h5>Reparto: {{proyecto.reparto}}</h5> {% endifnotequal %} 
+        {% ifnotequal proyecto.genero '' %} <h5>Genero: {{proyecto.genero}}</h5> {% endifnotequal %} </td>
+	    <td width="488" rowspan="3" align="center"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="imagen del proyecto" width="177" height="300" class="imagen" /></br>
+        {% ifnotequal proyecto.trailer '' %}<a href="{{proyecto.trailer}}" target="_blank"> Enlace a Trailer </a>{% endifnotequal %}</td>
+      </tr>
+	  <tr>
+	    <td width="487" height="80">Sinopsis:{{proyecto.sinopsis}} </td>
+      </tr>
+	  <tr>
+	    <td height="102">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td height="63" colspan="2" align="center"><div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 800px;
         height: 300px; overflow: hidden;">
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 800px; height: 300px;
-            overflow: hidden;">
-            {%for imagen in galeria%}
-			 <div><img u="image" src="{{MEDIA_URL}}{{imagen.imagen}}" /></div>
-			{%endfor%}
-
-        </div>
-
-        <!-- Arrow Navigator Skin Begin -->
-        <style>
+    <!-- Slides Container -->
+    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 800px; height: 300px;
+            overflow: hidden;"> {%for imagen in galeria%}
+      <div><img src="{{MEDIA_URL}}{{imagen.imagen}}" alt="imagen de algo" u="image" /></div>
+   {%endfor%} </div>
+    <!-- Arrow Navigator Skin Begin -->
+    <style>
             /* jssor slider arrow navigator skin 13 css */
             /*
             .jssora13l              (normal)
@@ -167,45 +135,51 @@
                 background-position: -310px -35px;
             }
         </style>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora13l" style="width: 40px; height: 50px; top: 123px; left: 30px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora13r" style="width: 40px; height: 50px; top: 123px; right: 30px">
-        </span>
-        <!-- Arrow Navigator Skin End -->
-        <a style="display: none" href="http://www.jssor.com">bootstrap slider</a>
-    </div>
+    <!-- Arrow Left -->
+    <span u="arrowleft" class="jssora13l" style="width: 40px; height: 50px; top: 123px; left: 30px;"> </span>
+    <!-- Arrow Right -->
+    <span u="arrowright" class="jssora13r" style="width: 40px; height: 50px; top: 123px; right: 30px"> </span>
+    <!-- Arrow Navigator Skin End -->
+<a style="display: none" href="http://www.jssor.com">bootstrap slider</a> </div></td>
+      </tr>
+	  <tr>
+	    <td height="30" colspan="2">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td height="96" colspan="2">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td height="25" colspan="2">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td height="25" colspan="2">&nbsp;</td>
+      </tr>
+</table>
 
-        </div>
-
-	
-	{%ifequal user.id proyecto.cliente_id %}
-	<table class="tabla" width="100%" border="2" cellspacing="0" bordercolor="#000000">		
-		<tr>
-			<th scope="col">CORTOMETRAJE</th>
-			<th scope="col">ANO DE PRODUCCION</th>
-			<th scope="col">FESTIVAL/ANO</th>
-			<th scope="col">CIUDAD/PAIS</th>
-			<th scope="col">FECHA</th>
-			<th scope="col">WEB</th>
-			<th scope="col">ESTADO</th>
-		</tr>
-		{%for estado in estados%}	
-		<tr>
-			<td>{{proyecto.titulo}}</td>
-			<td>{{proyecto.anyo}}</td>
-			<td>{{estado.festival}}/{{estado.festival.anyo}}</td>
-			<td>{{estado.festival.ciudad}}/{{estado.festival.pais}}</td>
-			<td>{{estado.festival.fecha}}</td>
-			<td>{{estado.festival.web}}</td>
-			<td>{{estado.estado}}</td>
-		</tr>
-
-	{%endfor%}
-		</table>
-	{%endifequal%}
-	
+{%ifequal user.id proyecto.cliente_id %}
+<table class="tabla" width="100%" border="2" cellspacing="0" bordercolor="#000000">
+  <tr>
+    <th scope="col">CORTOMETRAJE</th>
+    <th scope="col">ANO DE PRODUCCION</th>
+    <th scope="col">FESTIVAL/ANO</th>
+    <th scope="col">CIUDAD/PAIS</th>
+    <th scope="col">FECHA</th>
+    <th scope="col">WEB</th>
+    <th scope="col">ESTADO</th>
+  </tr>
+  {%for estado in estados%}
+  <tr>
+    <td>{{proyecto.titulo}}</td>
+    <td>{{proyecto.anyo}}</td>
+    <td>{{estado.festival}}/{{estado.festival.anyo}}</td>
+    <td>{{estado.festival.ciudad}}/{{estado.festival.pais}}</td>
+    <td>{{estado.festival.fecha}}</td>
+    <td>{{estado.festival.web}}</td>
+    <td>{{estado.estado}}</td>
+  </tr>
+  {%endfor%}
+</table>
+{%endifequal%}
 </div>
 
 {%endblock%}

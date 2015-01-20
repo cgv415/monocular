@@ -46,8 +46,7 @@ class Proyecto(models.Model):
 class Galeria(models.Model):
     imagen = models.ImageField(upload_to = 'galeria')
     proyecto = models.ForeignKey(Proyecto)
-    def __unicode__(self):
-        return self.titulo
+
     #Modelo Festivales
 class Festival(models.Model):
     nombre = models.CharField(max_length=100)
