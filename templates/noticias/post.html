@@ -1,13 +1,32 @@
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/noticias.css">
 {% endblock %}
 
 {% block contenido %}	
-	<div class="noticias">	
-	<h1>{{noticia.titulo}}</h1>
-	<img src="{{MEDIA_URL}}{{noticia.imagen}}" class="imagen">
-	<h2>{{noticia.texto}}</h2>
-	<h3>{{noticia.fecha}}</h3>
+	<div align="center">
+      <table width="79%" border="0">
+        <tr>
+          <td width="4%">&nbsp;</td>
+          <td colspan="3" align="center"><h2><strong>{{noticia.titulo}}</strong></h2></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td width="42%"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="350" height="350"></td>
+          <td width="1%" rowspan="4" valign="top"><h4>&nbsp;</h4></td>
+          <td width="53%" rowspan="4" valign="top"><h4>{{noticia.texto}}</h4></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><h6>{{noticia.fecha}}</h6></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
 	</div>
 {%endblock%}
