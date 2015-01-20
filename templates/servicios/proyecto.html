@@ -53,6 +53,8 @@
         });
     </script>
 	{%endblock%}
+    
+    <div>
 	<table width="991" border="0" align="center">
 	  <tr>
         <td width="25"></td>
@@ -94,11 +96,12 @@
           {% ifnotequal proyecto.genero '' %}
           <h5><b>Genero:</b> {{proyecto.genero}}</h5>
           {% endifnotequal %} </td>
-        <td width="369" rowspan="3" align="center"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="imagen del proyecto" width="177" height="300" class="imagen" /> {% ifnotequal proyecto.trailer '' %}<a href="{{proyecto.trailer}}" target="_blank"> Enlace a Trailer </a>{% endifnotequal %}</td>
+        <td width="369" rowspan="3" align="center"><p><img src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="imagen del proyecto" width="177" height="300" class="imagen" /> </p>
+        <p>{% ifnotequal proyecto.trailer '' %}<a href="{{proyecto.trailer}}" target="_blank"> Enlace a Trailer </a>{% endifnotequal %}</p></td>
       </tr>
       <tr>
         <td></td>
-        <td width="583" height="80">Sinopsis:{{proyecto.sinopsis}} </td>
+        <td width="583" height="80"><strong>Sinopsis:</strong>{{proyecto.sinopsis}} </td>
       </tr>
       <tr>
         <td></td>
@@ -167,7 +170,7 @@
         <td colspan="2">&nbsp;</td>
       </tr>
 </table>
-
+</div>
 {%ifequal user.id proyecto.cliente_id %}
 <table class="tabla" width="100%" border="2" cellspacing="0" bordercolor="#000000">
   <tr>

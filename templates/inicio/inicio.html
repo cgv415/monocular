@@ -1,42 +1,182 @@
-{% extends 'base.html' %} 
-{% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
-{% endblock %} {% block contenido %}
+<style type="text/css">
 
+.justificado {
+	text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.centradoVideo {
+	text-align: center;
+}
+.justificado1 {	text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado11 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado12 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado121 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado1211 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado12111 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado121111 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado1211111 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado2 {	text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado21 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado22 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado211 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado2111 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado12111111 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado21111 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado3 {	text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado31 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+.justificado211111 {text-align: justify;
+	padding: 10px;
+	text-align:start;
+}
+</style>
+{% extends 'base.html' %}{% block contenido %}
 
-<div class="row">
-	<div align="center">
-		{{video.codigo| safe}}
-	</div>
+<style type="text/css">
+.noticias {
+	color: #FFF;
+	font-size: 24px;
+	text-align: center;
+	text-align:left;
+}
+.portafolio {
+	font-weight: bold;
+	font-size: 24px;
+	color: #FFF;
+}
+.portofolioNegrita {
+	color: #000;
+}
+.negrita {
+	color: #000;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration:none
+}
+.normal {
+	font-size: 16px;
+	color: #000;
+}
+sinNegrita {
+	font-weight: normal;
+}
+</style>
 
-            <div class="col-md-6">
-            	<h1 style="background: black; color: white; padding: 5px;">Noticias</h1>
-				<div>
+<div align="center">
+<table width="90%" border="0" cellspacing="2" cellpadding="0" align="center">
+  <tr >
+    <td width="0%" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+    <td width="0%" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+    <td colspan="5" bgcolor="#FFFFFF" class="centradoVideo" >{{video.codigo| safe}}</td>
+    <td width="5%" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+    <td width="0%" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="5" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+  </tr>
+  <tr>
+    <td  width="40%" bgcolor="#000000" class="noticias" align="left">Noticias destacadas</td>
+    <td width="2%" rowspan="3" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+    <td  width="40%"colspan="3" bgcolor="#000000" class="noticias" align="left">Portfolio</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="3" rowspan="2" align="center" valign="middle" bgcolor="#FFFFFF" class="noticias"><table width="100%" height="204" border="0" align="center" cellpadding="0" cellspacing="2">
+      <tr>{%for produccion in producciones|slice:":2"%}
+        
+        <td width="50%" align="center" valign="top"> <span class="noticias"><span class="negrita"><a class="justificado31" href="/servicios/ficha/{{produccion.id}}"><p align="center" style="color:#000; text-decoration:none; font-weight:bold;">{{produccion.titulo}}</p></a></span></span></td>
+        
+        {%endfor%} </tr>
+      <tr>{%for produccion in producciones|slice:":2"%}
+        
+        <td width="50%" align="center" valign="top"> <span class="noticias"><img src="{{MEDIA_URL}}{{produccion.imagen}}" alt="" width="150" height="205" /></span></td>
+        {%endfor%}  </tr>
+    </table><br/>
+    
+    
+     <table width="100%" height="204" border="0" align="center" cellpadding="0" cellspacing="2">
+       <tr>{%for produccion in producciones|slice:"2:"%}
+         
+         <td width="50%" align="center"> <span class="noticias"><span class="negrita"><a class="justificado31" href="/servicios/ficha/{{produccion.id}}"><p align="center" style="color:#000; text-decoration:none; font-weight:bold;">{{produccion.titulo}}</p></a></span></span></td>
+         
+         {%endfor%} </tr>
+       <tr>{%for produccion in producciones|slice:"2:"%}
+         
+         <td width="50%" align="center"> <span class="noticias"><img src="{{MEDIA_URL}}{{produccion.imagen}}" alt="" width="150" height="205" /></span></td>
+         {%endfor%}  </tr>
+     </table><br/><br/>    </td>
+  </tr>
+  <tr>
+    
+    <td valign="top">{%for noticia in noticias|slice:":2"%}<p class="negrita">{{noticia.titulo}}
+      </p>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td width="41%" align="center" valign="middle"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="200" height="175" /></td>
+          <td width="59%"><p class="justificado" >{{noticia.resumen}}</p>
+            <a class="justificado" href="/noticias/post/{{noticia.id}}">Saber mas</a><br/>
+            <p class="justificado">{{noticia.fecha}}</p></td>
+          </tr>
+        </table><br/>
+      <p >{%endfor%}</p></td>
+    
+    </tr>
+  <tr>
+    <td colspan="5"><p></p></td>
+  </tr>
+</table>
 
-					{%for noticia in noticias|slice:":2"%}
-					<div>
-						<h1>{{noticia.titulo}}</h1>
-
-						<img src="{{MEDIA_URL}}{{noticia.imagen}}" class="imagen col-md-6" width="40%"><br>
-						<div class="col-md-6">
-						<p >{{noticia.resumen}}</p>
-						<a href="/noticias/post/{{noticia.id}}" >ver mas</a> 
-						
-						</div>
-					</div>
-					{%endfor%}
-				</div>
-		    </div>
-
-			<div class="col-md-6">
-					<h1 style="background: black; color: white; padding: 5px;">Portafolio</h1>
-					<h1>PORTFOLIO</h1>
-		{%for produccion in producciones|slice:":4"%}
-			<li class="cortos"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada" width="100px"></li>
-			<li><a href="/servicios/ficha/{{produccion.id}}">{{produccion.titulo}}</a></li>
-		{%endfor%}
-			</div>
-		
 </div>
+
 {%endblock%}
