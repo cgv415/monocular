@@ -68,31 +68,31 @@
       <tr>
         <td></td>
         <td width="583" height="71"> {% ifnotequal proyecto.anyo '' %}
-          <h5>Agno: {{proyecto.anyo}}</h5>
+          <h5><b>Agno:</b> {{proyecto.anyo}}</h5>
           {% endifnotequal %} 
           {% ifnotequal proyecto.pais '' %}
-          <h5>Pais: {{proyecto.pais}}</h5>
+          <h5><b>Pais: </b>{{proyecto.pais}}</h5>
           {% endifnotequal %} 
           {% ifnotequal proyecto.duracion '' %}
-          <h5>Duracion:{{proyecto.duracion}}</h5>
+          <h5><b>Duracion:</b>{{proyecto.duracion}}</h5>
           {% endifnotequal %} 
           {% ifnotequal proyecto.soporte '' %}
-          <h5>soporte:{{proyecto.soporte}}</h5>
+          <h5><b>soporte:</b>{{proyecto.soporte}}</h5>
           {% endifnotequal %} 
           {% ifnotequal proyecto.formato '' %}
-          <h5>Formato:{{proyecto.formato}}</h5>
+          <h5><b>Formato:</b>{{proyecto.formato}}</h5>
           {% endifnotequal %} 
           {% ifnotequal proyecto.director '' %}
-          <h5>Director: {{proyecto.director}}</h5>
+          <h5><b>Director:</b> {{proyecto.director}}</h5>
           {% endifnotequal %} 
           {% ifnotequal proyecto.productora '' %}
-          <h5>Productora: {{proyecto.productora}}</h5>
+          <h5><b>Productora:</b> {{proyecto.productora}}</h5>
           {% endifnotequal %} 
           {% ifnotequal proyecto.reparto '' %}
-          <h5>Reparto: {{proyecto.reparto}}</h5>
+          <h5><b>Reparto:</b> {{proyecto.reparto}}</h5>
           {% endifnotequal %} 
           {% ifnotequal proyecto.genero '' %}
-          <h5>Genero: {{proyecto.genero}}</h5>
+          <h5><b>Genero:</b> {{proyecto.genero}}</h5>
           {% endifnotequal %} </td>
         <td width="369" rowspan="3" align="center"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="imagen del proyecto" width="177" height="300" class="imagen" /> {% ifnotequal proyecto.trailer '' %}<a href="{{proyecto.trailer}}" target="_blank"> Enlace a Trailer </a>{% endifnotequal %}</td>
       </tr>
