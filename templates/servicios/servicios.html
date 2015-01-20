@@ -1,17 +1,23 @@
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
-{% endblock %} {% block contenido %}
-
-<div class="contenido">
-	<h1>Servicios</h1>
-	<ul>
-	<li><a href="produccion">Produccion</a></li>
-	<li><a href="postproduccion">PostProduccion</a></li>
-	<li><a href="publicidad">Publicidad</a></li>
-	<li><a href="distribucion">Distribucion</a></li>
-	</ul>
-</div>
-
+<p>{% endblock %} {% block contenido %} </p>
+<table width="90%" border="0">
+  <tr>
+    <td width="56" rowspan="4">&nbsp;</td>
+    <td colspan="2" align="center"><strong>Servicios</strong></td>
+  </tr>
+  <tr>
+    <td width="478" height="54" align="center"><a href="produccion">Produccion</a></td>
+    <td width="418" align="center"><a href="postproduccion">Montaje</a></td>
+  </tr>
+  <tr>
+    <td height="60" align="center"><a href="publicidad">Publicidad</a></td>
+    <td align="center"><a href="distribucion">Distribucion</a></td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+</table>
 
 {%endblock%}

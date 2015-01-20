@@ -1,19 +1,99 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head></head>
-<body>
-{% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-{% endblock %} {% block contenido %}
-<span style="font-weight: bold;"><br><br></span><table style="text-align: left; margin-left: 37px; width: 987px;" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="width: 450px;"></td><td style="width: 451px;"><br><div style="left: 542px; top: 134px; position: absolute;"></div></td></tr><tr><td style="width: 450px;"></td><td style="width: 451px;"></td></tr><tr><td style="width: 450px;"></td><td style="width: 451px;"></td></tr></tbody></table><h1><br>
-</h1>
-{%if exito%}
-<h1>Formulario enviado con exito</h1>
-{%else%}
-<form action="/contacto" method="post"> {%
-csrf_token%} {{form.as_p}} <input value="Enviar" type="submit"> </form>
-<h1>Contacto:</h1>
-<h2>Correo: </h2>
-<h2>Telefono: </h2>
-<h2>Direccion: </h2>
-{%endif%} {%endblock%}
-</body></html>
+<style type="text/css">
+.cabeceraTabla {
+	color: #FFF;
+	font-weight: bold;
+	font-size: 24px;
+}
+.centrar {
+	text-align: center;
+}
+.negrita {
+	font-weight: bold;
+	color: #000;
+	font-size: 18px;
+	text-align: left;
+}
+
+.tamanoFijo {
+	
+	resize:none;
+	
+}
+</style>
+{% extends 'base.html' %} {% block contenido %}
+
+{%load staticfiles%}
+
+<div align="center">
+<form id="form1" name="form1" method="post" action="/contacto">
+
+	<table width="70%" border="0" cellspacing="2" cellpadding="0">
+	  <tr>
+	    <td colspan="7">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td width="1%" rowspan="13">&nbsp;</td>
+	    <td colspan="5" bgcolor="#000000" class="cabeceraTabla">Contacta con Monocular</td>
+	    <td width="1%" rowspan="10">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td width="5%" rowspan="12">&nbsp;</td>
+	    <td colspan="4">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td width="38%" bgcolor="#FFFFFF" class="negrita"><p>Nombre/Raz&oacute;n Social:</p></td>
+	    <td width="6%">&nbsp;</td>
+	    <td colspan="2" rowspan="9" align="left" valign="top"><p><img src="{% static "img/logos/fondonegro.png" %}" width="250" height="250" /></p>
+        <p>jbjk.b.kjb.</p></td>
+      </tr>
+	  <tr>
+	    <td bgcolor="#FFFFFF" class="negrita"><p><input name="textfield" type="text" id="textfield" size="40" /></p></td>
+	    <td width="6%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td bgcolor="#FFFFFF" class="negrita"><p>Tel&eacute;fono de contacto:</p></td>
+	    <td width="6%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td bgcolor="#FFFFFF" class="negrita"><p><input name="textfield2" type="text" id="textfield2" size="25" /></p></td>
+	    <td width="6%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td bgcolor="#FFFFFF" class="negrita"><p>Correo electr&oacute;nico:</p></td>
+	    <td width="6%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td bgcolor="#FFFFFF" class="negrita"><p><input name="textfield3" type="text" id="textfield3" size="25" /></p></td>
+	    <td width="6%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td height="40" bgcolor="#FFFFFF" class="negrita">Observaciones:</td>
+	    <td width="6%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td height="31" bgcolor="#FFFFFF" class="negrita"><textarea name="textarea" cols="45" rows="5" class="tamanoFijo" id="textarea"></textarea></td>
+	    <td width="6%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td colspan="2">&nbsp;</td>
+	    <td width="1%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td colspan="2" class="centrar"><input type="submit" name="button" id="button" value="Enviar" />
+        <input type="reset" name="button2" id="button2" value="Restablecer" /></td>
+	    <td colspan="2"></td>
+	    <td width="1%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td colspan="2">&nbsp;</td>
+	    <td colspan="2">&nbsp;</td>
+	    <td width="1%">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td colspan="7">&nbsp;</td>
+      </tr>
+    </table>
+</form>
+</div>
+
+{%endblock%}
