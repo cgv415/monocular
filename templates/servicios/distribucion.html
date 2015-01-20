@@ -1,17 +1,38 @@
-{% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/distribucion.css">
-{% endblock %} {%block titulo%} Distribucion {%endblock%} 
-{% block contenido %}
-<div class="contenido">
-	<h1>Apartado de Distribucion</h1>
-	<p>{{texto.texto}}</p>
-	<ul >
-		{%for proyecto in proyectos|slice:":16"%}
-		<li class="cortos"><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" class="portada"></a></li>
-		{%endfor%}
-	</ul>
-
+<style type="text/css">
+.tamgr {
+	font-size: 24px;
+}
+.tamgr u {
+	font-size: 36px;
+}
+.tammed {
+	font-size: 18px;
+}
+</style>
+<p>{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+  {%endcomment %}
+  {%block titulo%} Distribucion {%endblock%} 
+  {% block contenido %}
+<div align="center">
+  <table width="90%" border="1">
+    <tr>
+      <td colspan="3" align="center"><h1><strong class="tamgr"><u>DISTRIBUCION</u></strong></h1></td>
+    </tr>
+    <tr>
+      <td width="10%">&nbsp;</td>
+      <td colspan="2" align="center" class="tammed">{{texto.texto}}</td>
+    </tr>
+    <tr>
+      <td rowspan="2">&nbsp;</td>
+      <td width="48%">{%for proyecto in proyectos|slice:":16"%}
+		<a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="93" height="173" class="portada"></a>
+		{%endfor%}</td>
+      <td width="42%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td width="42%">&nbsp;</td>
+    </tr>
+  </table>
 </div>
-
-{%endblock%}
+<p> {%endblock%}</p>

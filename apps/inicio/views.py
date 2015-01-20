@@ -25,8 +25,10 @@ def contacto(request):
         if form.is_valid():   
             mail = form.cleaned_data['mail']
             nombre = form.cleaned_data['nombre']
+            telefono = form.cleaned_data['telefono']
+            tlfn = str(telefono)
             asunto = 'Mensaje de contacto de' + ' ' + nombre+  ', (' + mail+')'
-            mensaje = form.cleaned_data['mensaje'] +' de '+ mail
+            mensaje = form.cleaned_data['mensaje'] +' de '+ mail + ' telefono: ' + tlfn
             #send_mail(asunto,mensaje,['carlosgarrido993@gmail.com'])
             email=EmailMessage(asunto,mensaje,to=['carlosgarrido993@gmail.com'])
             email.send()

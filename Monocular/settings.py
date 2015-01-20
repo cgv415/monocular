@@ -28,7 +28,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 # Redirect when login is correct.
-LOGIN_REDIRECT_URL = "/inicio/"
+LOGIN_REDIRECT_URL = "/administracion/"
 # Redirect when login is not correct.
 LOGIN_URL = '/administracion'
 LOGOUT_URL = '/administracion/logout'

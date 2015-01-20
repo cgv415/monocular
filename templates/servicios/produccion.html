@@ -1,20 +1,25 @@
+<style type="text/css">
+.texto {
+	font-size: 24px;
+}
+</style>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
-<p>{% endblock %}
+{% endblock %}
   {%block titulo%}Produccion {%endblock%}
-  {% block contenido %} </p>
+  {% block contenido %}
+  <div align="center">
 <table width="90%" border="1">
   <tr>
-    <td colspan="3" align="center"><h1>PRODUCCION</h1></td>
+    <td colspan="3" align="center"><h1><strong><u>PRODUCCION</u></strong></h1></td>
   </tr>
   <tr>
     <td width="8%" rowspan="4">&nbsp;</td>
-    <td width="59%"><p>{{texto.texto}}</p></td>
-    <td width="33%" rowspan="2">&nbsp;</td>
+    <td colspan="2" align="center"><p class="texto">{{texto.texto}}</p></td>
   </tr>
   <tr>
-    <td width="60%" align="center">{%for proyecto in proyectos|slice:":16"%}
+    <td colspan="2" align="center">{%for proyecto in proyectos|slice:":16"%}
       <a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="120" height="201" hspace="50"></a>
     {%endfor%}</td>
   </tr>
@@ -22,9 +27,9 @@
     <td height="23" colspan="2"></td>
   </tr>
   <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td width="60%">&nbsp;</td>
+    <td width="33%">&nbsp;</td>
   </tr>
 </table>
-
+</div>
 {%endblock%}

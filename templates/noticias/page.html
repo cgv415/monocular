@@ -1,32 +1,62 @@
+<style type="text/css">
+.tam36 {
+	font-size: 36px;
+}
+</style>
 {% extends 'base.html' %} 
 {% comment %} Aqui van los comentarios{%endcomment %} 
 
 {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/noticias.css">
 {% endblock %}
-
 {% block contenido %}
-
-	{%for noticia in noticias%}
-		<div class="noticias">
-			<h1>{{noticia.titulo}}</h1>
-			<img src="{{MEDIA_URL}}{{noticia.imagen}}" class="imagen">
-			<h2>{{noticia.resumen}}</h2>
-			<h3>{{noticia.fecha}}</h3>
-			<a href="/noticias/post/{{noticia.id}}">ver mas</a>
-		</div>
-	{% endfor %}
-	<div class="paginacion">
-	{%if has_prev%}
-		{%if has_next%}
-		<h1 class="anterior"><a href="/noticias/page/{{ant}}">pagina anterior</a></h1>
-		<h1 class="siguiente"><a href="/noticias/page/{{sig}}">pagina siguiente</a></h1>
-		{%else%}
-		<h1 class="anterior"><a href="/noticias/page/{{ant}}">pagina anterior</a></h1>
-		{%endif%}
-	{%elif has_next%}	
-		<h1 class="anterior"><a href="/noticias/page/{{sig}}">pagina siguiente</a></h1>
-	{%endif%}
-	
-	</div>
+<div align="center">
+  <table width="44%" border="0">
+    <tr>
+      <td width="1%">&nbsp;</td>
+      <td colspan="2" align="center"><strong class="tam36"><u>NOTICIAS</u></strong></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    {%for noticia in noticias%}
+    <tr>
+      <td>&nbsp;</td>
+      <td colspan="2" align="center"><h4><a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a></h4></td>
+    </tr>
+    <tr>
+      <td height="212" rowspan="2">&nbsp;</td>
+      <td width="58%" rowspan="2" align="center"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="250" height="250"></td>
+      <td height="212" valign="top"><h4>{{noticia.resumen}}</h4></td>
+    </tr>
+    <tr>
+      <td valign="top"><h6>{{noticia.fecha}}</h6></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td rowspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <table width="477" border="0">
+  <tr>
+  <td width="243" align="left">{%if has_prev%}<a href="/noticias/page/{{ant}}"><img src="{{STATIC_URL}}img/paginate/arrow-left.png" /></a>{%endif%}</td>
+  <td width="218" align="right">{%if has_next%}<a href="/noticias/page/{{sig}}"><img src="{{STATIC_URL}}img/paginate/arrow-right.png" /></a>{%endif%}</td>
+  </tr>
+  <tr>
+    <td width="243" align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  </table>
+</div>
 {%endblock%}
