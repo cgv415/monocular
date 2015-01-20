@@ -51,18 +51,18 @@
 	<table width="991" border="0" align="center">
 	  <tr>
         <td width="25"></td>
-        <td height="64" colspan="2" align="center" valign="middle"><h1><u><strong>{{proyecto.titulo|upper}}</strong></u></h1></td>
+        <td height="64" colspan="3" align="center" valign="middle"><h1><u><strong>{{proyecto.titulo|upper}}</strong></u></h1></td>
       </tr>
       <tr>
        <td></td>
-        <td height="82" colspan="2"><h2>Palmares:</h2>
+        <td height="82" colspan="3"><h2>Palmares:</h2>
           {%for estado in estados%}
           <h3>{{estado.estado|upper}} - {{estado.festival.anyo}} {{estado.festival|upper}},{{estado.festival.ciudad|upper}}</h3>
           {%endfor%} </td>
       </tr>
       <tr>
         <td></td>
-        <td width="583" height="71"> {% ifnotequal proyecto.anyo '' %}
+        <td width="536" height="71"> {% ifnotequal proyecto.anyo '' %}
           <h5><b>Agno:</b> {{proyecto.anyo}}</h5>
           {% endifnotequal %} 
           {% ifnotequal proyecto.pais '' %}
@@ -89,20 +89,21 @@
           {% ifnotequal proyecto.genero '' %}
           <h5><b>Genero:</b> {{proyecto.genero}}</h5>
           {% endifnotequal %} </td>
-        <td width="369" rowspan="3" align="center"><p><img src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="imagen del proyecto" width="177" height="300" class="imagen" /> </p>
+        <td width="54">&nbsp;</td>
+        <td width="358" rowspan="3" align="center"><p><img src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="imagen del proyecto" width="300" height="450"/> </p>
         <p>{% ifnotequal proyecto.trailer '' %}<a href="{{proyecto.trailer}}" target="_blank"> Enlace a Trailer </a>{% endifnotequal %}</p></td>
       </tr>
       <tr>
         <td></td>
-        <td width="583" height="80"><strong>Sinopsis:</strong>{{proyecto.sinopsis}} </td>
+        <td height="80" colspan="2"><strong>Sinopsis:</strong>{{proyecto.sinopsis}} </td>
       </tr>
       <tr>
         <td></td>
-        <td height="102">&nbsp;</td>
+        <td height="102" colspan="2">&nbsp;</td>
       </tr>
       <tr>
         <td></td>
-        <td height="63" colspan="2" align="center"><div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 800px;
+        <td height="63" colspan="3" align="center"><div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 800px;
         height: 300px; overflow: hidden;">
           <!-- Slides Container -->
           <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 800px; height: 300px;
@@ -154,18 +155,25 @@
           <a style="display: none" href="http://www.jssor.com">bootstrap slider</a></div></td>
       </tr>
       <tr>
-        <td colspan="2">&nbsp;</td>
+        <td colspan="3">&nbsp;</td>
       </tr>
-</table>
+      <tr>
+        <td colspan="3">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3">&nbsp;</td>
+      </tr>
+    </table>
 </div>
+<div align="center">
 {%ifequal user.id proyecto.cliente_id %}
 <table class="tabla" width="100%" border="2" cellspacing="0" bordercolor="#000000">
   <tr>
     <th scope="col">CORTOMETRAJE</th>
-    <th scope="col">ANO DE PRODUCCION</th>
-    <th scope="col">FESTIVAL/ANO</th>
-    <th scope="col">CIUDAD/PAIS</th>
-    <th scope="col">FECHA</th>
+    <th align="center" scope="col">ANO DE PRODUCCION</th>
+    <th align="center" scope="col">FESTIVAL/ANO</th>
+    <th align="center" scope="col">CIUDAD/PAIS</th>
+    <th align="center" scope="col">FECHA</th>
     <th scope="col">WEB</th>
     <th scope="col">ESTADO</th>
   </tr>
@@ -173,15 +181,17 @@
   <tr>
     <td>{{proyecto.titulo}}</td>
     <td>{{proyecto.anyo}}</td>
-    <td>{{estado.festival}}/{{estado.festival.anyo}}</td>
-    <td>{{estado.festival.ciudad}}/{{estado.festival.pais}}</td>
+    <td><h6>{{estado.festival}}/{{estado.festival.anyo}}</h6></td>
+    <td><h6>{{estado.festival.ciudad}}/{{estado.festival.pais}}</h6></td>
     <td>{{estado.festival.fecha}}</td>
     <td>{{estado.festival.web}}</td>
     <td>{{estado.estado}}</td>
   </tr>
+  <tr>
+    <td colspan="7">&nbsp;</td>
+    </tr>
   {%endfor%}
 </table>
 {%endifequal%}
 </div>
-
 {%endblock%}

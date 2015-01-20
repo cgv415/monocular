@@ -1,38 +1,62 @@
-<style type="text/css">
-.tamgr {
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+{% endblock %}
+  {%block titulo%}Produccion {%endblock%}
+  
+  {% block contenido %}
+  <style type="text/css">
+.texto {
 	font-size: 24px;
 }
-.tamgr u {
-	font-size: 36px;
-}
-.tammed {
-	font-size: 18px;
-}
 </style>
-<p>{% extends 'base.html' %} {% comment %} Aqui van los comentarios
-  {%endcomment %}
-  {%block titulo%} Distribucion {%endblock%} 
-  {% block contenido %}
 <div align="center">
-  <table width="90%" border="1">
+  <table width="90%" border="0">
     <tr>
-      <td colspan="3" align="center"><h1><strong class="tamgr"><u>DISTRIBUCION</u></strong></h1></td>
+      <td colspan="4" align="center"><h3><strong>DISTRIBUCION</strong></h3></td>
     </tr>
     <tr>
-      <td width="10%">&nbsp;</td>
-      <td colspan="2" align="center" class="tammed">{{texto.texto}}</td>
+      <td colspan="4" align="center"><h4><strong>{{texto.texto}}</strong></h4></td>
     </tr>
     <tr>
-      <td rowspan="2">&nbsp;</td>
-      <td width="48%">{%for proyecto in proyectos|slice:":16"%}
-		<a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="93" height="173" class="portada"></a>
-		{%endfor%}</td>
-      <td width="42%">&nbsp;</td>
+      <td width="21%">&nbsp;</td>
+      <td width="24%">&nbsp;</td>
+      <td width="55%" colspan="2">&nbsp;</td>
+    </tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr>
+    {%for proyecto in proyectos|slice:":4"%}
+      <td> <a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="150" height="250" /></a></td>
+    {%endfor%}
+    </tr>
+     <tr><td>&nbsp;</td></tr>
+     <tr>
+    {%for proyecto in proyectos|slice:"4:8"%}
+      <td <a href="ficha/{{proyecto.id}}">><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="150" height="250" /></a></td>
+    {%endfor%}
+    </tr>
+     <tr><td>&nbsp;</td></tr>
+    <tr>
+    {%for proyecto in proyectos|slice:"8:12"%}
+      <td> <a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="150" height="250" /></a></td>
+    {%endfor%}
+    </tr>
+     <tr><td>&nbsp;</td></tr>
+    <tr>
+    {%for proyecto in proyectos|slice:"12:16"%}
+      <td> <a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="150" height="250" /></a></td>
+    {%endfor%}
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td width="42%">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="4">&nbsp;</td>
     </tr>
   </table>
+
+
 </div>
-<p> {%endblock%}</p>
+{%endblock%}

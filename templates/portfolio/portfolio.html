@@ -1,23 +1,59 @@
-{% extends 'base.html' %} 
-{% comment %} Aqui van los comentarios
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
 {% endblock %}
-{% block contenido %}
-<div class="contenido">
-<h1 align="center">Portfolio</h1>
+  {%block titulo%}PortFolio {%endblock%}
+  
+  {% block contenido %}
+  <style type="text/css">
+.texto {
+	font-size: 24px;
+}
+</style>
+<div align="center">
+  <table width="90%" border="0">
+    <tr>
+      <td colspan="4" align="center"><h3><strong>PORTFOLIO</strong></h3></td>
+    </tr>
+    <tr>
+      <td width="21%">&nbsp;</td>
+      <td width="24%">&nbsp;</td>
+      <td width="55%" colspan="2">&nbsp;</td>
+    </tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr>
+    {%for produccion in producciones|slice:":4"%}
+     <td><a href="/servicios/ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" width="150" height="250"></a></td>
+    {%endfor%}
+    </tr>
+     <tr><td>&nbsp;</td></tr>
+     <tr>
+    {%for produccion in producciones|slice:"4:8"%}
+      <td> <a href="/servicios/ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" width="150" height="250"></a></td>
+    {%endfor%}
+    </tr>
+     <tr><td>&nbsp;</td></tr>
+    <tr>
+    {%for produccion in producciones|slice:"8:12"%}
+      <td> <a href="/servicios/ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" width="150" height="250"></a></a></td>
+    {%endfor%}
+    </tr>
+     <tr><td>&nbsp;</td></tr>
+    <tr>
+    {%for produccion in producciones|slice:"12:16"%}
+      <td><a href="/servicios/ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" width="150" height="250"></a></a></td>
+    {%endfor%}
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="4">&nbsp;</td>
+    </tr>
+  </table>
 
-<h2>A lo mejor aqui va el texto descriptivo del portfolio.. quien sabe</h2>
 
-{%for produccion in producciones|slice:":16"%}
-<li class="cortos"><a href="/servicios/ficha/{{produccion.id}}"><img src="{{MEDIA_URL}}{{produccion.imagen}}" class="portada"></a></li>
-<li>{{produccion.titulo}}</li>
-{%endfor%}
-
-<h1>Colaboraciones</h1>
-{%for colaboracion in colaboraciones|slice:":16"%}
-<li class="cortos"><a href="/servicios/ficha/{{colaboracion.id}}"><img src="{{MEDIA_URL}}{{colaboracion.imagen}}" class="portada"></a></li>
-<li>{{produccion.titulo}}</li>
-{%endfor%}
 </div>
 {%endblock%}
