@@ -4,13 +4,13 @@
 }
 .titulo {
 	font-weight: bold;
-	font-size: 9px;
+	font-size: 10px;
 }
 </style>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
 {% endblock %}
-  {%block titulo%}Produccion {%endblock%}
+  {%block titulo%}Distribucion {%endblock%}
   
   {% block contenido %}
   <style type="text/css">
@@ -25,26 +25,29 @@
     </tr>
     <tr>
       {%for proyecto in proyectos|slice:":4"%}
-      <td> <a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="170" /></a></td>
+      <td> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
+       <p class="titulo"><a href="ficha/{{proyecto.id}}">    {{proyecto.titulo}}</a></p></td>
       {%endfor%}
     </tr>
      <tr><td>&nbsp;</td></tr>
      <tr>
     {%for proyecto in proyectos|slice:"4:8"%}
       <td> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
-       <p class="titulo">{{proyecto.titulo}}</p></td>
+       <p class="titulo"><a href="ficha/{{proyecto.id}}">    {{proyecto.titulo}}</a></p></td>
     {%endfor%}
     </tr>
      <tr><td></td></tr>
     <tr>
     {%for proyecto in proyectos|slice:"8:12"%}
-      <td> <a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></td>
+     <td> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
+       <p class="titulo"><a href="ficha/{{proyecto.id}}">{{proyecto.titulo}}</a></p></td>
     {%endfor%}
     </tr>
      <tr><td>&nbsp;</td></tr>
     <tr>
     {%for proyecto in proyectos|slice:"12:16"%}
-      <td> <a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></td>
+      <td> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
+       <p class="titulo"><a href="ficha/{{proyecto.id}}">{{proyecto.titulo}}</a></p></td>
     {%endfor%}
     </tr>
     <tr>
