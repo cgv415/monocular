@@ -1,21 +1,30 @@
-{% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
-{% endblock %}
-
-{%block titulo%}Publicidad {%endblock%}
-
-{% block contenido %}
-<div class="contenido">
-<h1>Publicidad</h1>
-<p>{{texto.texto}}</p>
-
-
-<div id="slider1_container" style="position: absolute; top: 100px; left: 50px; width: 800px;
-        height: 400px; background: #191919; overflow: hidden;">
+<p>{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+  {%endcomment %} {% block head %}
+  
+  {% endblock %}
+  
+  {%block titulo%}Publicidad {%endblock%}
+  
+  {% block contenido %}</p>
+<table width="90%" border="1">
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" align="center"><h2>PUBLICIDAD</h2></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" align="center"><h4>{{texto.texto}}</h4></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<div id="slider1_container" style=top: 364px; left: 161px; width: 800px; height: 400px; background: #191919; overflow: hidden;">
 
         <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 800px; height: 356px; overflow: hidden;">
+        <div u="slides" style="cursor: move; position: absolute; left: 78px; top: 301px; width: 900px; height: 442px; overflow: hidden;">
            {%for publi in publicidad%}
             <div>
                 <img u="image" src="{{MEDIA_URL}}{{publi.imagen}}" />
@@ -57,7 +66,7 @@
         <!-- Arrow Navigator Skin End -->
         
         <!-- Thumbnail Navigator Skin Begin -->
-        <div u="thumbnavigator" class="jssort01" style="position: absolute; width: 800px; height: 100px; left:0px; bottom: 0px;">
+        <div u="thumbnavigator" class="jssort01" style="position: absolute; width: 800px; height: 72px; left:-2px; bottom: 1px;">
             <!-- Thumbnail Item Skin Begin -->
             <style>
                 /* jssor slider thumbnail navigator skin 01 css */
@@ -113,17 +122,18 @@
         </div>
         <!-- Thumbnail Navigator Skin End -->
         <a style="display: none" href="http://www.jssor.com">bootstrap slider</a>
-    </div>
+  </div>
     <!-- Jssor Slider End -->
 </div>
+
 {% block javascript %}
  <!-- it works the same with all jquery version from 1.x to 2.x -->
     <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.9.1.min.js"></script>
     <!-- use jssor.slider.mini.js (40KB) instead for release -->
     <!-- jssor.slider.mini.js = (jssor.js + jssor.slider.js) -->
-    <script type="text/javascript" src="{{STATIC_URL}}js/jssor.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}js/jssor.slider.js"></script>
-    <script>
+<script type="text/javascript" src="{{STATIC_URL}}js/jssor.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/jssor.slider.js"></script>
+<script>
 
         jQuery(document).ready(function ($) {
 
@@ -230,5 +240,42 @@
         });
     </script>
 {%endblock%}
-
-{%endblock%}
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table width="90%" border="1">
+  <tr>
+    <td width="11%" rowspan="4">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="39%">&nbsp;</td>
+    <td width="25%">&nbsp;</td>
+    <td width="25%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>{%endblock%} </p>

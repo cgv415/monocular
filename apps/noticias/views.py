@@ -19,7 +19,7 @@ def PageNoticias(request,offset):
     fin = ini+5
     sig = cod+1
     ant = cod-1
-    noticias = Noticia.objects.order_by('-fecha')[ini:fin]
+    noticias = Noticia.objects.order_by('-fecha','-id')[ini:fin]
     count = Noticia.objects.all().count()
     if cod >0:
         has_prev = True
