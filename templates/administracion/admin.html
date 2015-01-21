@@ -1,58 +1,104 @@
-{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+<style type="text/css">
+
+.georgia {
+	font-size: 12px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+</style>{% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/admin.css">
-{% endblock %} {% block contenido %}
+{% endblock %} 
 
-<div class="contenido">
-	<h1>Administracion de {{user.username|capfirst}}</h1>
-	
-	{%if user.is_superuser %}
-	<h1>Eres Administrador Total</h1>
-	
-	<table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">		
-		<tr>
-			<th scope="col"><a href="/administracion/verAdministradores">ADMINISTRADORES</a></th>
-			<td><a href="">Add</a></td>
-		</tr>
-		<tr>
-			<th scope="col"><a href="/administracion/verUsuarios">USUARIOS</a></th>
-			<td><a href="">Add</a></td>
-		</tr>
-		<tr>
-<!-- 			<th scope="col"><a href="/administracion/verNoticias">NOTICIAS</a></th> -->
-			<th scope="col"><a href="/administracion/noticiaslist">NOTICIAS</a></th>
-			<td><a href="/administracion/registrarNoticia">Add</a></td>
-			</tr>
-		<tr>
-			<th scope="col"><a href="/administracion/proyectoslist">PROYECTOS</a></th>
-			<td><a href="/administracion/registrarProyecto">Add</a></td>
-			</tr>
-		<tr>
-			<th scope="col"><a href="/administracion/festivaleslist">FESTIVALES</a></th>
-			<td><a href="/administracion/registrarFestival">Add</a></td>
-			</tr>
-		<tr>
-			<th scope="col"><a href="/administracion/estadoslist">ESTADO_CORTO</a></th>
-			<td><a href="/administracion/registrarEstados">Add</a></td>
-			</tr>
-		<tr>
-			<th scope="col"><a href="/administracion/publicidadDetails">PUBLICIDAD</a></th>
-			<td><a href="/administracion/createAnuncio">Add</a></td>
-			</tr>
-		</table>
-	<h3>
-		<a href="/administracion/signup">Administrar Usuarios</a>
-	</h3>
-	<h2>
-		<a href="/administracion/logout/">Salir de
-			aqui</a>
-	</h2>
-	{%else%}
-	<h1>Tu no pintas nada aqui ... ;)</h1>
-	<a href="/administracion/logout/">Salir de
-			aqui</a>
-	{%endif%}
+{% block contenido %}
+<div align="center"	>
+  <table width="90%" border="1">
+    <tr>
+      <td width="5%" rowspan="10">&nbsp;</td>
+      <td colspan="3" align="center" class="georgia"><h4><strong>Panel de administracion.</strong></h4></td>
+      <td colspan="2" align="right"><h6 class="georgia">Bienvenido, {{user.username|capfirst}}</h6></td>
+      <td width="7%" align="center" class="georgia"><a href="/administracion/logout/">Salir</a></td>
+      <td width="7%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="25%" class="georgia">&nbsp;</td>
+      <td width="14%" class="georgia">&nbsp;</td>
+      <td width="15%" class="georgia">&nbsp;</td>
+      <td width="17%">&nbsp;</td>
+      <td width="10%">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="georgia"><a href="/administracion/verAdministradores" class="vinculo">ADMINISTRADORES</a></td>
+      <td class="georgia">&nbsp;</td>
+      <td class="georgia">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="georgia"><a href="/administracion/verUsuarios">USUARIOS</a></td>
+      <td class="georgia">&nbsp;</td>
+      <td class="georgia">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="georgia"><a href="/administracion/noticiaslist" class="verdana">NOTICIAS</a></td>
+      <td class="georgia"><a href="/administracion/registrarNoticia"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" /> Añadir</a></td>
+      <td class="georgia">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="georgia"><a href="/administracion/proyectoslist" class="georgia">PROYECTOS</a></td>
+      <td class="georgia"><a href="/administracion/registrarProyecto"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
+      <td class="georgia">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="georgia"><a href="/administracion/festivaleslist">FESTIVALES</a></td>
+      <td class="georgia"><a href="/administracion/registrarFestival"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
+      <td class="georgia">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="georgia"><a href="/administracion/estadoslist">ESTADO_PROYECTO</a></td>
+      <td class="georgia"><a href="/administracion/registrarEstados"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
+      <td class="georgia">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="georgia"><a href="/administracion/publicidadDetails" class="georgia">PUBLICIDAD</a></td>
+      <td class="georgia"><a href="/administracion/createAnuncio"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
+      <td class="georgia">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><pre>&nbsp;</pre></td>
+      <td><pre>&nbsp;</pre></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
 </div>
-
-
 {%endblock%}

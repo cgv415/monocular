@@ -1,21 +1,45 @@
-{% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/ver.css">
-{% endblock %} {% block contenido %}
-
-<div class="contenido">
-<h1>NOTICIAS</h1>
-<h2><a href="/administracion/registrarNoticia">Add</a></h2>
-<table class="tabla" width="50%" cellspacing="0" bordercolor="#000000">	
-{%for noticia in object_list%}	
-		<tr>
-			<th scope="col"><a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a></th>
-			<td><a href="/administracion/modificarNoticia/{{noticia.id}}">Modificar</a></td>
-			<td><a href="/administracion/eliminarNoticia/{{noticia.id}}">Borrar</a></td>
-		</tr>
-{%endfor%}
-</table>
+<style type="text/css">
+.enlace {
+	font-weight: bold;
+}
+</style>
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios {%endcomment %} {% block head %} {% endblock %} {% block contenido %}
+<div align="center">
+  <table width="100%" border="0">
+    <tr>
+      <td width="7%">&nbsp;</td>
+      <td><h1>NOTICIAS</h1></td>
+      <td width="7%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td rowspan="2">&nbsp;</td>
+      <td><a href="/administracion/registrarNoticia"><img src="{{STATIC_URL}}img/btn/plus.png" width="27" height="23" /> Añadir Noticia</a></td>
+      <td rowspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="52"><hr size="5" noshade/></td>
+    </tr>
+    
+    <tr>
+      <td rowspan="3">&nbsp;</td>
+      <td height="29">
+      <table width="72%" border="1">
+      {%for noticia in object_list%}
+        <tr>
+          <td width="76%"><a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a></td>
+          <td align="center"><a href="/administracion/modificarNoticia/{{noticia.id}}" class="enlace">Modificar  </a> / <a href="/administracion/eliminarNoticia/{{noticia.id}}" class="enlace">Borrar</a></td>
+          </tr>
+            {%endfor%}
+      </table></td>
+      <td rowspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="21"><a href="/noticias/post/{{noticia.id}}"></a><a href="/administracion/eliminarNoticia/{{noticia.id}}" class="enlace"></a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
 </div>
 
-
-{%endblock%}
+{% endblock %} 

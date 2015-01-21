@@ -37,6 +37,7 @@ class DeleteProyecto(DeleteView):
 #Operaciones sobre Noticias   
 class NoticiasList(ListView):
     model = Noticia    
+    
 class RegistrarNoticia(CreateView):
     template_name='administracion/registrar.html'
     model = Noticia
