@@ -3,6 +3,7 @@ from django.template import RequestContext
 from .models import Proyecto,Estado_Corto,Galeria,Festival,Publicidad
 from apps.administracion.models import TextoDescriptivo
 from django.contrib.auth.decorators import login_required
+from django.template.defaulttags import ifnotequal, ifequal
 # Create your views here.
 
 #Ponemos login_required cuando queremos que solo usuarios autentificados puedan acceder a la vista
@@ -30,9 +31,23 @@ def Postproduccion(request):
 
 #Muestra todos los anuncios que se han creado
 def PublicidadPage(request):
-    publicidad = Publicidad.objects.all().order_by('-id')
+    imagenes = []
+    videos = []
+    def dividir():
+            anuncio = Publicidad.objects.all().order_by('-id')
+            for a in anuncio:
+                if a.imagen != '':
+                    imagenes.append(a)
+                if a.video != '':
+                    videos.append(a)
+    
+    
+    dividir()
+    for i in videos:
+        print(i.video)
+    
     texto = TextoDescriptivo.objects.filter(tipo = 'publicidad')[0]
-    return render_to_response('servicios/publicidad.html',{'texto':texto,'publicidad':publicidad},context_instance=RequestContext(request))
+    return render_to_response('servicios/publicidad.html',{'texto':texto,'imagenes':imagenes,'videos':videos},context_instance=RequestContext(request))
 
 #Muestra todos los proyectos de distribucion que se han creado
 def Distribucion(request):
