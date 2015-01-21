@@ -1,12 +1,26 @@
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/ver.css">
 {% endblock %} {% block contenido %}
 
-<div class="contenido">
-<form action="" method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
-    <input type="submit" value="Confirm" />
-</form>
-</div
+<div align="center">
+  <table width="100%" border="1">
+    <tr>
+      <td width="13%" rowspan="3">&nbsp;</td>
+      <td width="36%">&nbsp;</td>
+      <td width="51%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="202" valign="top">
+      <form action="" method="post">{% csrf_token %}
+    <p>¿Estás seguro que quieres eliminar:<br /> "{{ object }}"?</p>
+    <input type="submit" value="Confirmar" />
+	</form></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
 {%endblock%}

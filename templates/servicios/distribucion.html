@@ -19,34 +19,34 @@
 }
 </style>
 <div align="center">
-<table width="61%" border="0">
+<table width="46%" border="0">
     <tr>
       <td colspan="4" align="center"><h5><strong>DISTRIBUCION</strong></h5>        <h6><strong>{{texto.texto}}</strong></h6></td>
     </tr>
     <tr>
       {%for proyecto in proyectos|slice:":4"%}
-      <td> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
+      <td align="center"> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="170" /></a></p>
        <p class="titulo"><a href="ficha/{{proyecto.id}}">    {{proyecto.titulo}}</a></p></td>
       {%endfor%}
     </tr>
      <tr><td>&nbsp;</td></tr>
      <tr>
     {%for proyecto in proyectos|slice:"4:8"%}
-      <td> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
+      <td align="center"> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
        <p class="titulo"><a href="ficha/{{proyecto.id}}">    {{proyecto.titulo}}</a></p></td>
     {%endfor%}
     </tr>
      <tr><td></td></tr>
     <tr>
     {%for proyecto in proyectos|slice:"8:12"%}
-     <td> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
+     <td align="center"> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
        <p class="titulo"><a href="ficha/{{proyecto.id}}">{{proyecto.titulo}}</a></p></td>
     {%endfor%}
     </tr>
      <tr><td>&nbsp;</td></tr>
     <tr>
     {%for proyecto in proyectos|slice:"12:16"%}
-      <td> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
+      <td align="center"> <p><a href="ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="200" /></a></p>
        <p class="titulo"><a href="ficha/{{proyecto.id}}">{{proyecto.titulo}}</a></p></td>
     {%endfor%}
     </tr>

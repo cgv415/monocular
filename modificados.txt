@@ -1,0 +1,9 @@
+registrar.html
+produccion.html
+distribucion.html
+portfolio.html
+update.html
+delete.html
+portfolio.views
+administracion/admin.html
+noticas-list.html
