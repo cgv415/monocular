@@ -1,31 +1,28 @@
+<style type="text/css">
+.fecha {
+	text-align: right;
+}
+.titulos {
+	font-size: 14px;
+}
+</style>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
 {% endblock %}
 
 {% block contenido %}	
 	<div align="center">
-      <table width="79%" border="0">
+      <table width="73%" border="0" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="4%">&nbsp;</td>
-          <td colspan="3" align="center"><h2><strong>{{noticia.titulo}}</strong></h2></td>
+          <td colspan="2" align="center"><h3><strong>{{noticia.titulo}}<br/></strong></h3></td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
-          <td width="42%"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="350" height="350"></td>
-          <td width="1%" rowspan="4" valign="top"><h4>&nbsp;</h4></td>
-          <td width="53%" rowspan="4" valign="top"><h4>{{noticia.texto}}</h4></td>
+          <td width="46%" align="justify" valign="middle"><h6><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="350" height="325" /> </h6>
+          <h6>{{noticia.fecha}}</h6></td>
+          <td width="54%" align="justify" valign="top"><h4 class="titulos">{{noticia.texto}}</h4></td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
-          <td><h6>{{noticia.fecha}}</h6></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
+          <td colspan="2">&nbsp;</td>
         </tr>
       </table>
 	</div>

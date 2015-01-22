@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cliente,Empleado,Usuario,Servicio,TextoDescriptivo,VideoInicial,Informacion
+from .models import Cliente,Empleado,Servicio,TextoDescriptivo,VideoInicial,Informacion
 # Register your models here.
 
 class InformacionAdmin(admin.ModelAdmin):
@@ -17,10 +17,6 @@ admin.site.register(Cliente, ClienteAdmin)
 class ServicioAdmin(admin.ModelAdmin):
     list_display = ('nombre',)
 admin.site.register(Servicio, ServicioAdmin)
-
-class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ('username','telefono')
-admin.site.register(Usuario, UsuarioAdmin)
 
 class EmpleadoAdmin(admin.ModelAdmin):
     list_display = ('usuario',)

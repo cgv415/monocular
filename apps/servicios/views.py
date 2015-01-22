@@ -1,7 +1,8 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from .models import Proyecto,Estado_Proyecto,Galeria,Festival,Publicidad
-from apps.administracion.models import TextoDescriptivo
+from django.contrib.auth.models import User
+from apps.administracion.models import TextoDescriptivo,Cliente
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -9,9 +10,11 @@ from django.contrib.auth.decorators import login_required
 @login_required()
 #En esta vista lo que se hace es mostrar todos los objetos creados a nombre del usuario que accede
 def MiFicha(request):
-    usuario = request.user
-    proyectos = Proyecto.objects.filter(cliente_id = usuario.id).order_by('-id')
-    return render_to_response('servicios/mificha.html',{'proyectos':proyectos},context_instance=RequestContext(request))
+    #usuario = request.user
+    cliente = Cliente.objects.get(usuario_id= request.user)
+    #proyectos = Proyecto.objects.filter(cliente_id = usuario.id).order_by('-id')
+    #'proyectos':proyectos,
+    return render_to_response('servicios/mificha.html',{'cliente':cliente},context_instance=RequestContext(request))
 
 #Muestra todos los servicios que se prestan
 def Servicios(request):
@@ -56,7 +59,7 @@ def Distribucion(request):
 def Ficha(request,offset):
     cod = int(offset)
     proyectoR = Proyecto.objects.filter(id=cod)[0]
-    estados = Estado_Proyecto.objects.filter(corto_id=cod)
+    estados = Estado_Proyecto.objects.filter(proyecto_id=cod)
     palmares = True;
     if estados.count()==0:
         palmares=False

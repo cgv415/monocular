@@ -2,6 +2,35 @@
 .tam36 {
 	font-size: 36px;
 }
+.titular {
+	text-align: center;
+	font-weight: bold;
+	color: #FFF;
+	font-size: 22px;
+}
+.titulo {
+	text-align: center;
+	font-size: 14px;
+}
+
+.titulos {
+	font-size: 16px;
+	color:#000000;
+	text-decoration:none;
+	text-align:center;
+	font-weight:bold;
+}
+.titulos:hover{
+	color:#000000;
+	text-decoration:none;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+}
+.resumen {
+	font-size: 14px;
+	text-align: justify;
+}
 </style>
 {% extends 'base.html' %} 
 {% comment %} Aqui van los comentarios{%endcomment %} 
@@ -11,43 +40,28 @@
 {% endblock %}
 {% block contenido %}
 <div align="center">
-  <table width="44%" border="0">
+  <table width="61%" border="0">
     <tr>
-      <td width="1%">&nbsp;</td>
-      <td colspan="2" align="center"><strong class="tam36"><u>NOTICIAS</u></strong></td>
+      <td colspan="2">&nbsp;</td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
-      <td colspan="2">&nbsp;</td>
+      <td colspan="2" bgcolor="#000000" align="center"><strong class="titular">Noticias</strong></td>
     </tr>
     {%for noticia in noticias%}
     <tr>
-      <td>&nbsp;</td>
-      <td colspan="2" align="center"><h4><a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a></h4></td>
+      <td colspan="2" align="center"><a href="/noticias/post/{{noticia.id}}" class="titulos">
+        <br/><br/>{{noticia.titulo}}</a>
+        <p><a href="/noticias/post/{{noticia.id}}"><br/>
+      </span></a></p></td>
     </tr>
     <tr>
-      <td height="212" rowspan="2">&nbsp;</td>
-      <td width="58%" rowspan="2" align="center"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="250" height="250"></td>
-      <td height="212" valign="top"><h4>{{noticia.resumen}}</h4></td>
+      <td width="34%" class="titular"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="200" height="200" /></td>
+      <td width="66%" valign="top"><h4 class="resumen">{{noticia.resumen}}</h4>        <h6>{{noticia.fecha}}</h6></td>
     </tr>
-    <tr>
-      <td valign="top"><h6>{{noticia.fecha}}</h6></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td rowspan="4">&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
+    
+    
     {%endfor%}
-  </table>
+  </table><br/>
   <table width="477" border="0">
   <tr>
   <td width="243" align="left">{%if has_prev%}<a href="/noticias/page/{{ant}}"><img src="{{STATIC_URL}}img/paginate/arrow-left.png" /></a>{%endif%}</td>

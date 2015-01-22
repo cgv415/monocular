@@ -1,180 +1,111 @@
 <style type="text/css">
-
-.justificado {
+.cabeceras {
+	color: #FFF;
+	font-weight: bold;
+	font-size: 20px;
+}
+.letrasInicio {
 	text-align: justify;
-	padding: 10px;
-	text-align:start;
+	font-size: 14px;
 }
-.centradoVideo {
+.letrasInicioFechas {
+	font-size: 12px;
+}
+.letrasInicio {
+	font-size: 13px;
+}
+.letrasTitulo {
 	text-align: center;
+	font-size: 15px;
 }
-.justificado1 {	text-align: justify;
-	padding: 10px;
-	text-align:start;
+
+#redes-sociales {
+text-decoration:none;
 }
-.justificado11 {text-align: justify;
-	padding: 10px;
-	text-align:start;
+
+a.redes-sociales img {
+filter:alpha(opacity=100);
+opacity: 1.0;
+text-decoration:none;
 }
-.justificado12 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado121 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado1211 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado12111 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado121111 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado1211111 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado2 {	text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado21 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado22 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado211 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado2111 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado12111111 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado21111 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado3 {	text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado31 {text-align: justify;
-	padding: 10px;
-	text-align:start;
-}
-.justificado211111 {text-align: justify;
-	padding: 10px;
-	text-align:start;
+a.redes-sociales:hover img {
+filter:alpha(opacity=40);
+opacity: 0.4;
+text-decoration:none;
 }
 </style>
 {% extends 'base.html' %}{% block contenido %}
 
-<style type="text/css">
-.noticias {
-	color: #FFF;
-	font-size: 24px;
-	text-align: center;
-	text-align:left;
-}
-.portafolio {
-	font-weight: bold;
-	font-size: 24px;
-	color: #FFF;
-}
-.portofolioNegrita {
-	color: #000;
-}
-.negrita {
-	color: #000;
-	font-size: 16px;
-	font-weight: bold;
-	text-decoration:none
-}
-.normal {
-	font-size: 16px;
-	color: #000;
-}
-sinNegrita {
-	font-weight: normal;
-}
-</style>
 
-<div align="center" style="overflow-x:hidden">
-<table width="90%" border="0" cellspacing="2" cellpadding="0" align="center">
+
+
+
+<div align="center" style="overflow-x:hidden; color: #000; font-size: 15px;">
+<table width="700px" border="0" cellspacing="2" cellpadding="0" align="center">
   <tr >
-    <td width="0%" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
-    <td width="0%" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
-    <td colspan="5" bgcolor="#FFFFFF" class="centradoVideo" >{{video.codigo| safe}}</td>
-    <td width="5%" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
-    <td width="0%" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
-  </tr>
+    <td width="12%" colspan="2" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+    <td colspan="3" bgcolor="#FFFFFF" class="centradoVideo" >{{video.codigo| safe}}</td>
+    <td width="12%" colspan="2" rowspan="6" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+    </tr>
   <tr>
-    <td colspan="5" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
-  </tr>
+    <td colspan="3" bgcolor="#FFFFFF">&nbsp;</td>
+    </tr>
   <tr>
-    <td  width="40%" bgcolor="#000000" class="noticias" align="left">Noticias destacadas</td>
-    <td width="2%" rowspan="3" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
-    <td  width="40%"colspan="3" bgcolor="#000000" class="noticias" align="left">Portfolio</td>
-  </tr>
+    <td  width="335" align="left" bgcolor="#000000" class="cabeceras">Noticias destacadas</td>
+    <td  width="30" align="left" bgcolor="#FFFFFF"></td>
+    <td width="335" align="left" bgcolor="#000000" class="cabeceras">Portfolio</td>
+    </tr>
   <tr>
-    <td>&nbsp;</td>
-    <td colspan="3" rowspan="2" align="center" valign="middle" bgcolor="#FFFFFF" class="noticias"><table width="100%" height="204" border="0" align="center" cellpadding="0" cellspacing="2">
+    <td width="335" rowspan="2" align="justify" valign="top"><p>&nbsp;</p>
+      <p>{%for noticia in noticias|slice:":2"%}{{noticia.titulo}}</p>
+      
+      <table width="100%" border="0" cellspacing="15" cellpadding="2">
+        <tr>
+          <td align="center" valign="middle"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="135" height="125" /></td>
+          <td rowspan="2" align="justify" valign="middle" class="letrasInicio"><p class="letrasInicio"><br/>
+            </p></td>
+          <td rowspan="2" align="justify" valign="middle" class="letrasInicio"><p class="letrasInicio">{{noticia.resumen}}</p>
+            <p class="letrasInicio"><a href="/noticias/post/{{noticia.id}}">Saber mas</a></p></td>
+          </tr>
+        <tr>
+          <td align="center" valign="middle"><span class="letrasInicio"><span class="letrasInicioFechas">{{noticia.fecha}}</span></span></td>
+        </tr>
+      </table>
+      <br/>
+      {%endfor%}</td>
+    <td width="30" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+    <td width="335" rowspan="2" align="center" valign="middle" bgcolor="#FFFFFF" class="noticias"><table width="100%" height="204" border="0" align="center" cellpadding="0" cellspacing="2">
       <tr>{%for produccion in producciones|slice:":2"%}
         
-        <td width="50%" align="center" valign="top"> <span class="noticias"><span class="negrita"><a class="justificado31" href="/servicios/ficha/{{produccion.id}}"><p align="center" style="color:#000; text-decoration:none; font-weight:bold;">{{produccion.titulo}}</p></a></span></span></td>
+        <td width="335" align="center" valign="top"><a class="justificado31" href="/servicios/ficha/{{produccion.id}}" style="color:#000; text-decoration:none; font-weight:bold;"><br/>
+          <span class="letrasInicioFechas"><span class="letrasTitulo">{{produccion.titulo}}</span></span></a></td>
         
         {%endfor%} </tr>
       <tr>{%for produccion in producciones|slice:":2"%}
         
-        <td width="50%" align="center" valign="top"> <span class="noticias"><img src="{{MEDIA_URL}}{{produccion.imagen}}" alt="" width="150" height="205" /></span></td>
+        <td width="335" align="center" valign="middle"> <span class="noticias"><a href="/servicios/ficha/{{produccion.id}}" class="redes-sociales" ><img src="{{MEDIA_URL}}{{produccion.imagen}}" alt="" width="100" height="160" class="redes-sociales" /></a></span></td>
         {%endfor%}  </tr>
-    </table><br/>
-    
-    
-     <table width="100%" height="204" border="0" align="center" cellpadding="0" cellspacing="2">
-       <tr>{%for produccion in producciones|slice:"2:"%}
-         
-         <td width="50%" align="center"> <span class="noticias"><span class="negrita"><a class="justificado31" href="/servicios/ficha/{{produccion.id}}"><p align="center" style="color:#000; text-decoration:none; font-weight:bold;">{{produccion.titulo}}</p></a></span></span></td>
-         
-         {%endfor%} </tr>
-       <tr>{%for produccion in producciones|slice:"2:"%}
-         
-         <td width="50%" align="center"> <span class="noticias"><img src="{{MEDIA_URL}}{{produccion.imagen}}" alt="" width="150" height="205" /></span></td>
-         {%endfor%}  </tr>
-     </table><br/><br/>    </td>
-  </tr>
-  <tr>
-    
-    <td valign="top">{%for noticia in noticias|slice:":2"%}<p class="negrita">{{noticia.titulo}}
-      </p>
-      <table width="100%" border="0" cellspacing="10" cellpadding="0">
-        <tr>
-          <td width="41%" align="center" valign="middle"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="200" height="175" /></td>
-          <td width="59%"><p class="justificado" >{{noticia.resumen}}</p>
-            <a class="justificado" href="/noticias/post/{{noticia.id}}">Saber mas</a><br/>
-            <p class="justificado">{{noticia.fecha}}</p></td>
-          </tr>
-        </table><br/>
-      <p >{%endfor%}</p></td>
-    
+      </table>
+      
+      
+      <table width="100%" height="204" border="0" align="center" cellpadding="0" cellspacing="2">
+        <tr>{%for produccion in producciones|slice:"2:"%}
+          
+          <td width="335" align="center"><a class="justificado31" href="/servicios/ficha/{{produccion.id}}" style="color:#000; text-decoration:none; font-weight:bold;"><span class="letrasTitulo">{{produccion.titulo}}</span></a></td>
+          
+          {%endfor%} </tr>
+        <tr>{%for produccion in producciones|slice:"2:"%}
+          
+          <td width="335" align="center" valign="middle"> <span class="noticias"><a href="/servicios/ficha/{{produccion.id}}"  class="redes-sociales" ><img src="{{MEDIA_URL}}{{produccion.imagen}}" alt="" width="100" height="160"/></a></span></td>
+          {%endfor%}  </tr>
+      </table><br/><br/>    </td>
     </tr>
   <tr>
-    <td colspan="5"><p></p></td>
-  </tr>
+    <td width="30" bgcolor="#FFFFFF" class="noticias">&nbsp;</td>
+    </tr>
+  <tr>
+    <td colspan="3"><p></p></td>
+    </tr>
 </table>
 
 </div>

@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.models import User
 from django.template import RequestContext
 
+from django.contrib.admin.views.decorators import staff_member_required
 from apps.servicios.models import Proyecto, Festival, Estado_Proyecto,Publicidad
 from apps.noticias.models import Noticia
 from django.views.generic.edit import UpdateView, DeleteView
@@ -11,6 +12,7 @@ from django.views.generic.list import ListView
 
 # Create your views here.
 #Vista principal de la administracion
+@staff_member_required
 def Principal(request):
     return render_to_response('administracion/admin.html',context_instance=RequestContext(request))
 
