@@ -69,18 +69,18 @@
 	    <td colspan="7">&nbsp;</td>
       </tr>
 	  <tr>
-	    <td width="1%" rowspan="14">&nbsp;</td>
+	    <td width="1%" rowspan="17">&nbsp;</td>
 	    <td colspan="5" bgcolor="#000000" class="cabeceraTabla">Contacta con Monocular</td>
-	    <td width="1%" rowspan="10">&nbsp;</td>
+	    <td width="1%" rowspan="14">&nbsp;</td>
       </tr>
 	  <tr>
-	    <td width="5%" rowspan="13">&nbsp;</td>
+	    <td width="5%" rowspan="16">&nbsp;</td>
 	    <td colspan="4">&nbsp;</td>
       </tr>
 	  <tr>
 	    <td width="38%" bgcolor="#FFFFFF" class="negrita"><p><label for="id_nombre">Nombre/Raz&oacute;n Social:</label></p></td>
 	    <td width="6%">&nbsp;</td>
-	    <td colspan="2" rowspan="8" align="left" valign="top"><p><img src="{% static "img/logos/fondoBlanco.png" %}" width="275" height="250" /></p></td>
+	    <td colspan="2" rowspan="7" align="left" valign="top"><p><img src="{% static "img/logos/fondoBlanco.png" %}" width="275" height="250" /></p></td>
       </tr>
 	  <tr>
 	    <td bgcolor="#FFFFFF" class="negrita"><p><input name="nombre" type="text" id="id_nombre" size="40" /></p></td>
@@ -107,26 +107,43 @@
 	    <td width="6%">&nbsp;</td>
       </tr>
 	  <tr>
-	    <td height="31" bgcolor="#FFFFFF" class="negrita"><textarea name="mensaje" cols="45" rows="5" class="tamanoFijo" id="id_mensaje"></textarea></td>
-	    <td width="6%">&nbsp;</td>
+	    <td height="31" rowspan="5" bgcolor="#FFFFFF" class="negrita"><textarea name="mensaje" cols="45" rows="5" class="tamanoFijo" id="id_mensaje"></textarea></td>
+	    <td width="6%" rowspan="5">&nbsp;</td>
+	    <td align="left" valign="top">&nbsp;</td>
+	    <td align="left" valign="top">&nbsp;</td>
       </tr>
 	  <tr>
-	    <td colspan="2" rowspan="2">&nbsp;</td>
-	    <td colspan="2" align="left" valign="top">&nbsp;</td>
-	    <td width="1%" rowspan="2">&nbsp;</td>
+	    <td align="left" valign="top"><strong>Empresa:</strong></td>
+	    <td align="left" valign="top">{{informacion.nombre}}</td>
       </tr>
 	  <tr>
+	    <td align="left" valign="top"><strong>Email:</strong></td>
+	    <td align="left" valign="top">{{informacion.email}}</td>
+      </tr>
+	  <tr>
+	    <td align="left" valign="top"><strong>Telefono:</strong></td>
+	    <td align="left" valign="top">{{informacion.telefono}}</td>
+      </tr>
+	  <tr>
+	    <td align="left" valign="top"><strong>Ubicacion:</strong></td>
+	    <td align="left" valign="top">{{informacion.direccion}}</td>
+      </tr>
+	  <tr>
+	    <td colspan="2">&nbsp;</td>
 	    <td colspan="2" align="left" valign="top">&nbsp;</td>
+	    <td width="1%">&nbsp;</td>
       </tr>
 	  <tr>
 	    <td colspan="2" class="centrar"><input name="button" type="submit" class="boton" id="button" value="Enviar" />
         <input name="button2" type="reset" class="boton" id="button2" value="Restablecer" /></td>
-	    <td colspan="2"></td>
+	    <td></td>
+	    <td></td>
 	    <td width="1%">&nbsp;</td>
       </tr>
 	  <tr>
 	    <td colspan="2">&nbsp;</td>
-	    <td colspan="2">&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
 	    <td width="1%">&nbsp;</td>
       </tr>
 	  <tr>

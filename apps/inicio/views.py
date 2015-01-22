@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.core.mail.message import EmailMessage
 from apps.noticias.models import Noticia
 from .forms import Formulario
-from apps.administracion.models import VideoInicial
+from apps.administracion.models import VideoInicial,Informacion
 from apps.servicios.models import Proyecto
 # Create your views here.
 
@@ -20,6 +20,7 @@ def inicio(request):
 #Vista para el contacto
 def contacto(request):
     exito=False
+    informacion = Informacion.objects.all()[0]
     if request.method == 'POST':
         form = Formulario(request.POST)
         if form.is_valid():   
@@ -33,7 +34,7 @@ def contacto(request):
             email=EmailMessage(asunto,mensaje,to=['carlosgarrido993@gmail.com'])
             email.send()
             exito=True        
-            return render_to_response('inicio/contacto.html',{'exito':exito},context_instance=RequestContext(request))
+            return render_to_response('inicio/contacto.html',{'informacion':informacion,'exito':exito},context_instance=RequestContext(request))
     else:
         form = Formulario()
-    return render_to_response('inicio/contacto.html',{'form':form,'exito':exito},context_instance=RequestContext(request))
+    return render_to_response('inicio/contacto.html',{'informacion':informacion,'form':form,'exito':exito},context_instance=RequestContext(request))
