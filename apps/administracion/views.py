@@ -4,11 +4,10 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.models import User
 from django.template import RequestContext
 
-from apps.servicios.models import Proyecto, Festival, Estado_Corto,Publicidad
+from apps.servicios.models import Proyecto, Festival, Estado_Proyecto,Publicidad
 from apps.noticias.models import Noticia
 from django.views.generic.edit import UpdateView, DeleteView
 from django.views.generic.list import ListView
-
 
 # Create your views here.
 #Vista principal de la administracion
@@ -73,20 +72,20 @@ class DeleteFestival(DeleteView):
     
 #Operaciones sobre Estados
 class EstadosList(ListView):
-    model = Estado_Corto
+    model = Estado_Proyecto
 class RegistrarEstado(CreateView):
     template_name='administracion/registrar.html'
-    model = Estado_Corto
+    model = Estado_Proyecto
     fields=['corto','festival','estado']
     success_url = '/administracion/estadoslist'
 class ModificarEstado(UpdateView):
-    model = Estado_Corto
+    model = Estado_Proyecto
     fields=['corto','festival','estado']
     template_name='administracion/modificar.html'
     success_url = '/administracion/estadoslist'
 class DeleteEstado(DeleteView):
     template_name='administracion/delete.html'
-    model = Estado_Corto
+    model = Estado_Proyecto
     success_url = '/administracion/estadoslist'   
 
 #Operaciones sobre Estados

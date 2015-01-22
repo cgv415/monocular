@@ -2,23 +2,14 @@
 from django.db import models
 #from apps.administracion.models import Cliente
 from django.contrib.auth.models import User
+from apps.administracion.models import Servicio
 
 ESTADOS = (
    ('seleccionado', 'Seleccionado'),
    ('premiado', 'Premiado'),
 )
 
-SERVICIO = (
-   ('distribucion', 'Distribucion'),
-   ('produccion', 'Produccion'),
-   ('colaboracion', 'Colaboracion'),
-)
 # Create your models here.
-
-class Servicio(models.Model):
-    nombre = models.CharField(max_length=100)
-    def __unicode__(self):
-        return self.nombre
     
 #Model Cortometraje
 class Proyecto(models.Model):
@@ -38,6 +29,7 @@ class Proyecto(models.Model):
     pais=models.CharField(max_length=100,null=True,blank=True)
     genero = models.CharField(max_length=100,null=True,blank=True)
     trailer = models.TextField(null=True,blank=True)
+    observaciones = models.TextField(null=True,blank=True)
     imagen = models.ImageField(upload_to = 'cortometrajes')
     #Por defecto se muestra el titulo del cortometraje
     def __unicode__(self):
@@ -59,9 +51,9 @@ class Festival(models.Model):
         return self.nombre
     
 #Modelo para los estados de los cortos
-class Estado_Corto(models.Model):
+class Estado_Proyecto(models.Model):
+    proyecto = models.ForeignKey(Proyecto)
     festival = models.ForeignKey(Festival)
-    corto = models.ForeignKey(Proyecto)
     estado = models.CharField(max_length=30,null=True,blank=True,choices=ESTADOS)
     def __unicode__(self):
         return self.estado

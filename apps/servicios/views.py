@@ -1,9 +1,8 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from .models import Proyecto,Estado_Corto,Galeria,Festival,Publicidad
+from .models import Proyecto,Estado_Proyecto,Galeria,Festival,Publicidad
 from apps.administracion.models import TextoDescriptivo
 from django.contrib.auth.decorators import login_required
-from django.template.defaulttags import ifnotequal, ifequal
 # Create your views here.
 
 #Ponemos login_required cuando queremos que solo usuarios autentificados puedan acceder a la vista
@@ -57,15 +56,18 @@ def Distribucion(request):
 def Ficha(request,offset):
     cod = int(offset)
     proyectoR = Proyecto.objects.filter(id=cod)[0]
-    estados = Estado_Corto.objects.filter(corto_id=cod)
+    estados = Estado_Proyecto.objects.filter(corto_id=cod)
+    palmares = True;
+    if estados.count()==0:
+        palmares=False
     galeria = Galeria.objects.filter(proyecto=proyectoR).order_by('-id')
-    return render_to_response('servicios/proyecto.html',{'proyecto':proyectoR,'estados':estados,'galeria':galeria},context_instance=RequestContext(request))
+    return render_to_response('servicios/proyecto.html',{'palmares':palmares,'proyecto':proyectoR,'estados':estados,'galeria':galeria},context_instance=RequestContext(request))
 
 #Muestra un Festival
 def FestivalView(request,offset):
     cod = int(offset)
     festival = Festival.objects.filter(id=cod)[0]
-    proyectos = Estado_Corto.objects.filter(festival__id=cod)
+    proyectos = Estado_Proyecto.objects.filter(festival__id=cod)
     return render_to_response('servicios/festival.html',{'festival':festival,'proyectos':proyectos},context_instance=RequestContext(request))
 
 #Muestra un anuncio

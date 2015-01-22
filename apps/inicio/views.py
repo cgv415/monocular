@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.core.mail.message import EmailMessage
 from apps.noticias.models import Noticia
 from .forms import Formulario
-from .models import VideoInicial
+from apps.administracion.models import VideoInicial
 from apps.servicios.models import Proyecto
 # Create your views here.
 
@@ -12,7 +12,7 @@ def inicio(request):
     #Creamos un objeto noticias, no hace falta tiparlo
     #Lo igualamos a todos los objetos noticias (se tipa automaticamente a lista de noticias)
     #Ordenamos las noticias por fecha y le damos la vuelta, para que la primera noticia sea la ultima creada
-    noticias = Noticia.objects.order_by('-fecha')
+    noticias = Noticia.objects.order_by('-fecha','-id')
     video = VideoInicial.objects.filter(activo = True).order_by('id').reverse()[0]
     producciones = Proyecto.objects.filter(portfolio = True).order_by('-id')
     return render_to_response('inicio/inicio.html',{'video':video,'noticias':noticias,'producciones':producciones},context_instance=RequestContext(request))

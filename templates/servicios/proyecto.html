@@ -54,11 +54,12 @@
         <td height="64" colspan="3" align="center" valign="middle"><h1><u><strong>{{proyecto.titulo|upper}}</strong></u></h1></td>
       </tr>
       <tr>
-       <td></td>
-        <td height="82" colspan="3"><h2>Palmares:</h2>
+       <td></td>{%if palmares%}
+               <td height="82" colspan="3"><h2>Palmares:</h2>
           {%for estado in estados%}
           <h3>{{estado.estado|upper}} - {{estado.festival.anyo}} {{estado.festival|upper}},{{estado.festival.ciudad|upper}}</h3>
           {%endfor%} </td>
+          {%endif%}
       </tr>
       <tr>
         <td></td>
@@ -90,7 +91,7 @@
           <h5><b>Genero:</b> {{proyecto.genero}}</h5>
           {% endifnotequal %} </td>
         <td width="54">&nbsp;</td>
-        <td width="358" rowspan="3" align="center"><p><img src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="imagen del proyecto" width="300" height="450"/> </p>
+        <td width="358" rowspan="4" align="center"><p><img src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="imagen del proyecto" width="300" height="450"/> </p>
         <p>{% ifnotequal proyecto.trailer '' %}<a href="{{proyecto.trailer}}" target="_blank"> Enlace a Trailer </a>{% endifnotequal %}</p></td>
       </tr>
       <tr>
@@ -98,8 +99,13 @@
         <td height="80" colspan="2"><strong>Sinopsis:</strong>{{proyecto.sinopsis}} </td>
       </tr>
       <tr>
-        <td></td>
-        <td height="102" colspan="2">&nbsp;</td>
+        <td rowspan="2"></td>
+        <td height="48" colspan="2">{% ifnotequal proyecto.observaciones '' %}
+          <h5><b>Observaciones:</b> {{proyecto.observaciones}}</h5>
+          {% endifnotequal %}</td>
+      </tr>
+      <tr>
+        <td height="21" colspan="2">&nbsp;</td>
       </tr>
       <tr>
         <td></td>
