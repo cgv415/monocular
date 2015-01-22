@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -15,9 +16,9 @@ class VideoInicial(models.Model):
     
 class Informacion(models.Model):
     nombre = models.CharField(max_length=50)
-    telefono = models.IntegerField()
+    telefono = models.IntegerField(u'teléfono')
     email = models.EmailField()
-    direccion = models.CharField(max_length=150)
+    direccion = models.CharField(u'teléfono',max_length=150)
     cif = models.CharField(max_length=9)
     general = models.TextField(null = True,blank = True)
 

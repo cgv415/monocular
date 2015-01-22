@@ -29,9 +29,9 @@ def contacto(request):
             telefono = form.cleaned_data['telefono']
             tlfn = str(telefono)
             asunto = 'Mensaje de contacto de' + ' ' + nombre+  ', (' + mail+')'
-            mensaje = form.cleaned_data['mensaje'] +' de '+ mail + ' telefono: ' + tlfn
+            mensaje = form.cleaned_data['mensaje'] +'\n De: '+ mail + '\n telefono: ' + tlfn
             #send_mail(asunto,mensaje,['carlosgarrido993@gmail.com'])
-            email=EmailMessage(asunto,mensaje,to=['carlosgarrido993@gmail.com'])
+            email=EmailMessage(asunto,mensaje,to=['monocularfilm@gmail.com'])
             email.send()
             exito=True        
             return render_to_response('inicio/contacto.html',{'informacion':informacion,'exito':exito},context_instance=RequestContext(request))

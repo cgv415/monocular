@@ -88,8 +88,8 @@ DATABASES = {
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER ='carlosgn2s@gmail.com'
-EMAIL_HOST_PASSWORD='CAR36SY*53AR'
+EMAIL_HOST_USER ='monocular.contacto@gmail.com'
+EMAIL_HOST_PASSWORD='passwordmonocularfilms'
 EMAIL_PORT = 587
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
