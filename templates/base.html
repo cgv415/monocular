@@ -21,23 +21,38 @@
    
    <table width="95%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-  
     <td width="19" align="center">&nbsp;</td>
     <td width="230" align="center"><img src="{% static "img/logos/fondonegro.png" %}" width="230" height="110" /></td>
-    <td width="100" align="center"><a class="menuHeader" href="/inicio">INICIO</a>  
-    <td width="110" align="center"><a class="menuHeader" href="/servicios">SERVICIOS</a></td>
-    <td width="110" align="center"><a class="menuHeader" href="/noticias/page/0">NOTICIAS</a></td>
-    <td width="115" align="center"><a class="menuHeader" href="/portfolio">PORTFOLIO</a></td>
-    <td width="115" align="center"><a class="menuHeader" href="/contacto">CONTACTO</a></td>
+    <td align="center">
+   <div id="menu">
+		<ul>
+			<li class="nivel1"><a href="/inicio"
+				class="nivel1">INICIO</a>
+				</li>
+			<li class="nivel1"><a href="#" class="nivel1">SERVICIOS</a>
+				<ul class="dos">
+					<li><a href="#">Produccion</a></li>
+					<li><a href="http://www.google.es">PostProduccion</a></li>
+					<li><a href="#">Publicidad</a></li>
+					<li><a href="#">Distribucion</a></li>
+				</ul></li>
+			<li class="nivel1"><a href="/portfolio" class="nivel1">PORTFOLIO</a>
+				</li>
+			<li class="nivel1"><a href="/noticias" class="nivel1">NOTICIAS</a>
+				</li>
+			<li class="nivel1"><a href="/contacto" class="nivel1">CONTACTO</a>
+				</li>
+		</ul>
+	</div>
     <td width="123" align="center">
-    
-    <a class="redes-sociales" target="_blank" href="http://www.facebook.com" title="Facebook">
-    	<img src="{% static "img/social/facebook.png" %}" width="30" height="20"/></a>
-   
-    <a class="redes-sociales" target="_blank" href="http://www.twitter.com" title="Twitter">
-    	<img src="{% static "img/social/twitter.png" %}" width="25" height="20"/></a><a class="redes-sociales" target="_blank" href="https://www.vimeo.com/" title="Vimeo">
-    <img src="{% static "img/social/vimeo.png" %}" width="20" height="15"/></a>
-    
+      
+      <a class="redes-sociales" target="_blank" href="http://www.facebook.com" title="Facebook">
+        <img src="{% static "img/social/facebook.png" %}" width="30" height="20"/></a>
+      
+      <a class="redes-sociales" target="_blank" href="http://www.twitter.com" title="Twitter">
+        <img src="{% static "img/social/twitter.png" %}" width="25" height="20"/></a><a class="redes-sociales" target="_blank" href="https://www.vimeo.com/" title="Vimeo">
+        <img src="{% static "img/social/vimeo.png" %}" width="20" height="15"/></a>
+      
     </td><td width="122"></td>
   </tr>
 </table></div>
@@ -46,7 +61,18 @@
 <div class="row" style="padding-top: 9%;"> 
 				
 	{%block contenido%} {%endblock%}
-	{%block javascript%} {%endblock%}
+	{%block javascript%}
+    <script
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write(
+								'<script src="{{STATIC_URL}}js/vendor/jquery-1.11.1.min.js"><\/script>')
+	</script>
+
+	<script src="{{STATIC_URL}}js/vendor/bootstrap.min.js"></script>
+    {%endblock%}
 	
 <div style="background-color:#000000; text-decoration:none; color:#FFF; font-weight:normal; text-align: left;">
  

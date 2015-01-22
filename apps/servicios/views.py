@@ -43,8 +43,6 @@ def PublicidadPage(request):
     
     
     dividir()
-    for i in videos:
-        print(i.video)
     
     texto = TextoDescriptivo.objects.filter(tipo = 'publicidad')[0]
     return render_to_response('servicios/publicidad.html',{'texto':texto,'imagenes':imagenes,'videos':videos},context_instance=RequestContext(request))
