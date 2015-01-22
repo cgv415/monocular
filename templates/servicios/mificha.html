@@ -3,76 +3,83 @@
 {% endblock %} {% block contenido %}
 
 <div align="center">
-  <table width="100%" border="1">
+  <table width="100%" border="0">
     <tr>
-      <td width="11%">&nbsp;</td>
-      <td colspan="2">&nbsp;</td>
-      <td width="10%" align="center"><h5>Bienvenido,{{user.username|capfirst}}</h5></td>
-      <td width="27%"><h6><a href="/administracion/logout/">Desconectar</a></h6></td>
-      <td width="7%">&nbsp;</td>
+      <td width="28%" rowspan="11">&nbsp;</td>
+      <td colspan="4">&nbsp;</td>
+      <td width="20%" align="right"><h5>Bienvenido,{{user.username|capfirst}}</h5></td>
+      <td width="6%" align="center"><h6><a href="/administracion/logout/">Desconectar</a></h6></td>
+      <td width="3%">&nbsp;</td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
-      <td colspan="2">&nbsp;</td>
-      <td colspan="2">&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td width="14%" align="left"><h4>Datos de Usuario:</h4></td>
-      <td width="31%">&nbsp;</td>
-      <td colspan="2">&nbsp;</td>
+      <td colspan="4">&nbsp;</td>
+      <td colspan="2" rowspan="10">&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
+      <td colspan="2" align="left"><h4>Datos de Usuario:</h4></td>
+      <td colspan="2" rowspan="7"><h5>{{user.username}}</h5>        <h5>{{user.first_name|capfirst}}</h5>        <h5>{{user.last_name|capfirst}}</h5>        <h5>{{cliente.ciudad|capfirst}}</h5>        <h5>{{user.email}}</h5>        <h5>{{cliente.telefono}}</h5></td>
       <td>&nbsp;</td>
-      <td align="left"><h5>Usuario:</h5></td>
-      <td><h5>{{user.username}}</h5></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left"><h5>Usuario:</h5></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left"><h5>Nombre:</h5></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left"><h5>Apellidos:</h5></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left"><h5>Ciudad:</h5></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left"><h5>Email:</h5></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left"><h5>Telefono Contacto:</h5></td>
+      <td rowspan="7">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="4"><h4><strong>Mis Proyectos:</strong></h4></td>
+    </tr>
+    {%for proyecto in proyectos%}
+    <tr>
+      <td height="28" rowspan="2">&nbsp;</td>
+      
+      <td width="10%"><a href="/servicios/ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="120"></a>
+      </td>
+      <td colspan="3"><h5><a href="proyecto/{{proyecto.id}}">{{proyecto.titulo}}</a></h5></td>
+      <td rowspan="2"></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
       <td colspan="2">&nbsp;</td>
-      <td>&nbsp;</td>
+      <td width="11%" valign="bottom">&nbsp;</td>
+      <td width="15%" valign="bottom">&nbsp;</td>
     </tr>
+    	{%empty%}
+        <tr><td>No Hay proyectos asociados</td></tr>
+       {%endfor%} 
     <tr>
       <td>&nbsp;</td>
-      <td align="left"><h5>Nombre:</h5></td>
-      <td><h5>{{user.first_name|capfirst}}</h5></td>
-      <td colspan="2">&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td align="left"><h5>Apellidos:</h5></td>
-      <td><h5>{{user.last_name|capfirst}}</h5></td>
-      <td colspan="2">&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td align="left"><h5>Ciudad:</h5></td>
-      <td><h5>{{cliente.ciudad|capfirst}}</h5></td>
-      <td colspan="2">&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td align="left"><h5>Email:</h5></td>
-      <td><h5>{{user.email}}</h5></td>
-      <td colspan="2">&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td rowspan="3">&nbsp;</td>
-      <td align="left"><h5>Telefono Contacto:</h5></td>
-      <td><h5>{{cliente.telefono}}</h5></td>
-      <td colspan="2" rowspan="3">&nbsp;</td>
-      <td rowspan="3">&nbsp;</td>
-    </tr>
-    <tr>
+      <td colspan="4">&nbsp;</td>
       <td colspan="2">&nbsp;</td>
     </tr>
     <tr>
+      <td>&nbsp;</td>
+      <td colspan="4">&nbsp;</td>
       <td colspan="2">&nbsp;</td>
     </tr>
   </table>
 
 </div>
-{%endblock%}
+<p>{%endblock%} </p>

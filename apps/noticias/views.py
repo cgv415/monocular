@@ -23,7 +23,7 @@ def PageNoticias(request,offset):
     count = Noticia.objects.all().count()
     if cod >0:
         has_prev = True
-    if count < fin:
+    if count <= fin:
         has_next = False
     return render_to_response('noticias/page.html',{'noticias':noticias,'has_next':has_next,'sig':sig,'has_prev':has_prev,'sig':sig,'ant':ant,'cod':cod},context_instance=RequestContext(request))
 

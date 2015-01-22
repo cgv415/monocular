@@ -1,0 +1,18 @@
+<style type="text/css">
+
+.georgia {
+	font-size: 12px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+</style>{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %}
+{%block title%}Registrar Cliente {%endblock%}
+{% endblock %} 
+
+{% block contenido %}
+
+<form method='POST'>{%csrf_token%}
+{{form.as_p}}
+</form>
+
+{%endblock%}

@@ -24,9 +24,8 @@ class SignUpForm(ModelForm):
         
         
 class UserForm(UserCreationForm):
-    servicio_Contratado = forms.CharField(max_length=50)
-    proyecto =forms.CharField(max_length=50)
     telefono = forms.IntegerField()
+    ciudad = forms.CharField()
     
 class FormNoticia(forms.Form):
     titulo= forms.CharField()

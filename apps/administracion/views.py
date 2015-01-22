@@ -7,8 +7,10 @@ from django.template import RequestContext
 from django.contrib.admin.views.decorators import staff_member_required
 from apps.servicios.models import Proyecto, Festival, Estado_Proyecto,Publicidad
 from apps.noticias.models import Noticia
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, FormView
 from django.views.generic.list import ListView
+from apps.administracion.models import Cliente
+from apps.administracion.forms import UserForm
 
 # Create your views here.
 #Vista principal de la administracion
@@ -16,20 +18,42 @@ from django.views.generic.list import ListView
 def Principal(request):
     return render_to_response('administracion/admin.html',context_instance=RequestContext(request))
 
+#Operaciones sobre Clientes
+class ClientesList(ListView):
+    model = Cliente
+    
+class RegistrarCliente(FormView):
+    template_name = 'administracion/registrarCliente.html'
+    form_class=UserForm
+    success_url = '/administracion/clienteslist'
+    
+class ModificarCliente(UpdateView):
+    model = Cliente
+    fields=['usuario','ciudad','telefono']
+    template_name='administracion/modificar.html'
+    success_url = '/administracion/clienteslist'
+        
+class DeleteCliente(DeleteView):
+    template_name='administracion/delete.html'
+    model = Cliente
+    success_url = '/administracion/clienteslist'
 
 #Operaciones sobre Proyecto
 class ProyectosList(ListView):
     model = Proyecto
+    
 class RegistrarCorto(CreateView):
     template_name='administracion/registrar.html'
     model = Proyecto
     fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
     success_url = '/administracion/proyectoslist'
+    
 class ModificarCorto(UpdateView):
     model = Proyecto
     fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
     template_name='administracion/modificar.html'
-    success_url = '/administracion/proyectoslist'    
+    success_url = '/administracion/proyectoslist'
+        
 class DeleteProyecto(DeleteView):
     template_name='administracion/delete.html'
     model = Proyecto

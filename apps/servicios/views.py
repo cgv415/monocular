@@ -4,17 +4,18 @@ from .models import Proyecto,Estado_Proyecto,Galeria,Festival,Publicidad
 from django.contrib.auth.models import User
 from apps.administracion.models import TextoDescriptivo,Cliente
 from django.contrib.auth.decorators import login_required
-# Create your views here.
 
+# Create your views here.
 #Ponemos login_required cuando queremos que solo usuarios autentificados puedan acceder a la vista
 @login_required()
 #En esta vista lo que se hace es mostrar todos los objetos creados a nombre del usuario que accede
 def MiFicha(request):
-    #usuario = request.user
+    usuario = request.user
     cliente = Cliente.objects.get(usuario_id= request.user)
-    #proyectos = Proyecto.objects.filter(cliente_id = usuario.id).order_by('-id')
-    #'proyectos':proyectos,
-    return render_to_response('servicios/mificha.html',{'cliente':cliente},context_instance=RequestContext(request))
+    proyectos = Proyecto.objects.filter(cliente_id = usuario.id).order_by('-id')
+    return render_to_response('servicios/mificha.html',{'proyectos':proyectos,'cliente':cliente},context_instance=RequestContext(request))
+
+
 
 #Muestra todos los servicios que se prestan
 def Servicios(request):

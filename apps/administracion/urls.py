@@ -3,21 +3,26 @@ from .views import RegistrarCorto, RegistrarNoticia, RegistrarFestival, Modifica
 from django.contrib.auth.views import login
 from apps.administracion.views import ModificarCorto, DeleteNoticia, NoticiasList, ProyectosList,\
  FestivalesList, DeleteProyecto,EstadosList,ModificarEstado,DeleteEstado,ModificarFestival,DeleteFestival,RegistrarEstado,\
-    PublicidadDetails, CreateAnuncio, DeleteAnuncio, UpdateAnuncio
+    PublicidadDetails, CreateAnuncio, DeleteAnuncio, UpdateAnuncio,ClientesList,ModificarCliente,RegistrarCliente,DeleteCliente
 # from django.contrib.auth.views import logout
 
 urlpatterns = [
    # url(r'^$' , 'apps.inicio.views.index'),
    url(r'^admin/$' , 'apps.administracion.views.Principal', name="principal"),
    
+   url(r'^registrarCliente/', RegistrarCliente.as_view(), name="registrar_Cliente"),
+   url(r'^clienteslist$', ClientesList.as_view(), name='Cliente-list'),
+   url(r'^modificarCliente/(?P<pk>\d+)/$', ModificarCliente.as_view(), name='modificar_Cliente'),
+   url(r'^eliminarCliente/(?P<pk>\d+)/$', DeleteCliente.as_view(), name='eliminar_Cliente'),
+   
    url(r'^registrarProyecto/', RegistrarCorto.as_view(), name="registrar_corto"),
    url(r'^proyectoslist$', ProyectosList.as_view(), name='proyectos-list'),
-   url(r'^modificarProyecto/(?P<pk>\d+)/$', ModificarCorto.as_view(), name='modificar_corto'),
-   url(r'^eliminarProyecto/(?P<pk>\d+)/$', DeleteProyecto.as_view(), name='eliminar_noticia'),
+   url(r'^modificarProyecto/(?P<pk>\d+)/$', ModificarCorto.as_view(), name='modificar_proyecto'),
+   url(r'^eliminarProyecto/(?P<pk>\d+)/$', DeleteProyecto.as_view(), name='eliminar_proyecto'),
    
    url(r'^registrarFestival/', RegistrarFestival.as_view(), name="registrar_festival"),
    url(r'^festivaleslist$', FestivalesList.as_view(), name='festivales-list'),
-   url(r'^modificarFestival/(?P<pk>\d+)/$', ModificarFestival.as_view(), name='modificar_corto'),
+   url(r'^modificarFestival/(?P<pk>\d+)/$', ModificarFestival.as_view(), name='modificar_festival'),
    url(r'^eliminarFestival/(?P<pk>\d+)/$', DeleteFestival.as_view(), name='eliminar_festival'),
    
    
