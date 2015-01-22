@@ -10,92 +10,51 @@
 
 {% block contenido %}
 <div align="center"	>
-  <table width="90%" border="1">
+  <table width="100%" border="0">
     <tr>
-      <td width="5%" rowspan="10">&nbsp;</td>
-      <td colspan="3" align="center" class="georgia"><h4><strong>Panel de administracion.</strong></h4></td>
-      <td colspan="2" align="right"><h6 class="georgia">Bienvenido, {{user.username|capfirst}}</h6></td>
-      <td width="7%" align="center" class="georgia"><a href="/administracion/logout/">Salir</a></td>
-      <td width="7%">&nbsp;</td>
+      <td width="30%">&nbsp;</td>
+      <td width="30%"><h4><strong>Panel de administracion.</strong></h4></td>
+      <td width="33%"><h6 class="georgia">Bienvenido, {{user.username|capfirst}}</h6></td>
+      <td width="7%"><a href="/administracion/logout/">Salir</a></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="34%" border="0">
+    <tr>
+      <td width="9%" rowspan="9">&nbsp;</td>
+      <td colspan="4" align="center" class="georgia">
+      </td>
     </tr>
     <tr>
-      <td width="25%" class="georgia">&nbsp;</td>
-      <td width="14%" class="georgia">&nbsp;</td>
-      <td width="15%" class="georgia">&nbsp;</td>
-      <td width="17%">&nbsp;</td>
-      <td width="10%">&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td width="51%" height="30" class="georgia"><a href="/administracion/verAdministradores" class="vinculo">ADMINISTRADORES</a></td>
+      <td width="30%" class="georgia">&nbsp;</td>
+      <td width="10%" colspan="2" rowspan="8" class="georgia">&nbsp;</td>
     </tr>
     <tr>
-      <td class="georgia"><a href="/administracion/verAdministradores" class="vinculo">ADMINISTRADORES</a></td>
+      <td height="28" class="georgia"><a href="/administracion/verUsuarios">USUARIOS</a></td>
       <td class="georgia">&nbsp;</td>
-      <td class="georgia">&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
     </tr>
     <tr>
-      <td class="georgia"><a href="/administracion/verUsuarios">USUARIOS</a></td>
-      <td class="georgia">&nbsp;</td>
-      <td class="georgia">&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="georgia"><a href="/administracion/noticiaslist" class="verdana">NOTICIAS</a></td>
+      <td height="26" class="georgia"><a href="/administracion/noticiaslist" class="verdana">NOTICIAS</a></td>
       <td class="georgia"><a href="/administracion/registrarNoticia"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" /> Añadir</a></td>
-      <td class="georgia">&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
     </tr>
     <tr>
-      <td class="georgia"><a href="/administracion/proyectoslist" class="georgia">PROYECTOS</a></td>
+      <td height="29" class="georgia"><a href="/administracion/proyectoslist" class="georgia">PROYECTOS</a></td>
       <td class="georgia"><a href="/administracion/registrarProyecto"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
-      <td class="georgia">&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
     </tr>
     <tr>
-      <td class="georgia"><a href="/administracion/festivaleslist">FESTIVALES</a></td>
+      <td height="30" class="georgia"><a href="/administracion/festivaleslist">FESTIVALES</a></td>
       <td class="georgia"><a href="/administracion/registrarFestival"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
-      <td class="georgia">&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
     </tr>
     <tr>
-      <td class="georgia"><a href="/administracion/estadoslist">ESTADO_PROYECTO</a></td>
-      <td class="georgia"><a href="/administracion/registrarEstados"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
-      <td class="georgia">&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td height="27" class="georgia"><a href="/administracion/estadoslist">ESTADO_PROYECTO</a></td>
+      <td class="georgia"><a href="/administracion/registrarEstado"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
     </tr>
     <tr>
-      <td class="georgia"><a href="/administracion/publicidadDetails" class="georgia">PUBLICIDAD</a></td>
+      <td height="27" class="georgia"><a href="/administracion/publicidadDetails" class="georgia">PUBLICIDAD</a></td>
       <td class="georgia"><a href="/administracion/createAnuncio"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
-      <td class="georgia">&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
     </tr>
     <tr>
-      <td><pre>&nbsp;</pre></td>
-      <td><pre>&nbsp;</pre></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>

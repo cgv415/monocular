@@ -2,42 +2,57 @@
 .enlace {
 	font-weight: bold;
 }
+.tam12 {
+	font-size: 12px;
+}
+.margen {
+	margin-left: 10px;
+}
 </style>
-{% extends 'base.html' %} {% comment %} Aqui van los comentarios {%endcomment %} {% block head %} {% endblock %} {% block contenido %}
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios {%endcomment %} {% block head %} {% endblock %}
+{%block titulo%}Administrar Noticias{%endblock%}
+{% block contenido %}
 <div align="center">
   <table width="100%" border="0">
     <tr>
-      <td width="7%">&nbsp;</td>
-      <td><h1>NOTICIAS</h1></td>
-      <td width="7%">&nbsp;</td>
+      <td width="25%" height="39">&nbsp;</td>
+      <td width="9%"></td>
+      <td width="18%"><h2>NOTICIAS</h2></td>
+      <td width="43%"><h5><a href="/administracion/registrarNoticia"><img src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" /> Añadir Noticia</a></h5></td>
+      <td width="5%">&nbsp;</td>
     </tr>
     <tr>
       <td rowspan="2">&nbsp;</td>
-      <td><a href="/administracion/registrarNoticia"><img src="{{STATIC_URL}}img/btn/plus.png" width="27" height="23" /> Añadir Noticia</a></td>
+      <td colspan="3"></td>
       <td rowspan="2">&nbsp;</td>
     </tr>
     <tr>
-      <td height="52"><hr size="5" noshade/></td>
+      <td height="17" colspan="3"></td>
     </tr>
     
     <tr>
       <td rowspan="3">&nbsp;</td>
-      <td height="29">
+      <td height="29" colspan="3">
       <table width="72%" border="1">
       {%for noticia in object_list%}
         <tr>
-          <td width="76%"><a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a></td>
-          <td align="center"><a href="/administracion/modificarNoticia/{{noticia.id}}" class="enlace">Modificar  </a> / <a href="/administracion/eliminarNoticia/{{noticia.id}}" class="enlace">Borrar</a></td>
+          <td width="79%"><h6><a href="/noticias/post/{{noticia.id}}" class="margen">{{noticia.titulo}}</a></h6></td>
+          <td width="21%" align="center"><table width="100%" border="0">
+            <tr>
+              <td width="59%" align="center"><a href="/administracion/modificarNoticia/{{noticia.id}}" class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png" width="15" height="15" /><span class="tam12">Modificar  </span></a></td>
+              <td width="41%" align="center"><a href="/administracion/eliminarNoticia/{{noticia.id}}" class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png" width="15" height="15" />Borrar</a></td>
+            </tr>
+          </table></td>
           </tr>
             {%endfor%}
       </table></td>
       <td rowspan="3">&nbsp;</td>
     </tr>
     <tr>
-      <td height="21"><a href="/noticias/post/{{noticia.id}}"></a><a href="/administracion/eliminarNoticia/{{noticia.id}}" class="enlace"></a></td>
+      <td height="21" colspan="3"></td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
+      <td colspan="3">&nbsp;</td>
     </tr>
   </table>
 </div>
