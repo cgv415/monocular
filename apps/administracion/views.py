@@ -22,11 +22,12 @@ def Principal(request):
 class ClientesList(ListView):
     model = Cliente
     
-class RegistrarCliente(FormView):
-    template_name = 'administracion/registrarCliente.html'
-    form_class=UserForm
+class RegistrarCliente(CreateView):
+    template_name = 'administracion/registrar.html'
+    fields=['usuario','ciudad','telefono']
+    model = Cliente
     success_url = '/administracion/clienteslist'
-
+    
 class ModificarCliente(UpdateView):
     model = Cliente
     fields=['usuario','ciudad','telefono']

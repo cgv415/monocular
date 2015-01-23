@@ -22,7 +22,7 @@
    <table width="96%" border="0" cellspacing="2" cellpadding="2">
   <tr>
     <td width="52" align="right">    </td>
-    <td width="180" align="right"><img src="{% static "img/logos/fondonegro.png" %}" width="180" height="110" /></td>
+    <td width="180" align="right"><a href="/inicio"> <img src="{% static "img/logos/fondonegro.png" %}" width="180" height="110" /> </a></</td>
     <td width="582" align="center"><div id="menu">
       <ul>
         <li class="nivel1"><a href="/inicio"
@@ -43,7 +43,7 @@
           </li>
         </ul>
       </div>      
-      <td width="121" align="left" valign="middle"><a class="redes-sociales" target="_blank" href="http://www.facebook.com" title="Facebook"><img src="{% static "img/social/facebook.png" %}" width="36" height="26"/></a><a class="redes-sociales" target="_blank" href="http://www.twitter.com" title="Twitter"><img src="{% static "img/social/twitter.png" %}" width="31" height="26"/></a> <a class="redes-sociales" target="_blank" href="https://www.vimeo.com/" title="Vimeo"> <img src="{% static "img/social/vimeo.png" %}" width="26" height="21"/></a></td>
+      <td width="121" align="left" valign="middle"><a class="redes-sociales" target="_blank" href="https://www.facebook.com/pages/Monocular-Films/636013676504940?ref=notif&notif_t=fbpage_admin" title="Facebook"><img src="{% static "img/social/facebook.png" %}" width="36" height="26"/></a><a class="redes-sociales" target="_blank" href="https://twitter.com/MonocularFilms" title="Twitter"><img src="{% static "img/social/twitter.png" %}" width="31" height="26"/></a> <a class="redes-sociales" target="_blank" href="https://vimeo.com/user36352296" title="Vimeo"> <img src="{% static "img/social/vimeo.png" %}" width="26" height="21"/></a></td>
     <td width="65" align="center" valign="middle">{%if user.is_active%}<a href="/administracion/logout" class="menuFooter">Logout</a>{%endif%}</td>
   </tr>
   </table>
@@ -65,7 +65,7 @@
     <td colspan="2" rowspan="8" style="text-align: right">&nbsp;</td>
     <td colspan="2" rowspan="8" style="text-align: center">&nbsp;</td>
     <td width="5%" rowspan="8" style="text-align: center">&nbsp;</td>
-    <td colspan="4" style="text-align: center; font-size: 16px; font-weight: bold; color:#FFFFFF;">Men&uacute; General</td>
+    <td colspan="4" style="text-align: center; font-size: 16px; font-weight: bold; color:#FFFFFF;"><span style="text-align: left"></span>Men&uacute; General</td>
     <td width="1%" colspan="2" rowspan="8">&nbsp;</td>
   </tr>
   <tr>
@@ -75,28 +75,28 @@
   <tr>
     <td width="4%" rowspan="3" style="text-align: center">&nbsp;</td>
     <td width="8%" height="27" style="text-align: center"><img src="{% static "img/social/facebook.png" %}" width="36" height="26" /></td>
-    <td style="text-align: left"><span style="text-align: left;"><a class="menuFooter" href="https://es-es.facebook.com/" target="_blank">Facebook</a></span></td>
+    <td style="text-align: left"><span style="text-align: left;"><a class="menuFooter" href="https://www.facebook.com/pages/Monocular-Films/636013676504940" target="_blank">Facebook</a></span></td>
     <td colspan="2" rowspan="3" style="text-align: justify"><span style="text-align: center"></span><span style="text-align: left"><a class="menuFooter"href="https://www.blogger.com/" target="_blank"></a></span></td>
-    <td width="4%" style="text-align: center"><span style="text-align: center"><img src="{% static "img/menufooter/quienessomos.png" %}" width="20" 		height="15" /></span></td>
-    <td width="18%" style="text-align: left"><a class="menuFooter" href="#">¿Qui&eacute;nes somos?</a></td>
-    <td width="4%" style="text-align: left"><span style="text-align: center"><img src="{% static "img/menufooter/recomiendanos.png" %}" width="20" height="15" /></span></td>
-    <td width="17%" style="text-align: left"><a class="menuFooter" href="#">Recomi&eacute;ndanos</a></td>
+    <td width="4%" style="text-align: center"><img src="{% static "img/menufooter/inicio.jpg" %}" width="25" height="20" /></td>
+    <td width="18%" style="text-align: left"><a class="menuFooter" href="/inicio">Inicio</a></td>
+    <td width="4%" style="text-align: left"><span style="text-align: center"><img src="{% static "img/menufooter/contacto.png" %}" width="20" height="15" /></span></td>
+    <td width="17%" style="text-align: left"><a class="menuFooter" href="/contacto">Contacto</a></td>
   </tr>
   <tr>
     <td style="text-align: center"><span style="color:#000000;"><img src="{% static "img/social/twitter.png" %}" width="31" height="26" /></span></td>
-    <td width="13%" style="text-align: left"><span style="text-align: left"><a  class="menuFooter" href="https://twitter.com/?lang=es" target="_blank">Twitter</a></span></td>
-    <td style="text-align: center"><img src="{% static "img/menufooter/informacion.png" %}" width="22" height="17" /></td>
-    <td style="text-align: left"><a class="menuFooter" href="#">Informaci&oacute;n</a></td>
-    <td style="text-align: left"><span style="text-align: center"><img src="{% static "img/menufooter/contacto.png" %}" width="20" height="15" /></span></td>
-    <td style="text-align: left"><a class="menuFooter" href="/contacto">Contacto</a></td>
+    <td width="13%" style="text-align: left"><span style="text-align: left"><a  class="menuFooter" href="https://twitter.com/MonocularFilms" target="_blank">Twitter</a></span></td>
+    <td style="text-align: center"><img src="{% static "img/menufooter/servicios.png" %}" width="20" height="15" /></td>
+    <td style="text-align: left"><a class="menuFooter" href="/servicios">Servicios</a></td>
+    <td style="text-align: left"><span style="text-align: center"><img src="{% static "img/menufooter/portfolio.gif" %}" width="20" height="20" /></span></td>
+    <td style="text-align: left"><a class="menuFooter" href="/portfolio">Portfolio</a></td>
   </tr>
   <tr>
     <td style="text-align: center"><img src="{% static "img/social/vimeo.png" %}" width="26" height="21" /></td>
-    <td style="text-align: left"><a class="menuFooter"href="https://www.vimeo.com/" target="_blank">Vimeo</a></td>
-    <td style="text-align: center"><img src="{% static "img/menufooter/publicidad.png" %}" width="20" height="15" /></td>
-    <td style="text-align: left"><a class="menuFooter" href="/servicios/publicidad">Publicidad</a></td>
-    <td style="text-align: left"><span style="text-align: center"><img src="{% static "img/menufooter/faq.png" %}" width="20" height="15" /></span></td>
-    <td style="text-align: left"><a class="menuFooter" href="#">FAQ</a></td>
+    <td style="text-align: left"><a class="menuFooter"href="https://vimeo.com/user36352296" target="_blank">Vimeo</a></td>
+    <td style="text-align: center"><img src="{% static "img/menufooter/noticias.png" %}" width="20" height="15" /></td>
+    <td style="text-align: left"><a class="menuFooter" href="/noticias/page/0/">Noticias</a></td>
+    <td style="text-align: left">&nbsp;</td>
+    <td style="text-align: left">&nbsp;</td>
   </tr>
   <tr>
     <td colspan="5" rowspan="2" style="text-align: right">&nbsp;</td>

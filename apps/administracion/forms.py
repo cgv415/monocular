@@ -12,9 +12,8 @@ SERVICIO_CONTRATADO = (
 ) 
 
 class SignUpForm(ModelForm):
-    servicio_Contratado = forms.ChoiceField(choices=SERVICIO_CONTRATADO)
-    proyecto =forms.CharField(max_length=50)
     telefono = forms.IntegerField()
+    ciudad = forms.CharField()
     class Meta:
         model = User
         fields = ['username', 'password', 'email', 'first_name', 'last_name']
