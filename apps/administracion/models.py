@@ -18,7 +18,7 @@ class Informacion(models.Model):
     nombre = models.CharField(max_length=50)
     telefono = models.IntegerField(u'teléfono')
     email = models.EmailField()
-    direccion = models.CharField(u'teléfono',max_length=150)
+    direccion = models.CharField(u'ubicación',max_length=150)
     cif = models.CharField(max_length=9)
     general = models.TextField(null = True,blank = True)
 

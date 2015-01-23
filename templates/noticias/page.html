@@ -31,6 +31,26 @@
 	font-size: 14px;
 	text-align: justify;
 }
+.sabermas {
+	font-size: 12px;
+}
+
+#redes-sociales {
+text-decoration:none;
+}
+
+a.redes-sociales img {
+filter:alpha(opacity=100);
+opacity: 1.0;
+text-decoration:none;
+}
+a.redes-sociales:hover img {
+filter:alpha(opacity=40);
+opacity: 0.4;
+text-decoration:none;
+}
+
+
 </style>
 {% extends 'base.html' %} 
 {% comment %} Aqui van los comentarios{%endcomment %} 
@@ -42,23 +62,29 @@
 <div align="center">
   <table width="61%" border="0">
     <tr>
-      <td colspan="2">&nbsp;</td>
+      <td colspan="5">&nbsp;</td>
     </tr>
     <tr>
-      <td colspan="2" bgcolor="#000000" align="center"><strong class="titular">Noticias</strong></td>
+      <td colspan="5" bgcolor="#000000" align="center"><strong class="titular">Noticias</strong></td>
     </tr>
     {%for noticia in noticias%}
     <tr>
-      <td colspan="2" align="center"><a href="/noticias/post/{{noticia.id}}" class="titulos">
+      <td colspan="5" align="center"><a href="/noticias/post/{{noticia.id}}" class="titulos">
         <br/><br/>{{noticia.titulo}}</a>
         <p><a href="/noticias/post/{{noticia.id}}"><br/>
       </span></a></p></td>
     </tr>
     <tr>
-      <td width="34%" class="titular"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="200" height="200" /></td>
-      <td width="66%" valign="top"><h4 class="resumen">{{noticia.resumen}}</h4>        <h6>{{noticia.fecha}}</h6></td>
-    </tr>
-    
+      <td width="17%" align="right" valign="middle" class="titular">&nbsp;</td>
+      <td width="27%" align="right" valign="middle" class="titular"><a href="/noticias/post/{{noticia.id}}" class="redes-sociales"><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="170" height="170" /></a></td>
+      <td width="2%" valign="top"><h4 class="resumen">&nbsp;</h4>
+      <h4 class="resumen">&nbsp;</h4></td>
+      <td width="43%" valign="top"><h4 class="resumen">&nbsp;</h4>
+        <h4 class="resumen">{{noticia.resumen}}</h4>
+        <p class="sabermas"><a href="/noticias/post/{{noticia.id}}">Saber mas</a></p>
+<h6>{{noticia.fecha}}</h6></td>
+      <td width="11%" valign="top">&nbsp;</td>
+    </tr>  
     
     {%endfor%}
   </table><br/>

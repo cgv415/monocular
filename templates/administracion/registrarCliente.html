@@ -4,19 +4,40 @@
 	font-size: 12px;
 	font-family: Georgia, "Times New Roman", Times, serif;
 }
-</style>{% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-{%block title%}Registrar Cliente {%endblock%}
-{% endblock %} 
-
-{% block contenido %}
-<div align="center">
-<form method='POST'>{%csrf_token%}
-<table>
-{{form.as_table}}
+.formularioRegistro {
+	text-align: left;
+	font-weight: bold;
+}
+</style>
+<p>{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+  {%endcomment %} {% block head %}
+  {%block title%}Registrar Cliente {%endblock%}
+  {% endblock %} 
+  
+{% block contenido %}</p>
+<table width="100%" border="0">
+  <tr>
+    <td width="24%"><div align="center"></div></td>
+    <td colspan="2"><form method='POST' class="formularioRegistro">
+      <h1>Registro Cliente:</h1>
+      <hr size ="20"/>
+      <p>&nbsp;</p>
+    </td>
+    <td width="27%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td rowspan="2">&nbsp;</td>
+    <td colspan="2">{%csrf_token%}
+      <table>
+        {{form.as_table}}
+    </table></td>
+    <td rowspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="35%" height="54">&nbsp;</td>
+    <td width="14%"><input type="submit" value="Registrar"  /></td>
+    </form>
+  </tr>
 </table>
-</form>
-</div>
-
-
-{%endblock%}
+<p>&nbsp;</p>
+ {%endblock%}

@@ -39,9 +39,9 @@ def PublicidadPage(request):
     def dividir():
             anuncio = Publicidad.objects.all().order_by('-id')
             for a in anuncio:
-                if a.imagen != '':
+                if a.video == '':
                     imagenes.append(a)
-                if a.video != '':
+                else:
                     videos.append(a)
     
     

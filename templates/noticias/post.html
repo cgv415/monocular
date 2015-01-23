@@ -12,14 +12,17 @@
 
 {% block contenido %}	
 	<div align="center">
-      <table width="73%" border="0" cellpadding="0" cellspacing="0">
+      <table width="59%" border="0" cellpadding="0" cellspacing="0">
         <tr>
-          <td colspan="2" align="center"><h3><strong>{{noticia.titulo}}<br/></strong></h3></td>
+          <td colspan="2" align="center"><h4>&nbsp;</h4>
+            <h4><strong>{{noticia.titulo}}<br/>
+          </strong></h4></td>
         </tr>
         <tr>
-          <td width="46%" align="justify" valign="middle"><h6><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="350" height="325" /> </h6>
+          <td width="38%" align="center" valign="middle"><h6><img src="{{MEDIA_URL}}{{noticia.imagen}}" width="225" height="225" /> </h6>
           <h6>{{noticia.fecha}}</h6></td>
-          <td width="54%" align="justify" valign="top"><h4 class="titulos">{{noticia.texto}}</h4></td>
+          <td width="62%" align="justify" valign="top"><h4 class="titulos">&nbsp;</h4>
+          <h4 class="titulos">{{noticia.texto}}</h4></td>
         </tr>
         <tr>
           <td colspan="2">&nbsp;</td>
