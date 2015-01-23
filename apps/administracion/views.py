@@ -26,7 +26,7 @@ class RegistrarCliente(FormView):
     template_name = 'administracion/registrarCliente.html'
     form_class=UserForm
     success_url = '/administracion/clienteslist'
-    
+
 class ModificarCliente(UpdateView):
     model = Cliente
     fields=['usuario','ciudad','telefono']
