@@ -9,7 +9,7 @@ from apps.servicios.models import Proyecto, Festival, Estado_Proyecto,Publicidad
 from apps.noticias.models import Noticia
 from django.views.generic.edit import UpdateView, DeleteView, FormView
 from django.views.generic.list import ListView
-from apps.administracion.models import Cliente
+from apps.administracion.models import Cliente, Empleado
 from apps.administracion.forms import UserForm
 
 # Create your views here.
@@ -18,12 +18,55 @@ from apps.administracion.forms import UserForm
 def Principal(request):
     return render_to_response('administracion/admin.html',context_instance=RequestContext(request))
 
+def ClienteView(request,offset):
+    cod = int(offset)
+    cliente = Cliente.objects.filter(id=cod)[0]
+    return render_to_response('administracion/cliente.html',{'cliente':cliente},context_instance=RequestContext(request))
+
+def EmpleadoView(request,offset):
+    cod = int(offset)
+    empleado = Empleado.objects.filter(id=cod)[0]
+    return render_to_response('administracion/empleado.html',{'empleado':empleado},context_instance=RequestContext(request))
+
+
+class RegistrarUsuario(CreateView):
+    template_name = 'administracion/registrar.html'
+    fields=['username','password','first_name','last_name','email']
+    model = User
+    success_url = '/administracion/registrarCliente'
+    
+class RegistrarUsuarioEmpleado(CreateView):
+    template_name = 'administracion/registrar.html'
+    fields=['username','password','first_name','last_name','email']
+    model = User
+    success_url = '/administracion/registrarAdministrador'
+    
+class AdministradorList(ListView):
+    model = Empleado
+
+class RegistrarAdministrador(CreateView):
+    template_name='administracion/registrarAdministrador.html'
+    model = Empleado
+    fields=['usuario',]
+    success_url = '/administracion/administradorlist'
+    
+class ModificarAdministrador(UpdateView):
+    model = Empleado
+    fields=['usuario',]
+    template_name='administracion/modificar.html'
+    success_url = '/administracion/administradorlist'
+    
+class DeleteAdministrador(DeleteView):
+    template_name='administracion/delete.html'
+    model = Empleado
+    success_url = '/administracion/administradorlist'    
+    
 #Operaciones sobre Clientes
 class ClientesList(ListView):
     model = Cliente
     
 class RegistrarCliente(CreateView):
-    template_name = 'administracion/registrar.html'
+    template_name = 'administracion/registrarCliente.html'
     fields=['usuario','ciudad','telefono']
     model = Cliente
     success_url = '/administracion/clienteslist'
@@ -63,7 +106,7 @@ class DeleteProyecto(DeleteView):
 #Operaciones sobre Noticias   
 class NoticiasList(ListView):
     model = Noticia    
-    
+
 class RegistrarNoticia(CreateView):
     template_name='administracion/registrar.html'
     model = Noticia
@@ -92,6 +135,7 @@ class ModificarFestival(UpdateView):
     fields=['nombre','ciudad','pais','anyo','fecha','web']
     template_name='administracion/modificar.html'
     success_url = '/administracion/festivaleslist'    
+    
 class DeleteFestival(DeleteView):
     template_name='administracion/delete.html'
     model = Festival

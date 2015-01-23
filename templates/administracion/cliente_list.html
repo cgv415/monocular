@@ -36,11 +36,11 @@
       <table width="72%" border="1">
       {%for cliente in object_list%}
         <tr>
-          <td width="68%"><h6><a href="/administracion/cliente{{cliente.id}}" class="margin">{{cliente.usuario.username}}</a></h6></td>
+          <td width="68%"><h6><a href="/administracion/cliente/{{cliente.id}}" class="margin">{{cliente.usuario.username}}</a></h6></td>
           <td width="32%" align="center"><table width="100%" border="0">
             <tr>
-              <td width="59%" align="center"><a href="/servicios/festival/{{festival.id}}" class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png" width="15" height="15" /><span class="tam12">Modificar  </span></a></td>
-              <td width="41%" align="center"><a href="/administracion/eliminarFestival/{{festival.id}}" class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png" width="15" height="15" />Borrar</a></td>
+              <td width="59%" align="center"><a href="/administracion/modificarCliente/{{cliente.id}}" class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png" width="15" height="15" /><span class="tam12">Modificar  </span></a></td>
+              <td width="41%" align="center"><a href="/administracion/eliminarCliente/{{cliente.id}}" class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png" width="15" height="15" />Borrar</a></td>
             </tr>
           </table></td>
           </tr>

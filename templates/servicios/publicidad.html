@@ -69,6 +69,9 @@ text-decoration:none;
     <tr>
       <td colspan="4" align="center"><strong class="titulo"><br/><br/>{{texto.texto}}<br/><br/></strong></td>
     </tr>
+    <tr>
+      <td colspan="4" align="center"><br/></td>
+    </tr>
   </table>
 
   </div>
@@ -76,7 +79,7 @@ text-decoration:none;
 <div id="slider1_container" style=top: 364px; left: 161px; width: 800px; height: 400px; background: #191919; overflow: hidden;">
 
         <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 256px; top: 275px; width: 700px; height: 413px; overflow: hidden;">
+        <div u="slides" style="cursor: move; position: absolute; left: 256px; top: 297px; width: 700px; height: 413px; overflow: hidden;">
            {%for publi in imagenes%}
             <div>
                 <img u="image" src="{{MEDIA_URL}}{{publi.imagen}}" />
@@ -118,7 +121,7 @@ text-decoration:none;
         <!-- Arrow Navigator Skin End -->
         
         <!-- Thumbnail Navigator Skin Begin -->
-        <div u="thumbnavigator" class="jssort01" style="position: absolute; width: 800px; height: 72px; left:-2px; bottom: 1px;">
+        <div u="thumbnavigator" class="jssort01" style="position: absolute; width: 800px; height: 72px; left:-53px; bottom: 2px;">
             <!-- Thumbnail Item Skin Begin -->
             <style>
                 /* jssor slider thumbnail navigator skin 01 css */
@@ -312,7 +315,7 @@ text-decoration:none;
     </tr>
     <tr>
      {%for publi in videos|slice:":3"%}
-     <td height="19"><a href="{{publi.video}}" target="blank"><img src="{{MEDIA_URL}}{{publi.imagen}}" width="65" height="65"></a></td>
+     <td height="19"><a href="{{publi.video}}" target="blank" class="redes-sociales"><img src="{{MEDIA_URL}}{{publi.imagen}}" width="65" height="65"></a></td>
     {%endfor%}
     </tr>
     <tr>
@@ -320,7 +323,7 @@ text-decoration:none;
     </tr>
     <tr>
      {%for publi in videos|slice:"3:6"%}
-      <td height="19"><a href="{{publi.video}}" target="blank"><img src="{{MEDIA_URL}}{{publi.imagen}}" width="65" height="65"></a></td>
+      <td height="19"><a href="{{publi.video}}" target="blank" class="redes-sociales"><img src="{{MEDIA_URL}}{{publi.imagen}}" width="65" height="65"></a></td>
     {%endfor%}
     </tr>
     <tr>

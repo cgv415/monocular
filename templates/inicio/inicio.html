@@ -33,6 +33,37 @@ filter:alpha(opacity=40);
 opacity: 0.4;
 text-decoration:none;
 }
+
+.tam36 {
+	font-size: 36px;
+}
+.titular {
+	text-align: center;
+	font-weight: bold;
+	color: #FFF;
+	font-size: 22px;
+}
+.titulo {
+	text-align: center;
+	font-size: 14px;
+}
+
+.titulos {
+	font-size: 14px;
+	color:#000000;
+	text-decoration:none;
+	text-align:center;
+	font-weight:bold;
+}
+.titulos:hover{
+	color:#000000;
+	text-decoration:none;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+
 </style>
 {% extends 'base.html' %}{% block contenido %}
 
@@ -57,7 +88,7 @@ text-decoration:none;
     </tr>
   <tr>
     <td width="335" rowspan="2" align="justify" valign="top"><p>&nbsp;</p>
-      <p>{%for noticia in noticias|slice:":2"%}{{noticia.titulo}}</p>
+      <p>{%for noticia in noticias|slice:":2"%}<a href="/noticias/post/{{noticia.id}}" class="titulos">{{noticia.titulo}}</a></p>
       
       <table width="100%" border="0" cellspacing="15" cellpadding="2">
         <tr>

@@ -14,30 +14,53 @@
   {%block title%}Registrar Cliente {%endblock%}
   {% endblock %} 
   
-{% block contenido %}</p>
-<table width="100%" border="0">
-  <tr>
-    <td width="24%"><div align="center"></div></td>
-    <td colspan="2"><form method='POST' class="formularioRegistro">
-      <h1>Registro Cliente:</h1>
-      <hr size ="20"/>
-      <p>&nbsp;</p>
-    </td>
-    <td width="27%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td rowspan="2">&nbsp;</td>
-    <td colspan="2">{%csrf_token%}
+{% block contenido %}
+<div align="center">
+  <table width="100%" border="0">
+    <tr>
+      <td width="19%" rowspan="2">&nbsp;</td>
+      <td colspan="2" align="left"><h1>Registro Cliente:</h1>
+      <hr size ="20"/></td>
+      <td width="3%" rowspan="2">&nbsp;</td>
+      <td width="3%" rowspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left"><h6><a href="/administracion/registrarUsuario"><img src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" />Añadir Usuario</a></h6></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td width="25%" rowspan="4"><form method='POST' class="formularioRegistro">{%csrf_token%}
       <table>
-        {{form.as_table}}
-    </table></td>
-    <td rowspan="2">&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="35%" height="54">&nbsp;</td>
-    <td width="14%"><input type="submit" value="Registrar"  /></td>
-    </form>
-  </tr>
-</table>
-<p>&nbsp;</p>
+      {{form.as_table}}
+      </table>
+      <input type="submit" value="Registrar" /></form>
+      </td>
+      <td width="50%"></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+
+</div>
+
+
+</p>
  {%endblock%}
