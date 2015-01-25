@@ -12,12 +12,12 @@
 <div align="center"	>
   <table width="100%" border="0">
     <tr>
-      <td width="30%">&nbsp;</td>
-      <td width="30%"><h4><strong>Panel de administracion.</strong></h4></td>
-      <td width="30%"><h6 class="georgia">Bienvenido, {{user.username|capfirst}}</h6></td>
-      <td width="10%"><form action="/admin/" style="padding: 0; display: inline">
+      <td width="41%">&nbsp;</td>
+      <td width="32%"><h4><strong>Panel de administracion.</strong></h4></td>
+      <td width="17%"><h6 class="georgia">Bienvenido, {{user.username|capfirst}}</h6></td>
+      <td width="10%">{%if user.is_superuser%}<form action="/admin/" style="padding: 0; display: inline">
 <input name="button" type="submit" class="boton" id="button" value="Avanzado" />
-</form>
+</form>{%endif%}
       </td>
     </tr>
   </table>
@@ -29,13 +29,11 @@
       </td>
     </tr>
     <tr>
-      <td width="51%" height="30" class="georgia"><a href="/administracion/administradorlist" class="vinculo">Administradores</a></td>
-      <td width="30%" class="georgia"><a href="/administracion/registrarAdministrador"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" /> Añadir</a></td>
-      <td width="10%" colspan="2" rowspan="8" class="georgia">&nbsp;</td>
+      <td colspan="2" rowspan="8" class="georgia">&nbsp;</td>
     </tr>
     <tr>
-      <td height="28" class="georgia"><a href="/administracion/clienteslist">Clientes</a></td>
-      <td class="georgia"><a href="/administracion/registrarCliente"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" /> Añadir</a></td>
+      <td width="34%" height="28" class="georgia"><a href="/administracion/clienteslist">Clientes</a></td>
+      <td width="41%" class="georgia"><a href="/administracion/registrarCliente"><img src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" /> Añadir</a></td>
     </tr>
     <tr>
       <td height="26" class="georgia"><a href="/administracion/noticiaslist" class="verdana">Noticias</a></td>

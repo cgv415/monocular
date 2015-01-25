@@ -21,9 +21,9 @@
    
    <table width="96%" border="0" cellspacing="2" cellpadding="2">
   <tr>
-    <td width="52" align="right">    </td>
-    <td width="180" align="right"><a href="/inicio"> <img src="{% static "img/logos/fondonegro.png" %}" width="180" height="110" /> </a></</td>
-    <td width="582" align="center"><div id="menu">
+    <td width="52" rowspan="2" align="right">    </td>
+    <td width="180" rowspan="2" align="right"><a href="/inicio"> <img src="{% static "img/logos/fondonegro.png" %}" width="180" height="110" /> </a></</td>
+    <td width="582" rowspan="2" align="center"><div id="menu">
       <ul>
         <li class="nivel1"><a href="/inicio"
 				class="nivel1">INICIO</a>
@@ -43,10 +43,14 @@
           </li>
         </ul>
       </div>      
-      <td width="121" align="left" valign="middle"><a class="redes-sociales" target="_blank" href="https://www.facebook.com/pages/Monocular-Films/636013676504940?ref=notif&notif_t=fbpage_admin" title="Facebook"><img src="{% static "img/social/facebook.png" %}" width="36" height="26"/></a><a class="redes-sociales" target="_blank" href="https://twitter.com/MonocularFilms" title="Twitter"><img src="{% static "img/social/twitter.png" %}" width="31" height="26"/></a> <a class="redes-sociales" target="_blank" href="https://vimeo.com/user36352296" title="Vimeo"> <img src="{% static "img/social/vimeo.png" %}" width="26" height="21"/></a></td>
-    <td width="65" align="center" valign="middle">{%if user.is_active%}<a href="/administracion/logout" class="menuFooter">Logout</a>{%endif%}</td>
+      <td width="121" rowspan="2" align="left" valign="middle"><a class="redes-sociales" target="_blank" href="https://www.facebook.com/pages/Monocular-Films/636013676504940?ref=notif&notif_t=fbpage_admin" title="Facebook"><img src="{% static "img/social/facebook.png" %}" width="36" height="26"/></a><a class="redes-sociales" target="_blank" href="https://twitter.com/MonocularFilms" title="Twitter"><img src="{% static "img/social/twitter.png" %}" width="31" height="26"/></a> <a class="redes-sociales" target="_blank" href="https://vimeo.com/user36352296" title="Vimeo"> <img src="{% static "img/social/vimeo.png" %}" width="26" height="21"/></a></td>
+    <td width="65" align="center" valign="middle">{%if user.is_active%}<a href="/administracion/logout" class="menuFooter">Logout</a></td>
   </tr>
-  </table>
+  <tr>
+    <td width="65" align="center" valign="middle"><a href="/administracion/admin" class="menuFooter">Admin</a></td>
+  </tr>
+  {%endif%}
+   </table>
 </div>
 
 </nav>
