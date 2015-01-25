@@ -14,8 +14,11 @@
     <tr>
       <td width="30%">&nbsp;</td>
       <td width="30%"><h4><strong>Panel de administracion.</strong></h4></td>
-      <td width="33%"><h6 class="georgia">Bienvenido, {{user.username|capfirst}}</h6></td>
-      <td width="7%">&nbsp;</td>
+      <td width="30%"><h6 class="georgia">Bienvenido, {{user.username|capfirst}}</h6></td>
+      <td width="10%"><form action="/admin/" style="padding: 0; display: inline">
+<input name="button" type="submit" class="boton" id="button" value="Avanzado" />
+</form>
+      </td>
     </tr>
   </table>
   <p>&nbsp;</p>

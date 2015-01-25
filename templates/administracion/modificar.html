@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
 {% endblock %} {% block contenido %}
-
+{%if user.is_staff%}
 <div align="center">
   <table width="100%" border="0">
     <tr>
@@ -27,5 +27,8 @@
     </tr>
   </table>
 
+{%else%}
+<meta http-equiv="refresh" content="0; url=http://example.com/" />
+{%endif%}
 </div>
 {%endblock%}

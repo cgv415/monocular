@@ -12,6 +12,7 @@
 {% extends 'base.html' %}
 {%block titulo%}Estados de Proyectos{%endblock%}
 {% comment %} Aqui van los comentarios {%endcomment %} {% block head %} {% endblock %} {% block contenido %}
+{%if user.is_staff%}
 <div align="center">
   <table width="100%" border="0">
     <tr>
@@ -59,4 +60,7 @@
   </table>
 </div>
 
+{%else%}
+<meta http-equiv="refresh" content="0; url=http://example.com/" />
+{%endif%}
 {% endblock %} 
