@@ -1,7 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from .models import Proyecto,Estado_Proyecto,Galeria,Festival,Publicidad
-from django.contrib.auth.models import User
 from apps.administracion.models import TextoDescriptivo,Cliente
 from django.contrib.auth.decorators import login_required
 
