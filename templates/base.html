@@ -4,6 +4,14 @@
 
 <html>
 <head>
+<script language="Javascript" type="text/javascript">
+//<![CDATA[
+
+<!-- Begin
+document.oncontextmenu = function(){return false}
+// End -->
+//]]>
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta charset="ISO-8859-1">
 <title>{%block titulo%} {%endblock%}</title> {%block head%} {%endblock%}
@@ -11,7 +19,7 @@
 <link rel="stylesheet" href="{{STATIC_URL}}css/base.css">
 <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" oncopy="return false">
 	
 <nav class="navbar-fixed-top">
 <div style="background-color:#000000; border:#000000;">
@@ -115,13 +123,6 @@
     </tr>
 </table>
 </div></div>
-<script language="Javascript" type="text/javascript">
-//<![CDATA[
 
-<!-- Begin
-document.oncontextmenu = function(){return false}
-// End -->
-//]]>
-</script>
 </body>
 </html>

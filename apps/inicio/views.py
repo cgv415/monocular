@@ -33,6 +33,7 @@ def contacto(request):
             #send_mail(asunto,mensaje,['carlosgarrido993@gmail.com'])
             email=EmailMessage(asunto,mensaje,to=['monocularfilm@gmail.com'])
             email.send()
+            emailCopy=EmailMessage(asunto,mensaje,to=[mail])
             exito=True        
             return render_to_response('inicio/contacto.html',{'informacion':informacion,'exito':exito},context_instance=RequestContext(request))
     else:
