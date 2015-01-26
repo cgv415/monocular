@@ -1,8 +1,7 @@
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/registrar.css">
-{% endblock %} {% block contenido %}
-{%if user.is_staff%}
+{% endblock %} {% block contenido %} {%if user.is_staff%}
 <div class="contenido">
 	<h1>Registrar</h1>
 	<form method="POST" enctype="multipart/form-data">
@@ -14,6 +13,4 @@
 </div>
 {%else%}
 <meta http-equiv="refresh" content="0; url=http://example.com/" />
-{%endif%}
-
-{%endblock%}
+{%endif%} {%endblock%}

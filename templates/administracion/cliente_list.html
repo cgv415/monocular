@@ -2,63 +2,77 @@
 .enlace {
 	font-weight: bold;
 }
+
 .tam12 {
 	font-size: 12px;
 }
+
 .margin {
 	margin-left: 10px;
 }
 </style>
-{% extends 'base.html' %} {% comment %} Aqui van los comentarios {%endcomment %} {% block head %} {% endblock %}
-{%block titulo%}Administrar Festivales{%endblock%}
-{% block contenido %}
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %} {% endblock %} {%block titulo%}Administrar Festivales{%endblock%} {% block contenido %} 
 {%if user.is_staff%}
 <div align="center">
-  <table width="100%" border="0">
-    <tr>
-      <td width="25%" height="39">&nbsp;</td>
-      <td width="9%"></td>
-      <td width="18%"><h2>Clientes</h2></td>
-      <td width="43%"><h5><a href="/administracion/registrarCliente"><img src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" /> Añadir Cliente</a></h5></td>
-      <td width="5%">&nbsp;</td>
-    </tr>
-    <tr>
-      <td rowspan="2">&nbsp;</td>
-      <td colspan="3"></td>
-      <td rowspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="17" colspan="3"></td>
-    </tr>
-    
-    <tr>
-      <td rowspan="3">&nbsp;</td>
-      <td height="29" colspan="3">
-      <table width="72%" border="1">
-      {%for cliente in object_list%}
-        <tr>
-          <td width="68%"><h6><a href="/administracion/cliente/{{cliente.id}}" class="margin">{{cliente.usuario.username}}</a></h6></td>
-          <td width="32%" align="center"><table width="100%" border="0">
-            <tr>
-              <td width="59%" align="center"><a href="/administracion/modificarCliente/{{cliente.id}}" class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png" width="15" height="15" /><span class="tam12">Modificar  </span></a></td>
-              <td width="41%" align="center"><a href="/administracion/eliminarCliente/{{cliente.id}}" class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png" width="15" height="15" />Borrar</a></td>
-            </tr>
-          </table></td>
-          </tr>
-            {%endfor%}
-      </table></td>
-      <td rowspan="3">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="21" colspan="3"></td>
-    </tr>
-    <tr>
-      <td colspan="3">&nbsp;</td>
-    </tr>
-  </table>
+	<table width="100%" border="0">
+		<tr>
+			<td width="25%" height="39">&nbsp;</td>
+			<td width="9%"></td>
+			<td width="18%"><h2>Clientes</h2></td>
+			<td width="43%"><h5>
+					<a href="/administracion/registrarCliente"><img
+						src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" />
+						Añadir Cliente</a>
+				</h5></td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td rowspan="2">&nbsp;</td>
+			<td colspan="3"></td>
+			<td rowspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="17" colspan="3"></td>
+		</tr>
+
+		<tr>
+			<td rowspan="3">&nbsp;</td>
+			<td height="29" colspan="3">
+				<table width="72%" border="1">
+					{%for cliente in object_list%}
+					<tr>
+						<td width="68%"><h6>
+								<a href="/administracion/cliente/{{cliente.id}}" class="margin">{{cliente.usuario.username}}</a>
+							</h6></td>
+						<td width="32%" align="center"><table width="100%" border="0">
+								<tr>
+									<td width="59%" align="center"><a
+										href="/administracion/modificarCliente/{{cliente.id}}"
+										class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png"
+											width="15" height="15" /><span class="tam12">Modificar
+										</span></a></td>
+									<td width="41%" align="center"><a
+										href="/administracion/eliminarCliente/{{cliente.id}}"
+										class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png"
+											width="15" height="15" />Borrar</a></td>
+								</tr>
+							</table></td>
+					</tr>
+					{%endfor%}
+				</table>
+			</td>
+			<td rowspan="3">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="21" colspan="3"></td>
+		</tr>
+		<tr>
+			<td colspan="3">&nbsp;</td>
+		</tr>
+	</table>
 </div>
 
 {%else%}
 <meta http-equiv="refresh" content="0; url=http://example.com/" />
-{%endif%}
-{% endblock %} 
+{%endif%} {% endblock %}

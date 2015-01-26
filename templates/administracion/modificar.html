@@ -1,34 +1,34 @@
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-{% endblock %} {% block contenido %}
+{%endcomment %} {% block head %} {% endblock %} {% block contenido %}
 {%if user.is_staff%}
 <div align="center">
-  <table width="100%" border="0">
-    <tr>
-      <td width="9%">&nbsp;</td>
-      <td width="58%">&nbsp;</td>
-      <td width="33%">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="93">&nbsp;</td>
-      <td width="58%">
-      <form method="POST" enctype="multipart/form-data">
-		{% csrf_token %}
-		  <table>{{form.as_table}}
-	      </table>
-		  <input type="submit" value="Modificar" />
-      </form></td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="96">&nbsp;</td>
-      <td width="58%">&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </table>
+	<table width="100%" border="0">
+		<tr>
+			<td width="9%">&nbsp;</td>
+			<td width="58%">&nbsp;</td>
+			<td width="33%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="93">&nbsp;</td>
+			<td width="58%">
+				<form method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<table>{{form.as_table}}
+					</table>
+					<input type="submit" value="Modificar" />
+				</form>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="96">&nbsp;</td>
+			<td width="58%">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
 
-{%else%}
-<meta http-equiv="refresh" content="0; url=http://example.com/" />
-{%endif%}
+	{%else%}
+	<meta http-equiv="refresh" content="0; url=http://example.com/" />
+	{%endif%}
 </div>
 {%endblock%}

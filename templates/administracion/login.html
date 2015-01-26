@@ -1,14 +1,10 @@
-{% extends "base.html" %} 
-{% block head %}
+{% extends "base.html" %} {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/login.css">
- {% endblock %} 
-{% block contenido %} {%if user.is_active%} 
-{%if user.is_staff%} 
+{% endblock %} {% block contenido %} {%if user.is_active%} {%if user.is_staff%}
 <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=/administracion/admin">
 {%else%}
 <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=/servicios/mificha">
-{%endif%} 
-{%endif%}
+{%endif%} {%endif%}
 
 <style type="text/css">
 .centrada {
@@ -16,6 +12,7 @@
 	color: #FFF;
 	font-size: 24px;
 }
+
 .credenciales {
 	color: #FFF;
 	font-size: 16px;
@@ -24,161 +21,171 @@
 }
 
 .boton {
-  background: #11181c;
-  background-image: -webkit-linear-gradient(top, #11181c, #424445);
-  background-image: -moz-linear-gradient(top, #11181c, #424445);
-  background-image: -ms-linear-gradient(top, #11181c, #424445);
-  background-image: -o-linear-gradient(top, #11181c, #424445);
-  background-image: linear-gradient(to bottom, #11181c, #424445);
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 8px;
-  text-shadow: 0px 1px 13px #000000;
-  font-family: Georgia;
-  color: #ffffff;
-  font-size: 12px;
-  padding: 5px 10px 5px 10px;
-  border: solid #ffffff 0px;
-  text-decoration: none;
+	background: #11181c;
+	background-image: -webkit-linear-gradient(top, #11181c, #424445);
+	background-image: -moz-linear-gradient(top, #11181c, #424445);
+	background-image: -ms-linear-gradient(top, #11181c, #424445);
+	background-image: -o-linear-gradient(top, #11181c, #424445);
+	background-image: linear-gradient(to bottom, #11181c, #424445);
+	-webkit-border-radius: 10;
+	-moz-border-radius: 10;
+	border-radius: 8px;
+	text-shadow: 0px 1px 13px #000000;
+	font-family: Georgia;
+	color: #ffffff;
+	font-size: 12px;
+	padding: 5px 10px 5px 10px;
+	border: solid #ffffff 0px;
+	text-decoration: none;
 }
 
 .boton:hover {
-  background: #424445;
-  background-image: -webkit-linear-gradient(top, #424445, #11181c);
-  background-image: -moz-linear-gradient(top, #424445, #11181c);
-  background-image: -ms-linear-gradient(top, #424445, #11181c);
-  background-image: -o-linear-gradient(top, #424445, #11181c);
-  background-image: linear-gradient(to bottom, #424445, #11181c);
-  text-decoration: none;
+	background: #424445;
+	background-image: -webkit-linear-gradient(top, #424445, #11181c);
+	background-image: -moz-linear-gradient(top, #424445, #11181c);
+	background-image: -ms-linear-gradient(top, #424445, #11181c);
+	background-image: -o-linear-gradient(top, #424445, #11181c);
+	background-image: linear-gradient(to bottom, #424445, #11181c);
+	text-decoration: none;
 }
-
 </style>
 </head>
 
 <body>
-<form id="form" name="form" method="POST" action="">
+	<form id="form" name="form" method="POST" action="">
 
-<input type="hidden" name="csrfmiddlewaretoken" value="3tl9EaApdyVFYTgikyqVjmhPJb7w5tda">
-{%csrf_token%}
+		<input type="hidden" name="csrfmiddlewaretoken"
+			value="3tl9EaApdyVFYTgikyqVjmhPJb7w5tda"> {%csrf_token%}
 
-<div align="center" style="overflow-y:hidden">
-<table width="100%" height="100%" border="0" cellspacing="2" cellpadding="2" align="center" style="border-radius:6px;">
-  <tr>
-    <td colspan="15">&nbsp;</td>
-  </tr>
-  <tr>
-    <td colspan="6" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
-    <td colspan="3" bgcolor="#000000" class="centrada">&Aacute;rea de Acceso Restringida</td>
-    <td colspan="6" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
-    </tr>
-  <tr>
-    <td colspan="15"><span class="centrada"></span></td>
-  </tr>
-  <tr>
-    <td colspan="15">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
-    <td width="20%" colspan="2">&nbsp;</td>
-    <td width="29%" rowspan="6" bgcolor="#000000" class="credenciales"><p class="credenciales">Nombre de usuario</p>
-      <p class="credenciales"><span class="credenciales">
-        <input name="username" type="text" id="id_username" size="18" maxlength="25" style="color:#000" />
-      </span></p>
-<p><span class="credenciales">Contrase&ntilde;a de acceso</span></p>
-      <p>
-        <label for="id_password"></label>
-        <input name="password" type="password" id="id_password" size="18" maxlength="25" style="color:#000" />
-        <br/><br/>
-      </p>
-      <p>
-        <input type="submit" name="button" id="button" value="E n v i a r" class="boton"/>
-      <input type="reset" name="button2" id="button2" value="B o r r a r" class="boton"/></p></td>
-    <td width="20%" colspan="2">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td colspan="2">&nbsp;</td>
-    <td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td width="4%">&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td colspan="15">&nbsp;</td>
-  </tr>
-  </table>
-</div>
+		<div align="center" style="overflow-y: hidden">
+			<table width="100%" height="100%" border="0" cellspacing="2"
+				cellpadding="2" align="center" style="border-radius: 6px;">
+				<tr>
+					<td colspan="15">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="6" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
+					<td colspan="3" bgcolor="#000000" class="centrada">&Aacute;rea
+						de Acceso Restringida</td>
+					<td colspan="6" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="15"><span class="centrada"></span></td>
+				</tr>
+				<tr>
+					<td colspan="15">&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
+					<td width="20%" colspan="2">&nbsp;</td>
+					<td width="29%" rowspan="6" bgcolor="#000000" class="credenciales"><p
+							class="credenciales">Nombre de usuario</p>
+						<p class="credenciales">
+							<span class="credenciales"> <input name="username"
+								type="text" id="id_username" size="18" maxlength="25"
+								style="color: #000" />
+							</span>
+						</p>
+						<p>
+							<span class="credenciales">Contrase&ntilde;a de acceso</span>
+						</p>
+						<p>
+							<label for="id_password"></label> <input name="password"
+								type="password" id="id_password" size="18" maxlength="25"
+								style="color: #000" /> <br />
+							<br />
+						</p>
+						<p>
+							<input type="submit" name="button" id="button"
+								value="E n v i a r" class="boton" /> <input type="reset"
+								name="button2" id="button2" value="B o r r a r" class="boton" />
+						</p></td>
+					<td width="20%" colspan="2">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="credenciales">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+					<td width="4%" bgcolor="#FFFFFF" class="centrada">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td width="4%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="15">&nbsp;</td>
+				</tr>
+			</table>
+		</div>
 
-</form>
-{% endblock %}
+	</form>
+	{% endblock %}

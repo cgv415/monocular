@@ -1,12 +1,10 @@
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %} {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
-{% endblock %}
-{%block titulo%}Postproduccion {%endblock%}
-{% block contenido %}
+{% endblock %} {%block titulo%}Postproduccion {%endblock%} {% block contenido %}
 <div class="contenido">
-<h1>Este es el apartado de Postproduccion</h1>
-<p>{{texto.texto}}</p>
+	<h1>Este es el apartado de Postproduccion</h1>
+	<p>{{texto.texto}}</p>
 </div>
 
 {%endblock%}

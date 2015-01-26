@@ -4,9 +4,11 @@
 	font-size: 22px;
 	font-weight: bold;
 }
+
 .centrar {
 	text-align: center;
 }
+
 .negrita {
 	font-weight: bold;
 	color: #000;
@@ -15,142 +17,159 @@
 }
 
 .tamanoFijo {
-	
-	resize:none;
-	
+	resize: none;
 }
+
 .contactos {
 	font-weight: bold;
 }
 
 .boton {
-  background: #11181c;
-  background-image: -webkit-linear-gradient(top, #11181c, #424445);
-  background-image: -moz-linear-gradient(top, #11181c, #424445);
-  background-image: -ms-linear-gradient(top, #11181c, #424445);
-  background-image: -o-linear-gradient(top, #11181c, #424445);
-  background-image: linear-gradient(to bottom, #11181c, #424445);
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 8px;
-  text-shadow: 0px 1px 13px #000000;
-  font-family: Georgia;
-  color: #ffffff;
-  font-size: 14px;
-  padding: 5px 10px 5px 10px;
-  border: solid #ffffff 0px;
-  text-decoration: none;
+	background: #11181c;
+	background-image: -webkit-linear-gradient(top, #11181c, #424445);
+	background-image: -moz-linear-gradient(top, #11181c, #424445);
+	background-image: -ms-linear-gradient(top, #11181c, #424445);
+	background-image: -o-linear-gradient(top, #11181c, #424445);
+	background-image: linear-gradient(to bottom, #11181c, #424445);
+	-webkit-border-radius: 10;
+	-moz-border-radius: 10;
+	border-radius: 8px;
+	text-shadow: 0px 1px 13px #000000;
+	font-family: Georgia;
+	color: #ffffff;
+	font-size: 14px;
+	padding: 5px 10px 5px 10px;
+	border: solid #ffffff 0px;
+	text-decoration: none;
 }
 
 .boton:hover {
-  background: #424445;
-  background-image: -webkit-linear-gradient(top, #424445, #11181c);
-  background-image: -moz-linear-gradient(top, #424445, #11181c);
-  background-image: -ms-linear-gradient(top, #424445, #11181c);
-  background-image: -o-linear-gradient(top, #424445, #11181c);
-  background-image: linear-gradient(to bottom, #424445, #11181c);
-  text-decoration: none;
+	background: #424445;
+	background-image: -webkit-linear-gradient(top, #424445, #11181c);
+	background-image: -moz-linear-gradient(top, #424445, #11181c);
+	background-image: -ms-linear-gradient(top, #424445, #11181c);
+	background-image: -o-linear-gradient(top, #424445, #11181c);
+	background-image: linear-gradient(to bottom, #424445, #11181c);
+	text-decoration: none;
 }
-
 </style>
 {% extends 'base.html' %}{% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/base.css">
-{% endblock %} {% block contenido %}
-
-{%load staticfiles%}
+{% endblock %} {% block contenido %} {%load staticfiles%}
 
 <div align="center">
-<form id="form" name="form" method="post" action="/contacto">
-<input type='hidden' name='csrfmiddlewaretoken' value='DbziNF6tzxZmMfmZu7lQSYyeiipr3PHu' />
-{% csrf_token%}
+	<form id="form" name="form" method="post" action="/contacto">
+		<input type='hidden' name='csrfmiddlewaretoken'
+			value='DbziNF6tzxZmMfmZu7lQSYyeiipr3PHu' /> {% csrf_token%}
 
-	<table width="70%" border="0" cellspacing="2" cellpadding="0">
-	  <tr>
-	    <td colspan="7">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td width="1%" rowspan="17">&nbsp;</td>
-	    <td colspan="5" bgcolor="#000000" class="cabeceraTabla">Contacta con Monocular</td>
-	    <td width="1%" rowspan="14">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td width="5%" rowspan="16">&nbsp;</td>
-	    <td colspan="4">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td width="38%" bgcolor="#FFFFFF" class="negrita"><p><label for="id_nombre">Nombre/Raz&oacute;n Social:</label></p></td>
-	    <td width="6%">&nbsp;</td>
-	    <td colspan="2" rowspan="7" align="left" valign="top"><p><img src="{% static "img/logos/fondoBlanco.png" %}" width="275" height="250" /></p></td>
-      </tr>
-	  <tr>
-	    <td bgcolor="#FFFFFF" class="negrita"><p><input name="nombre" type="text" id="id_nombre" size="40" /></p></td>
-	    <td width="6%">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td bgcolor="#FFFFFF" class="negrita"><p><label for="telefono">Tel&eacute;fono de contacto:</label></p></td>
-	    <td width="6%">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td bgcolor="#FFFFFF" class="negrita"><p><input name="telefono" type="text" id="id_telefono" maxlength="9"/></p></td>
-	    <td width="6%">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td bgcolor="#FFFFFF" class="negrita"><p><label for="id_mail">Correo electr&oacute;nico:</label></p></td>
-	    <td width="6%">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td bgcolor="#FFFFFF" class="negrita"><p><input name="mail" type="email" id="id_mail" size="25" /></p></td>
-	    <td width="6%">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td height="40" bgcolor="#FFFFFF" class="negrita"><label for="id_mensaje">Observaciones:</label></td>
-	    <td width="6%">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td height="31" rowspan="5" bgcolor="#FFFFFF" class="negrita"><textarea name="mensaje" cols="45" rows="5" class="tamanoFijo" id="id_mensaje"></textarea></td>
-	    <td width="6%" rowspan="5">&nbsp;</td>
-	    <td align="left" valign="top">&nbsp;</td>
-	    <td align="left" valign="top">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td align="left" valign="top"><strong>Empresa:</strong></td>
-	    <td align="left" valign="top">{{informacion.nombre}}</td>
-      </tr>
-	  <tr>
-	    <td align="left" valign="top"><strong>Email:</strong></td>
-	    <td align="left" valign="top">{{informacion.email}}</td>
-      </tr>
-	  <tr>
-	    <td align="left" valign="top"><strong>Tel&eacute;fono:</strong></td>
-	    <td align="left" valign="top">{{informacion.telefono}}</td>
-      </tr>
-	  <tr>
-	    <td align="left" valign="top"><strong>Ubicaci&oacute;n:</strong></td>
-	    <td align="left" valign="top">{{informacion.direccion}}</td>
-      </tr>
-	  <tr>
-	    <td colspan="2">&nbsp;</td>
-	    <td colspan="2" align="left" valign="top">&nbsp;</td>
-	    <td width="1%">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td colspan="2" class="centrar"><input name="button" type="submit" class="boton" id="button" value="Enviar" />
-        <input name="button2" type="reset" class="boton" id="button2" value="Restablecer" /></td>
-	    <td></td>
-	    <td></td>
-	    <td width="1%">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td colspan="2">&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td width="1%">&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td colspan="7">&nbsp;</td>
-      </tr>
-    </table>
-</form>
+		<table width="70%" border="0" cellspacing="2" cellpadding="0">
+			<tr>
+				<td colspan="7">&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="1%" rowspan="17">&nbsp;</td>
+				<td colspan="5" bgcolor="#000000" class="cabeceraTabla">Contacta
+					con Monocular</td>
+				<td width="1%" rowspan="14">&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="5%" rowspan="16">&nbsp;</td>
+				<td colspan="4">&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="38%" bgcolor="#FFFFFF" class="negrita"><p>
+						<label for="id_nombre">Nombre/Raz&oacute;n Social:</label>
+					</p></td>
+				<td width="6%">&nbsp;</td>
+				<td colspan="2" rowspan="7" align="left" valign="top"><p>
+						<img src="{% static "img/logos/fondoBlanco.png" %}" width="275"
+							height="250" />
+					</p></td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF" class="negrita"><p>
+						<input name="nombre" type="text" id="id_nombre" size="40" />
+					</p></td>
+				<td width="6%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF" class="negrita"><p>
+						<label for="telefono">Tel&eacute;fono de contacto:</label>
+					</p></td>
+				<td width="6%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF" class="negrita"><p>
+						<input name="telefono" type="text" id="id_telefono" maxlength="9" />
+					</p></td>
+				<td width="6%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF" class="negrita"><p>
+						<label for="id_mail">Correo electr&oacute;nico:</label>
+					</p></td>
+				<td width="6%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFFFFF" class="negrita"><p>
+						<input name="mail" type="email" id="id_mail" size="25" />
+					</p></td>
+				<td width="6%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td height="40" bgcolor="#FFFFFF" class="negrita"><label
+					for="id_mensaje">Observaciones:</label></td>
+				<td width="6%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td height="31" rowspan="5" bgcolor="#FFFFFF" class="negrita"><textarea
+						name="mensaje" cols="45" rows="5" class="tamanoFijo"
+						id="id_mensaje"></textarea></td>
+				<td width="6%" rowspan="5">&nbsp;</td>
+				<td align="left" valign="top">&nbsp;</td>
+				<td align="left" valign="top">&nbsp;</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><strong>Empresa:</strong></td>
+				<td align="left" valign="top">{{informacion.nombre}}</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><strong>Email:</strong></td>
+				<td align="left" valign="top">{{informacion.email}}</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><strong>Tel&eacute;fono:</strong></td>
+				<td align="left" valign="top">{{informacion.telefono}}</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top"><strong>Ubicaci&oacute;n:</strong></td>
+				<td align="left" valign="top">{{informacion.direccion}}</td>
+			</tr>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+				<td colspan="2" align="left" valign="top">&nbsp;</td>
+				<td width="1%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="centrar"><input name="button"
+					type="submit" class="boton" id="button" value="Enviar" /> <input
+					name="button2" type="reset" class="boton" id="button2"
+					value="Restablecer" /></td>
+				<td></td>
+				<td></td>
+				<td width="1%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td width="1%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="7">&nbsp;</td>
+			</tr>
+		</table>
+	</form>
 
 </div>
 

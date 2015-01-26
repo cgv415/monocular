@@ -1,91 +1,100 @@
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-{% endblock %} {% block contenido %}
+{%endcomment %} {% block head %} {% endblock %} {% block contenido %}
 
 <div align="center">
-  <table width="100%" border="0">
-    <tr>
-      <td width="28%" rowspan="11">&nbsp;</td>
-      <td colspan="4">&nbsp;</td>
-      <td width="20%" align="right"><h5>Bienvenido,{{user.username|capfirst}}</h5></td>
-      <td width="6%" align="center"><h6><a href="/administracion/logout/">Desconectar</a></h6></td>
-      <td width="3%">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="21" colspan="4">&nbsp;</td>
-      <td colspan="2" rowspan="10">&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="2" align="left"><h4>Datos de Usuario:</h4></td>
-      <td colspan="2">&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="2" align="left"><h5>Usuario:</h5></td>
-      <td colspan="2">{{user.username}}</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="2" align="left"><h5>Nombre:</h5></td>
-      <td colspan="2">{{user.first_name|capfirst}}</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="2" align="left"><h5>Apellidos:</h5></td>
-      <td colspan="2">{{user.last_name|capfirst}}</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="2" align="left"><h5>Ciudad:</h5></td>
-      <td colspan="2">{{cliente.ciudad|capfirst}}</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="2" align="left"><h5>Email:</h5></td>
-      <td colspan="2">{{user.email}}</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="2" align="left"><h5>Telefono Contacto:</h5></td>
-      <td colspan="2">{{cliente.telefono}}</td>
-      <td rowspan="7">&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="4">&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="4"><h4><strong>Mis Proyectos:</strong></h4></td>
-    </tr>
-    {%for proyecto in proyectos%}
-    <tr>
-      <td height="28" rowspan="2">&nbsp;</td>
-      
-      <td width="10%"><a href="/servicios/ficha/{{proyecto.id}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="120"></a>
-      </td>
-      <td colspan="3"><h5><a href="proyecto/{{proyecto.id}}">{{proyecto.titulo}}</a></h5></td>
-      <td rowspan="2"></td>
-      <td rowspan="2"></td>
-    </tr>
-    <tr>
-      <td colspan="2">&nbsp;</td>
-      <td width="11%" valign="bottom">&nbsp;</td>
-      <td width="15%" valign="bottom">&nbsp;</td>
-    </tr>
-    	{%empty%}
-        <tr><td>No Hay proyectos asociados</td></tr>
-       {%endfor%} 
-    <tr>
-      <td>&nbsp;</td>
-      <td colspan="4">&nbsp;</td>
-      <td colspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td colspan="4">&nbsp;</td>
-      <td colspan="2">&nbsp;</td>
-    </tr>
-  </table>
+	<table width="100%" border="0">
+		<tr>
+			<td width="28%" rowspan="11">&nbsp;</td>
+			<td colspan="4">&nbsp;</td>
+			<td width="20%" align="right"><h5>Bienvenido,{{user.username|capfirst}}</h5></td>
+			<td width="6%" align="center"><h6>
+					<a href="/administracion/logout/">Desconectar</a>
+				</h6></td>
+			<td width="3%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="21" colspan="4">&nbsp;</td>
+			<td colspan="2" rowspan="10">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left"><h4>Datos de Usuario:</h4></td>
+			<td colspan="2">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left"><h5>Usuario:</h5></td>
+			<td colspan="2">{{user.username}}</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left"><h5>Nombre:</h5></td>
+			<td colspan="2">{{user.first_name|capfirst}}</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left"><h5>Apellidos:</h5></td>
+			<td colspan="2">{{user.last_name|capfirst}}</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left"><h5>Ciudad:</h5></td>
+			<td colspan="2">{{cliente.ciudad|capfirst}}</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left"><h5>Email:</h5></td>
+			<td colspan="2">{{user.email}}</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left"><h5>Telefono Contacto:</h5></td>
+			<td colspan="2">{{cliente.telefono}}</td>
+			<td rowspan="7">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="4">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="4"><h4>
+					<strong>Mis Proyectos:</strong>
+				</h4></td>
+		</tr>
+		{%for proyecto in proyectos%}
+		<tr>
+			<td height="28" rowspan="2">&nbsp;</td>
+
+			<td width="10%"><a href="/servicios/ficha/{{proyecto.id}}"><img
+					src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="120"></a>
+			</td>
+			<td colspan="3"><h5>
+					<a href="proyecto/{{proyecto.id}}">{{proyecto.titulo}}</a>
+				</h5></td>
+			<td rowspan="2"></td>
+			<td rowspan="2"></td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;</td>
+			<td width="11%" valign="bottom">&nbsp;</td>
+			<td width="15%" valign="bottom">&nbsp;</td>
+		</tr>
+		{%empty%}
+		<tr>
+			<td></td>
+			<td>No Hay proyectos asociados</td>
+		</tr>
+		{%endfor%}
+		<tr>
+			<td>&nbsp;</td>
+			<td colspan="4">&nbsp;</td>
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td colspan="4">&nbsp;</td>
+			<td colspan="2">&nbsp;</td>
+		</tr>
+	</table>
 
 </div>
-<p>{%endblock%} </p>
+<p>{%endblock%}</p>

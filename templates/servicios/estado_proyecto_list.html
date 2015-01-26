@@ -2,65 +2,85 @@
 .enlace {
 	font-weight: bold;
 }
+
 .tam12 {
 	font-size: 12px;
 }
+
 .margen {
 	margin-left: 10px;
 }
 </style>
-{% extends 'base.html' %}
-{%block titulo%}Estados de Proyectos{%endblock%}
-{% comment %} Aqui van los comentarios {%endcomment %} {% block head %} {% endblock %} {% block contenido %}
+{% extends 'base.html' %} {%block titulo%}Estados de
+Proyectos{%endblock%} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %} {% endblock %} {% block contenido %}
 {%if user.is_staff%}
 <div align="center">
-  <table width="100%" border="0">
-    <tr>
-      <td width="15%" height="39">&nbsp;</td>
-      <td width="10%"></td>
-      <td width="38%"><h2>ESTADOS DE PROYECTOS</h2></td>
-      <td width="28%"><h5><a href="/administracion/registrarEstado"><img src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" /> Añadir Estado a Proyecto</a></h5></td>
-      <td width="9%">&nbsp;</td>
-    </tr>
-    <tr>
-      <td rowspan="2">&nbsp;</td>
-      <td colspan="3"></td>
-      <td rowspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="17" colspan="3"></td>
-    </tr>
-    
-    <tr>
-      <td rowspan="3">&nbsp;</td>
-      <td height="40" colspan="3">
-      <table width="100%" border="1">
-      {%for estado in object_list%}
-        <tr>
-          <td width="28%" height="32"><h4><a href="/servicios/ficha/{{estado.proyecto.id}}" class="margen">{{estado.proyecto.titulo}}</a></h4></td>
-          <td width="37%"><h5><a href="/servicios/festival/{{estado.festival.id}}" class="margen">{{estado.festival.nombre}}</a></h5></td>
-          <td width="14%"><h6 class="margen"><b>{{estado.estado}}</b></h6></td>
-          <td width="21%" align="center"><table width="100%" border="0">
-            <tr>
-              <td width="58%" height="24" align="center"><a href="/administracion/modificarEstado/{{estado.id}}" class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png" width="15" height="15" /><span class="tam12"> Modificar  </span></a></td>
-              <td width="42%" align="center"><a href="/administracion/eliminarEstado/{{estado.id}}" class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png" width="15" height="15" />Borrar</a></td>
-            </tr>
-          </table></td>
-          </tr>
-            {%endfor%}
-      </table></td>
-      <td rowspan="3">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="21" colspan="3"></td>
-    </tr>
-    <tr>
-      <td colspan="3">&nbsp;</td>
-    </tr>
-  </table>
+	<table width="100%" border="0">
+		<tr>
+			<td width="15%" height="39">&nbsp;</td>
+			<td width="10%"></td>
+			<td width="38%"><h2>ESTADOS DE PROYECTOS</h2></td>
+			<td width="28%"><h5>
+					<a href="/administracion/registrarEstado"><img
+						src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" />
+						Añadir Estado a Proyecto</a>
+				</h5></td>
+			<td width="9%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td rowspan="2">&nbsp;</td>
+			<td colspan="3"></td>
+			<td rowspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="17" colspan="3"></td>
+		</tr>
+
+		<tr>
+			<td rowspan="3">&nbsp;</td>
+			<td height="40" colspan="3">
+				<table width="100%" border="1">
+					{%for estado in object_list%}
+					<tr>
+						<td width="28%" height="32"><h4>
+								<a href="/servicios/ficha/{{estado.proyecto.id}}" class="margen">{{estado.proyecto.titulo}}</a>
+							</h4></td>
+						<td width="37%"><h5>
+								<a href="/servicios/festival/{{estado.festival.id}}"
+									class="margen">{{estado.festival.nombre}}</a>
+							</h5></td>
+						<td width="14%"><h6 class="margen">
+								<b>{{estado.estado}}</b>
+							</h6></td>
+						<td width="21%" align="center"><table width="100%" border="0">
+								<tr>
+									<td width="58%" height="24" align="center"><a
+										href="/administracion/modificarEstado/{{estado.id}}"
+										class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png"
+											width="15" height="15" /><span class="tam12">
+												Modificar </span></a></td>
+									<td width="42%" align="center"><a
+										href="/administracion/eliminarEstado/{{estado.id}}"
+										class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png"
+											width="15" height="15" />Borrar</a></td>
+								</tr>
+							</table></td>
+					</tr>
+					{%endfor%}
+				</table>
+			</td>
+			<td rowspan="3">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="21" colspan="3"></td>
+		</tr>
+		<tr>
+			<td colspan="3">&nbsp;</td>
+		</tr>
+	</table>
 </div>
 
 {%else%}
 <meta http-equiv="refresh" content="0; url=http://example.com/" />
-{%endif%}
-{% endblock %} 
+{%endif%} {% endblock %}

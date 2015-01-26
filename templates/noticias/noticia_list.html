@@ -3,60 +3,76 @@
 	font-weight: bold;
 	text-align: right;
 }
+
 .tam12 {
 	font-size: 12px;
 	text-align: left;
 }
+
 .margen {
 	margin-left: 10px;
 }
 </style>
-{% extends 'base.html' %} {% comment %} Aqui van los comentarios {%endcomment %} {% block head %} {% endblock %}
-{%block titulo%}Administrar Noticias{%endblock%}
-{% block contenido %}
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %} {% block head %} {% endblock %} {%block titulo%}Administrar Noticias
+{%endblock%} {% block contenido %}
 <div align="center">
-  <table width="100%" border="0">
-    <tr>
-      <td width="6%" height="39">&nbsp;</td>
-      <td width="19%"></td>
-      <td width="28%" align="center"><h2>NOTICIAS</h2></td>
-      <td width="42%"><h5><a href="/administracion/registrarNoticia"><img src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" /> Añadir Proyecto</a></h5></td>
-      <td width="5%">&nbsp;</td>
-    </tr>
-    <tr>
-      <td rowspan="2">&nbsp;</td>
-      <td colspan="3"></td>
-      <td rowspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="17" colspan="3"></td>
-    </tr>
-    
-    <tr>
-      <td rowspan="3">&nbsp;</td>
-      <td height="29" colspan="3" align="center">
-      <table width="65%" border="1">
-      {%for noticia in object_list%}
-        <tr>
-          <td width="54%" height="32"><h6 class="margen"><a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a></h6></td>
-          <td width="46%" align="left"><table width="100%" border="0">
-            <tr>
-              <td width="45%" height="24" align="right"><a href="/administracion/modificarNoticia/{{noticia.id}}" class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png" width="15" height="15" /><span class="tam12">Modificar  </span></a></td>
-              <td width="55%" align="left"><a href="/administracion/eliminarNoticia/{{noticia.id}}" class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png" width="15" height="15" />Borrar</a></td>
-            </tr>
-          </table></td>
-          </tr>
-            {%endfor%}
-      </table></td>
-      <td rowspan="3">&nbsp;</td>
-    </tr>
-    <tr>
-      <td height="21" colspan="3"></td>
-    </tr>
-    <tr>
-      <td colspan="3">&nbsp;</td>
-    </tr>
-  </table>
+	<table width="100%" border="0">
+		<tr>
+			<td width="6%" height="39">&nbsp;</td>
+			<td width="19%"></td>
+			<td width="28%" align="center"><h2>NOTICIAS</h2></td>
+			<td width="42%"><h5>
+					<a href="/administracion/registrarNoticia"><img
+						src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" />
+						Añadir Proyecto</a>
+				</h5></td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td rowspan="2">&nbsp;</td>
+			<td colspan="3"></td>
+			<td rowspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="17" colspan="3"></td>
+		</tr>
+
+		<tr>
+			<td rowspan="3">&nbsp;</td>
+			<td height="29" colspan="3" align="center">
+				<table width="47%" border="1">
+					{%for noticia in object_list%}
+					<tr>
+						<td width="58%" height="32"><h6 class="margen">
+								<a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a>
+							</h6></td>
+						<td width="42%" align="left"><table width="100%" border="0">
+								<tr>
+									<td width="45%" height="24" align="right"><a
+										href="/administracion/modificarNoticia/{{noticia.id}}"
+										class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png"
+											width="15" height="15" /><span class="tam12">Modificar
+										</span></a></td>
+									<td width="55%" align="center"><a
+										href="/administracion/eliminarNoticia/{{noticia.id}}"
+										class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png"
+											width="15" height="15" />Borrar</a></td>
+								</tr>
+							</table></td>
+					</tr>
+					{%endfor%}
+				</table>
+			</td>
+			<td rowspan="3">&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="21" colspan="3"></td>
+		</tr>
+		<tr>
+			<td colspan="3">&nbsp;</td>
+		</tr>
+	</table>
 </div>
 
-{% endblock %} 
+{% endblock %}
