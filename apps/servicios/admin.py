@@ -3,11 +3,11 @@ from .models import Proyecto,Festival,Estado_Proyecto,Publicidad,Galeria
 # Register your models here.
 
 class ProyectoAdmin(admin.ModelAdmin):
-    list_display = ('titulo',)
+    list_display = ('titulo','activo')
 admin.site.register(Proyecto, ProyectoAdmin)
 
 class FestivalAdmin(admin.ModelAdmin):
-    list_display = ('nombre','anyo')
+    list_display = ('nombre','anyo','activo')
 admin.site.register(Festival, FestivalAdmin)
 
 class Estado_ProyectoAdmin(admin.ModelAdmin):
@@ -15,7 +15,7 @@ class Estado_ProyectoAdmin(admin.ModelAdmin):
 admin.site.register(Estado_Proyecto, Estado_ProyectoAdmin)
 
 class PublicidadAdmin(admin.ModelAdmin):
-    list_display = ('titulo',)
+    list_display = ('titulo','activo')
 admin.site.register(Publicidad, PublicidadAdmin)
 
 class GaleriaAdmin(admin.ModelAdmin):

@@ -32,6 +32,7 @@ class TextoDescriptivo(models.Model):
     texto = models.TextField()
 
 class Cliente(models.Model):
+    activo = models.BooleanField(default=True)
     usuario = models.OneToOneField(User)
     ciudad = models.CharField(max_length=50)
     telefono = models.IntegerField()
@@ -40,6 +41,7 @@ class Cliente(models.Model):
     
     
 class Empleado(models.Model):
+    activo = models.BooleanField(default=True)
     usuario = models.OneToOneField(User)
     def __unicode__(self):
         return self.usuario.username

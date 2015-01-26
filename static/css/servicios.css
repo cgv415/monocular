@@ -116,3 +116,7 @@ a.redes-sociales:hover img {
 	opacity: 0.4;
 	text-decoration: none;
 }
+
+.disable a{
+	color:#ff0000;
+}

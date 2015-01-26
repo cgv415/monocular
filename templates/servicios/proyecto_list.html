@@ -36,7 +36,11 @@
 					{%for proyecto in object_list%}
 					<tr>
 						<td width="54%" height="33"><h6 class="margen">
+								{%if proyecto.activo%}
 								<a href="/servicios/ficha/{{proyecto.id}}">{{proyecto.titulo}}</a>
+								{%else%}
+								<a href="/servicios/ficha/{{proyecto.id}}"><font color="ff0000">{{proyecto.titulo}}</a>
+								{%endif%}
 							</h6></td>
 						<td width="46%" align="left"><table width="78%" border="0">
 								<tr>

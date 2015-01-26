@@ -66,13 +66,13 @@ class ClientesList(ListView):
    
 class RegistrarCliente(CreateView):
     template_name = 'administracion/registrarCliente.html'
-    fields=['usuario','ciudad','telefono']
+    fields=['activo','usuario','ciudad','telefono']
     model = Cliente
     success_url = '/administracion/clienteslist'
      
 class ModificarCliente(UpdateView):
     model = Cliente
-    fields=['usuario','ciudad','telefono']
+    fields=['activo','usuario','ciudad','telefono']
     template_name='administracion/modificar.html'
     success_url = '/administracion/clienteslist'
     
@@ -88,13 +88,13 @@ class ProyectosList(ListView):
 class RegistrarCorto(CreateView):
     template_name='administracion/registrar.html'
     model = Proyecto
-    fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
+    fields=['activo','cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
     success_url = '/administracion/proyectoslist'
 
    
 class ModificarCorto(UpdateView):
     model = Proyecto
-    fields=['cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
+    fields=['activo','cliente','titulo','sinopsis','duracion','anyo','pais','director','reparto','productora','genero','trailer','imagen']
     template_name='administracion/modificar.html'
     success_url = '/administracion/proyectoslist'
         
@@ -110,12 +110,12 @@ class NoticiasList(ListView):
 class RegistrarNoticia(CreateView):
     template_name='administracion/registrar.html'
     model = Noticia
-    fields=['titulo','texto','resumen','fecha','imagen']
+    fields=['activo','titulo','texto','resumen','fecha','imagen']
     success_url = '/administracion/noticiaslist'
     
 class ModificarNoticia(UpdateView):
     model = Noticia
-    fields=['titulo','resumen','texto','fecha','imagen']
+    fields=['activo','titulo','resumen','texto','fecha','imagen']
     template_name='administracion/modificar.html'
     success_url = '/administracion/noticiaslist'
 
@@ -131,13 +131,13 @@ class FestivalesList(ListView):
 class RegistrarFestival(CreateView):
     template_name='administracion/registrar.html'
     model = Festival
-    fields=['nombre','ciudad','pais','anyo','fecha','web']
+    fields=['activo','nombre','ciudad','pais','anyo','fecha','web']
     success_url = '/administracion/festivaleslist'
 
 class ModificarFestival(UpdateView):
     template_name='administracion/modificar.html'
     model = Festival
-    fields=['nombre','ciudad','pais','anyo','fecha','web']
+    fields=['activo','nombre','ciudad','pais','anyo','fecha','web']
     success_url = '/administracion/festivaleslist'  
     
 class DeleteFestival(DeleteView):
@@ -152,12 +152,12 @@ class EstadosList(ListView):
 class RegistrarEstado(CreateView):
     template_name='administracion/registrar.html'
     model = Estado_Proyecto
-    fields=['proyecto','festival','estado']
+    fields=['activo','proyecto','festival','estado']
     success_url = '/administracion/estadoslist'
 
 class ModificarEstado(UpdateView):
     model = Estado_Proyecto
-    fields=['proyecto','festival','estado']
+    fields=['activo','proyecto','festival','estado']
     template_name='administracion/modificar.html'
     success_url = '/administracion/estadoslist'
 
@@ -173,19 +173,18 @@ class PublicidadDetails(ListView):
 class CreateAnuncio(CreateView):
     template_name='administracion/registrar.html'
     model = Publicidad
-    fields=['titulo','imagen','video']
+    fields=['activo','titulo','imagen','video']
     success_url = '/administracion/publicidadDetails'
 
 class UpdateAnuncio(UpdateView):
     template_name='administracion/modificar.html'
     model = Publicidad
-    fields=['titulo','imagen','video']
+    fields=['activo','titulo','imagen','video']
     success_url = '/administracion/publicidadDetails'
 
 class DeleteAnuncio(DeleteView):
     template_name='administracion/delete.html'
     model = Publicidad
-    fields=['titulo','imagen','video']
     success_url = '/administracion/publicidadDetails'
 
 def Avanzado(request):

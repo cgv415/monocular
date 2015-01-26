@@ -37,8 +37,10 @@
 				<table width="72%" border="1">
 					{%for cliente in object_list%}
 					<tr>
-						<td width="68%"><h6>
-								<a href="/administracion/cliente/{{cliente.id}}" class="margin">{{cliente.usuario.username}}</a>
+						<td width="68%"><h6>{%if cliente.activo%}
+								<a href="/administracion/cliente/{{cliente.id}}" class="margen">{{cliente.usuario.username}}</a>
+								{%else%}<a href="/administracion/cliente/{{cliente.id}}" class="margen"><font color="ff0000">{{cliente.usuario.username}}</font></a>
+								{%endif%}
 							</h6></td>
 						<td width="32%" align="center"><table width="100%" border="0">
 								<tr>

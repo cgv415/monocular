@@ -13,6 +13,7 @@ ESTADOS = (
     
 #Model Cortometraje
 class Proyecto(models.Model):
+    activo = models.BooleanField(default=True)
     cliente = models.ForeignKey(User,null=True,blank=True)
     servicio = models.ManyToManyField(Servicio)
     portfolio = models.BooleanField(default=False)
@@ -41,6 +42,7 @@ class Galeria(models.Model):
 
     #Modelo Festivales
 class Festival(models.Model):
+    activo = models.BooleanField(default=True)
     nombre = models.CharField(max_length=100)
     ciudad = models.CharField(max_length=100)
     pais = models.CharField(max_length=100)
@@ -60,6 +62,7 @@ class Estado_Proyecto(models.Model):
     
 #Modelo Publicidad
 class Publicidad(models.Model):
+    activo = models.BooleanField(default=True)
     titulo = models.CharField(max_length=100)
     imagen = models.ImageField(upload_to = 'publicidadgallery',null=True,blank=True)
     video = models.CharField(max_length=100,null=True,blank=True)

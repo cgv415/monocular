@@ -3,15 +3,8 @@ from django.template import RequestContext
 from .models import Noticia
 # Create your views here.
 
-#En desuso
-#Vista para mostrar la pagina principal de noticias
-def Noticias(request):
-    inicio = 2
-    fin = 5
-    noticias = Noticia.objects.order_by('-fecha')[inicio:fin]
-    return render_to_response('noticias/noticias.html',{'noticias':noticias,'inicio':inicio,'range':range(5,10)},context_instance=RequestContext(request))
-
 def PageNoticias(request,offset):
+    noticiasActivas = Noticia.objects.filter(activo=True)
     cod = int(offset)
     has_prev=False
     has_next=True
@@ -19,7 +12,7 @@ def PageNoticias(request,offset):
     fin = ini+5
     sig = cod+1
     ant = cod-1
-    noticias = Noticia.objects.order_by('-fecha','-id')[ini:fin]
+    noticias = noticiasActivas.order_by('-fecha','-id')[ini:fin]
     count = Noticia.objects.all().count()
     if cod >0:
         has_prev = True

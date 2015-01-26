@@ -36,7 +36,11 @@
 					{%for noticia in object_list%}
 					<tr>
 						<td width="58%" height="32"><h6 class="margen">
+						{%if noticia.activo %}
 								<a href="/noticias/post/{{noticia.id}}">{{noticia.titulo}}</a>
+								{%else%}
+								<a href="/noticias/post/{{noticia.id}}"><font color="ff0000">{{noticia.titulo}}</font></a>
+								{% endif %}
 							</h6></td>
 						<td width="42%" align="left"><table width="100%" border="0">
 								<tr>

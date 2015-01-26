@@ -3,6 +3,7 @@ from django.db import models
 
 #Model Noticias
 class Noticia(models.Model):
+    activo = models.BooleanField(default=True)
     titulo= models.CharField(max_length=200)
     texto=models.TextField()
     resumen = models.TextField()
