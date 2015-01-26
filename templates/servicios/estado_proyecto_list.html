@@ -37,13 +37,13 @@
       <table width="100%" border="1">
       {%for estado in object_list%}
         <tr>
-          <td width="28%" height="32"><h4><a href="/servicios/ficha/{{estado.corto.id}}" class="margen">{{estado.proyecto.titulo}}</a></h4></td>
-          <td width="37%"><h5><a href="/servicios/festival/{{festival.id}}" class="margen">{{estado.festival.nombre}}</a></h5></td>
+          <td width="28%" height="32"><h4><a href="/servicios/ficha/{{estado.proyecto.id}}" class="margen">{{estado.proyecto.titulo}}</a></h4></td>
+          <td width="37%"><h5><a href="/servicios/festival/{{estado.festival.id}}" class="margen">{{estado.festival.nombre}}</a></h5></td>
           <td width="14%"><h6 class="margen"><b>{{estado.estado}}</b></h6></td>
           <td width="21%" align="center"><table width="100%" border="0">
             <tr>
-              <td width="58%" height="24" align="center"><a href="/administracion/modificarNoticia/{{noticia.id}}" class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png" width="15" height="15" /><span class="tam12"> Modificar  </span></a></td>
-              <td width="42%" align="center"><a href="/administracion/eliminarNoticia/{{noticia.id}}" class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png" width="15" height="15" />Borrar</a></td>
+              <td width="58%" height="24" align="center"><a href="/administracion/modificarEstado/{{estado.id}}" class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png" width="15" height="15" /><span class="tam12"> Modificar  </span></a></td>
+              <td width="42%" align="center"><a href="/administracion/eliminarEstado/{{estado.id}}" class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png" width="15" height="15" />Borrar</a></td>
             </tr>
           </table></td>
           </tr>

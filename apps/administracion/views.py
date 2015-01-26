@@ -84,7 +84,6 @@ class DeleteCliente(DeleteView):
     success_url = '/administracion/clienteslist'
 
 #Operaciones sobre Proyecto
-
 class ProyectosList(ListView):
     model = Proyecto
     
@@ -138,9 +137,9 @@ class RegistrarFestival(CreateView):
     success_url = '/administracion/festivaleslist'
 
 class ModificarFestival(UpdateView):
+    template_name='administracion/modificar.html'
     model = Festival
     fields=['nombre','ciudad','pais','anyo','fecha','web']
-    template_name='administracion/modificar.html'
     success_url = '/administracion/festivaleslist'  
     
 class DeleteFestival(DeleteView):
@@ -155,12 +154,12 @@ class EstadosList(ListView):
 class RegistrarEstado(CreateView):
     template_name='administracion/registrar.html'
     model = Estado_Proyecto
-    fields=['corto','festival','estado']
+    fields=['proyecto','festival','estado']
     success_url = '/administracion/estadoslist'
 
 class ModificarEstado(UpdateView):
     model = Estado_Proyecto
-    fields=['corto','festival','estado']
+    fields=['proyecto','festival','estado']
     template_name='administracion/modificar.html'
     success_url = '/administracion/estadoslist'
 
