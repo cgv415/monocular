@@ -1,7 +1,13 @@
+<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
-{% endblock %} {%block titulo%}Postproduccion {%endblock%} {% block contenido %}
+{%endcomment %}
+
+{%block titulo%} PostProeccion {%endblock%}
+
+{% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
+{% endblock %} {% block contenido %} 
+{% block contenido %}
 <div class="contenido">
 	<h1>Este es el apartado de Postproduccion</h1>
 	<p>{{texto.texto}}</p>

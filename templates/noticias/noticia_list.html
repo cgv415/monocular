@@ -1,21 +1,12 @@
-<style type="text/css">
-.enlace {
-	font-weight: bold;
-	text-align: right;
-}
-
-.tam12 {
-	font-size: 12px;
-	text-align: left;
-}
-
-.margen {
-	margin-left: 10px;
-}
-</style>
+<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %} {% endblock %} {%block titulo%}Administrar Noticias
-{%endblock%} {% block contenido %}
+{%endcomment %}
+
+{%block titulo%} Lista de Noticias {%endblock%}
+
+{% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
+{% endblock %} {% block contenido %} 
 <div align="center">
 	<table width="100%" border="0">
 		<tr>

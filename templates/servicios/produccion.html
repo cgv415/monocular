@@ -1,60 +1,14 @@
-<style type="text/css">
-.tam10 {
-	font-size: 10px;
-}
+<!DOCTYPE html>
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios {%endcomment %} 
 
-.titulo {
-	font-weight: bold;
-	font-size: 14px;
-	text-align: center;
-}
+{%block head%}
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
+{%endblock%}
+ 
+{%block titulo%}Produccion {%endblock%} 
 
-.titulos {
-	font-size: 12px;
-	color: #000000;
-	text-decoration: none;
-}
+{% block contenido %}
 
-.titulos:hover {
-	color: #000000;
-	text-decoration: none;
-}
-
-.titular {
-	text-align: center;
-	color: #FFF;
-	font-weight: bold;
-	font-size: 22px;
-}
-
-.titular strong {
-	font-size: 22px;
-	font-weight: normal;
-}
-</style>
-{% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %} {% endblock %} {%block titulo%}Produccion {%endblock%} {% block contenido %}
-<style type="text/css">
-.texto {
-	font-size: 24px;
-}
-
-#redes-sociales {
-	text-decoration: none;
-}
-
-a.redes-sociales img {
-	filter: alpha(opacity = 100);
-	opacity: 1.0;
-	text-decoration: none;
-}
-
-a.redes-sociales:hover img {
-	filter: alpha(opacity = 40);
-	opacity: 0.4;
-	text-decoration: none;
-}
-</style>
 <div align="center">
 	<table width="61%" border="0">
 		<tr>

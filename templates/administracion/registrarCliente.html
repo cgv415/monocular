@@ -1,17 +1,12 @@
-<style type="text/css">
-.georgia {
-	font-size: 12px;
-	font-family: Georgia, "Times New Roman", Times, serif;
-}
+<p><!DOCTYPE html>
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %}
 
-.formularioRegistro {
-	text-align: left;
-	font-weight: bold;
-}
-</style>
-<p>{% extends 'base.html' %} {% comment %} Aqui van los comentarios
-	{%endcomment %} {% block head %} {%block title%}Registrar Cliente
-	{%endblock%} {% endblock %} {% block contenido %} {%if user.is_staff%}
+{%block titulo%} Registro {%endblock%}
+
+{% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/admin.css">
+{% endblock %} {% block contenido %}  {%if user.is_staff%}
 
 <div align="center">
 	<table width="100%" border="0">

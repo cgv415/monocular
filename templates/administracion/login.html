@@ -1,57 +1,17 @@
-{% extends "base.html" %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/login.css">
-{% endblock %} {% block contenido %} {%if user.is_active%} {%if user.is_staff%}
+<!DOCTYPE html>
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %}
+
+{%block titulo%} Login {%endblock%}
+
+{% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/admin.css">
+{% endblock %} {% block contenido %} 
+{%if user.is_active%} {%if user.is_staff%}
 <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=/administracion/admin">
 {%else%}
 <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=/servicios/mificha">
 {%endif%} {%endif%}
-
-<style type="text/css">
-.centrada {
-	text-align: center;
-	color: #FFF;
-	font-size: 24px;
-}
-
-.credenciales {
-	color: #FFF;
-	font-size: 16px;
-	text-align: center;
-	font-weight: bold;
-}
-
-.boton {
-	background: #11181c;
-	background-image: -webkit-linear-gradient(top, #11181c, #424445);
-	background-image: -moz-linear-gradient(top, #11181c, #424445);
-	background-image: -ms-linear-gradient(top, #11181c, #424445);
-	background-image: -o-linear-gradient(top, #11181c, #424445);
-	background-image: linear-gradient(to bottom, #11181c, #424445);
-	-webkit-border-radius: 10;
-	-moz-border-radius: 10;
-	border-radius: 8px;
-	text-shadow: 0px 1px 13px #000000;
-	font-family: Georgia;
-	color: #ffffff;
-	font-size: 12px;
-	padding: 5px 10px 5px 10px;
-	border: solid #ffffff 0px;
-	text-decoration: none;
-}
-
-.boton:hover {
-	background: #424445;
-	background-image: -webkit-linear-gradient(top, #424445, #11181c);
-	background-image: -moz-linear-gradient(top, #424445, #11181c);
-	background-image: -ms-linear-gradient(top, #424445, #11181c);
-	background-image: -o-linear-gradient(top, #424445, #11181c);
-	background-image: linear-gradient(to bottom, #424445, #11181c);
-	text-decoration: none;
-}
-</style>
-</head>
-
-<body>
 	<form id="form" name="form" method="POST" action="">
 
 		<input type="hidden" name="csrfmiddlewaretoken"

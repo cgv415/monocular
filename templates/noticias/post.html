@@ -1,14 +1,9 @@
-<style type="text/css">
-.fecha {
-	text-align: right;
-}
-
-.titulos {
-	font-size: 14px;
-}
-</style>
+<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %} {% endblock %} {% block contenido %}
+{%endcomment %}
+
+{%block titulo%} Noticia {%endblock%}
+{% block contenido %} 
 <div align="center">
 	<table width="59%" border="0" cellpadding="0" cellspacing="0">
 		<tr>
@@ -23,7 +18,7 @@
 					<img src="{{MEDIA_URL}}{{noticia.imagen}}" width="225" height="225" />
 				</h6>
 				<h6>{{noticia.fecha}}</h6></td>
-			<td width="62%" align="justify" valign="top"><h4 class="titulos">&nbsp;</h4>
+			<td width="62%" align="justify" valign="top"><h4 class="titulosPost">&nbsp;</h4>
 				<h4 class="titulos">{{noticia.texto}}</h4></td>
 		</tr>
 		<tr>

@@ -1,11 +1,12 @@
-<style type="text/css">
-.georgia {
-	font-size: 12px;
-	font-family: Georgia, "Times New Roman", Times, serif;
-}
-</style>
+<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %} {% endblock %} {% block contenido %}
+{%endcomment %}
+
+{%block titulo%} Administracion {%endblock%}
+
+{% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/admin.css">
+{% endblock %} {% block contenido %} 
 
 {%if user.is_staff%}
 <div align="center">

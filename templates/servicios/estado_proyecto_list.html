@@ -1,19 +1,12 @@
-<style type="text/css">
-.enlace {
-	font-weight: bold;
-}
+<!DOCTYPE html>
+{% extends 'base.html' %} {% comment %} Aqui van los comentarios
+{%endcomment %}
 
-.tam12 {
-	font-size: 12px;
-}
+{%block titulo%} Lista de Estados {%endblock%}
 
-.margen {
-	margin-left: 10px;
-}
-</style>
-{% extends 'base.html' %} {%block titulo%}Estados de
-Proyectos{%endblock%} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %} {% endblock %} {% block contenido %}
+{% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
+{% endblock %} {% block contenido %}
 {%if user.is_staff%}
 <div align="center">
 	<table width="100%" border="0">

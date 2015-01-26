@@ -7,11 +7,9 @@ from django.template import RequestContext
 from django.contrib.admin.views.decorators import staff_member_required
 from apps.servicios.models import Proyecto, Festival, Estado_Proyecto,Publicidad
 from apps.noticias.models import Noticia
-from django.views.generic.edit import UpdateView, DeleteView, FormView
+from django.views.generic.edit import UpdateView, DeleteView
 from django.views.generic.list import ListView
 from apps.administracion.models import Cliente, Empleado
-from apps.administracion.forms import UserForm
-from django.core.urlresolvers import reverse
 
 # Create your views here.
 #Vista principal de la administracion
@@ -192,12 +190,3 @@ class DeleteAnuncio(DeleteView):
 
 def Avanzado(request):
     return render_to_response('/admin/',context_instance=RequestContext(request))
-
-#Cambiar
-def VerUsuarios(request):
-    usuarios = User.objects.all().filter(is_staff=False)
-    return render_to_response('administracion/verUsuarios.html',{'usuarios': usuarios},context_instance=RequestContext(request))
-
-def VerAdministradores(request):
-    administradores = User.objects.all().filter(is_staff=True)
-    return render_to_response('administracion/verAdministradores.html',{'administradores': administradores},context_instance=RequestContext(request))

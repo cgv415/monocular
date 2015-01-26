@@ -1,31 +1,89 @@
+<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/festival.css">
-{% endblock %} {% block contenido %}
+{%endcomment %}
 
-<div class="contenido">
-	<u><h1>{{festival.nombre}}</h1></u>
-	<h4>
-		<b>Pais: </b>{{festival.pais}}
-	</h4>
-	<h4>
-		<b>Ciudad: </b>{{festival.ciudad}}
-	</h4>
-	<h4>
-		<b>Anyo: </b>{{festival.anyo}}
-	</h4>
-	{%ifnotequal festival.fecha ''%}
-	<h4>
-		<b>Fecha: </b>{{festival.fecha}}
-	</h4>
-	{%endifnotequal%} {%ifnotequal festival.web ''%}
-	<h4>
-		<b>Web: </b>{{festival.web}}
-	</h4>
-	{%endifnotequal%} {%for proyecto in proyectos%}
-	<h2>{{proyecto.corto.titulo}}</h2>
-	<h4>{{proyecto.estado}}</h4>
-	{%endfor%}
+{%block titulo%} Festival {%endblock%}
+
+{% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
+{% endblock %} {% block contenido %} 
+<div align="center">
+  <table width="100%" border="0">
+    <tr>
+      <td width="27%" rowspan="11">&nbsp;</td>
+      <td colspan="3">&nbsp;</td>
+      <td width="18%" align="right">&nbsp;</td>
+      <td width="4%" align="center">&nbsp;</td>
+      <td width="1%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="21" colspan="3">&nbsp;</td>
+      <td colspan="2" rowspan="10">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="left"><h4>Datos de Festival:</h4></td>
+      <td width="34%">&nbsp;</td>
+      <td width="0%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="left"><h5>Nombre Festival:</h5></td>
+      <td>{{festival.nombre}}</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="left"><h5>Ciudad del Festival:</h5></td>
+      <td>{{festival.ciudad|capfirst}}</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="left"><h5>Año de Celebracion:</h5></td>
+      <td>{{festival.anyo|capfirst}}</td>
+      <td>&nbsp;</td>
+    </tr>
+    {%ifnotequal festival.fecha ''%}
+    <tr>
+      <td align="left"><h5>Fecha:</h5></td>
+      <td>{{festival.fecha|capfirst}}</td>
+      <td>&nbsp;</td>
+    </tr>
+    {%endifnotequal%}
+    {%ifnotequal festival.web ''%}
+    <tr>
+      <td align="left"><h5>Página Web:</h5></td>
+      <td>{{festival.web|capfirst}}</td>
+      <td>&nbsp;</td>
+    </tr>
+    {%endifnotequal%}
+    <tr>
+      <td colspan="2" align="left">&nbsp;</td>
+      <td rowspan="6">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    {%for proyecto in proyectos%}
+    <tr>
+      <td height="28">&nbsp;</td>
+      
+      <td colspan="3">&nbsp;</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td width="16%" valign="bottom">&nbsp;</td>
+    </tr>
+    	{%empty%}
+        <tr><td>&nbsp;</td></tr>
+       {%endfor%} 
+    <tr>
+      <td colspan="6">&nbsp;</td>
+    </tr>
+  </table>
+
 </div>
-
-{%endblock%}
+<p>{%endblock%} </p>
