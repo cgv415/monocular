@@ -34,6 +34,7 @@ def contacto(request):
             email=EmailMessage(asunto,mensaje,to=['monocularfilm@gmail.com'])
             email.send()
             emailCopy=EmailMessage(asunto,mensaje,to=[mail])
+            emailCopy.send()
             exito=True        
             return render_to_response('inicio/contacto.html',{'informacion':informacion,'exito':exito},context_instance=RequestContext(request))
     else:
