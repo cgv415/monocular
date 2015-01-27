@@ -55,8 +55,8 @@ a.redes-sociales:hover img {
 </style>
 
 <p>{% extends 'base.html' %} {% comment %} Aqui van los comentarios
-	{%endcomment %} {% block head %} {% endblock %} {%block
-	titulo%}Publicidad {%endblock%} {% block contenido %}
+	{%endcomment %} {% block head %} {% endblock %} {%block titulo%}Publicidad {%endblock%} 
+{% block contenido %}
 <div align="center">
 	<table width="61%" border="0">
 		<tr>
@@ -80,7 +80,7 @@ a.redes-sociales:hover img {
 
 	<!-- Slides Container -->
 	<div u="slides"
-		style="cursor: move; position: absolute; left: 256px; top: 297px; width: 700px; height: 413px; overflow: hidden;">
+		style="cursor: move; position: absolute; left: 325px; top: 298px; width: 700px; height: 413px; overflow: hidden;">
 		{%for publi in imagenes%}
 		<div>
 			<img u="image" src="{{MEDIA_URL}}{{publi.imagen}}" /> <img u="thumb"

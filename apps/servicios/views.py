@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from .models import Proyecto,Estado_Proyecto,Galeria,Festival,Publicidad
-from apps.administracion.models import TextoDescriptivo,Cliente
+from apps.administracion.models import TextoDescriptivo,Cliente, VideoInicial
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -22,7 +22,8 @@ def Servicios(request):
 def Produccion(request):
     texto = TextoDescriptivo.objects.filter(tipo = 'produccion')[0]
     proyectos = Proyecto.objects.filter(servicio__nombre='Produccion',activo=True).order_by('-id')
-    return render_to_response('servicios/produccion.html',{'texto':texto,'proyectos':proyectos},context_instance=RequestContext(request))
+    video = VideoInicial.objects.filter(activo = True).filter(tipo='produccion').order_by('id').reverse()[0]
+    return render_to_response('servicios/produccion.html',{'texto':texto,'proyectos':proyectos,'video':video},context_instance=RequestContext(request))
 
 #Muestra todos los objetos de postproduccion que se han creado
 def Postproduccion(request):
