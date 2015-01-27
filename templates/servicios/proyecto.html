@@ -97,12 +97,56 @@
 		<div class="container">
 			<div class="image-row">
 				<div class="image-set">
-				{%for imagen in galeria%}
-					<a class="example-image-link" href="{{MEDIA_URL}}{{imagen.imagen}}"
+				  <table width="46%" border="0">
+				    <tr>
+				      <td width="11%">&nbsp;</td>
+				      <td width="23%">&nbsp;</td>
+				      <td width="66%">&nbsp;</td>
+			        </tr>
+                    {%if user.is_staff%}
+				    <tr>
+                    <td width="11%" rowspan="3" valign="top"><a href="/administracion/crearImagen"><img
+						src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" /></a></td>
+                    {%for imagen in galeria%}					
+               <td width="23%"> <a class="example-image-link" href="{{MEDIA_URL}}{{imagen.imagen}}"
 						data-lightbox="example-set"
 						data-title="Click the right half of the image to move forward."><img
-						class="example-image" src="{{MEDIA_URL}}{{imagen.imagen}}" alt="" /></a>
-						{%endfor%}
+						class="example-image" src="{{MEDIA_URL}}{{imagen.imagen}}" alt="" /></a></td>
+				{%endfor%}
+			        </tr>
+				    <tr>
+				      {%for imagen in galeria%}					
+               <td width="23%"> <a href="/administracion/modificarImagen/{{proyecto.id}}"
+										class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png"
+											width="15" height="15" /><span class="tam12"></a>
+                <a href="/administracion/deleteImagen/{{proyecto.id}}"
+										class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png"
+											width="15" height="15" /></a>
+				{%if imagen.activo%}
+               <img src="{{STATIC_URL}}img/btn/eye.png"
+											width="15" height="15" />
+                {%else%}
+				<img src="{{STATIC_URL}}img/btn/eye-blocked.png"
+											width="15" height="15" />
+				{%endif%}
+                </td>
+				{%endfor%}
+			        </tr>
+                    {%else%}
+				    <tr>
+				      	{%for imagen in galeria%}	
+                      		{%if imagen.activo%}				
+                              <td width="23%"> <a class="example-image-link" href="{{MEDIA_URL}}{{imagen.imagen}}"
+                                data-lightbox="example-set"
+                                data-title="Click the right half of the image to move forward."><img
+                                class="example-image" src="{{MEDIA_URL}}{{imagen.imagen}}" alt="" /></a>
+                              </td>
+                              {%endif%}
+                              {%endfor%}
+			        </tr>
+                    
+                    {%endif%}
+			      </table>
 				</div>
 			</div>
 		</div>

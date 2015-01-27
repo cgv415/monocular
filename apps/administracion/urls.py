@@ -6,7 +6,8 @@ from apps.administracion.views import RegistrarCliente, ClientesList,\
     ModificarFestival, DeleteFestival, RegistrarNoticia, NoticiasList,\
     ModificarNoticia, DeleteNoticia, EstadosList, ModificarEstado, DeleteEstado,\
     RegistrarEstado, PublicidadDetails, UpdateAnuncio, DeleteAnuncio,\
-    CreateAnuncio, RegistrarUsuario, RegistrarUsuarioEmpleado
+    CreateAnuncio, RegistrarUsuario, RegistrarUsuarioEmpleado, \
+    ModificarImagen, CrearImagen, DeleteImagen
 
 # from django.contrib.auth.views import logout
 
@@ -51,6 +52,10 @@ urlpatterns = [
    url(r'^updateAnuncio/(?P<pk>\d+)/$',UpdateAnuncio.as_view(), name='update-anuncio'),
    url(r'^deleteAnuncio/(?P<pk>\d+)/$',DeleteAnuncio.as_view(), name='delete-anuncio'),
    url(r'^createAnuncio/',CreateAnuncio.as_view(), name="create-anuncio"),
+   
+   url(r'^modificarImagen/(?P<pk>\d+)/$',ModificarImagen.as_view(), name='update-imagen'),
+   url(r'^deleteImagen/(?P<pk>\d+)/$',DeleteImagen.as_view(), name='delete-imagen'),
+   url(r'^crearImagen/',CrearImagen.as_view(), name="create-imagen"),
    
    url(r'^avanzado/', 'apps.administracion.views.Avanzado', name="avanzado"),
    ]

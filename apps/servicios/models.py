@@ -37,6 +37,7 @@ class Proyecto(models.Model):
         return self.titulo
 
 class Galeria(models.Model):
+    activo = models.BooleanField(default=True)
     imagen = models.ImageField(upload_to = 'galeria')
     proyecto = models.ForeignKey(Proyecto)
 

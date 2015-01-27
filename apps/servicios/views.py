@@ -14,8 +14,6 @@ def MiFicha(request):
     proyectos = Proyecto.objects.filter(cliente_id = usuario.id).order_by('-id')
     return render_to_response('servicios/mificha.html',{'proyectos':proyectos,'cliente':cliente},context_instance=RequestContext(request))
 
-
-
 #Muestra todos los servicios que se prestan
 def Servicios(request):
     return render_to_response('servicios/servicios.html',context_instance=RequestContext(request))

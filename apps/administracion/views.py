@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from django.template import RequestContext
 
 from django.contrib.admin.views.decorators import staff_member_required
-from apps.servicios.models import Proyecto, Festival, Estado_Proyecto,Publicidad
+from apps.servicios.models import Proyecto, Festival, Estado_Proyecto,Publicidad,\
+    Galeria
 from apps.noticias.models import Noticia
 from django.views.generic.edit import UpdateView, DeleteView
 from django.views.generic.list import ListView
@@ -186,6 +187,25 @@ class DeleteAnuncio(DeleteView):
     template_name='administracion/delete.html'
     model = Publicidad
     success_url = '/administracion/publicidadDetails'
+    
+#Gestion de galeria de imagenes de proyectos
+class CrearImagen(CreateView):
+    template_name='administracion/registrar.html'
+    model = Galeria
+    fields=['activo','proyecto','imagen']
+    success_url = '/administracion/proyectoslist'
+
+class ModificarImagen(UpdateView):
+    template_name='administracion/modificar.html'
+    model = Galeria
+    fields=['activo','proyecto','imagen']
+    success_url = '/administracion/proyectoslist'
+    
+
+class DeleteImagen(DeleteView):
+    template_name='administracion/delete.html'
+    model = Galeria
+    success_url = '/administracion/proyectoslist'
 
 def Avanzado(request):
     return render_to_response('/admin/',context_instance=RequestContext(request))

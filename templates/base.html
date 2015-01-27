@@ -10,7 +10,7 @@
 	href="{{STATIC_URL}}css/bootstrap/bootstrap.min.css">
 </head>
 <body oncontextmenu="return false" onselectstart="return false"
-	ondragstart="return false" onkeydown="return false">
+	ondragstart="return false">
 
 	<nav class="navbar-fixed-top">
 		<div style="background-color: #000000; border: #000000;">
@@ -60,8 +60,9 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="65" align="center" valign="middle"><a
-							href="/administracion/admin" class="menuFooter">Admin</a></td>
+						<td width="65" align="center" valign="middle">{%if user.is_staff%}<a
+							href="/administracion/admin" class="menuFooter">Admin</a>
+                            {%endif%}</td>
 					</tr>
 					{%endif%}
 				</table>

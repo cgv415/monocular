@@ -17,10 +17,6 @@ def inicio(request):
     producciones = Proyecto.objects.filter(portfolio = True,activo=True).order_by('-id')
     return render_to_response('inicio/inicio.html',{'video':video,'noticias':noticias,'producciones':producciones},context_instance=RequestContext(request))
 
-def light(request):
-    return render_to_response('inicio/lightbox.html',context_instance=RequestContext(request))
-
-
 #Vista para el contacto
 def contacto(request):
     exito=False
