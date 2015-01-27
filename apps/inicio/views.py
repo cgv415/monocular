@@ -40,3 +40,6 @@ def contacto(request):
     else:
         form = Formulario()
     return render_to_response('inicio/contacto.html',{'informacion':informacion,'form':form,'exito':exito},context_instance=RequestContext(request))
+
+def gallery(request):
+    return render_to_response('inicio/image-gallery.html',context_instance=RequestContext(request))
