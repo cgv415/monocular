@@ -6,6 +6,10 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Karla%7CMontserrat">
+<link rel="stylesheet" href="{{STATIC_URL}}css/lightbox/screen.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/lightbox/lightbox.css">
 {% endblock %} {% block contenido %}
 
 <div align="center">
@@ -87,17 +91,55 @@
 		</tr>
 	</table>
 </div>
+
 <div align="center">
+	<section id="examples" class="examples-section">
+		<div class="container">
+			<div class="image-row">
+				<div class="image-set">
+				{%for imagen in galeria%}
+					<a class="example-image-link" href="{{MEDIA_URL}}{{imagen.imagen}}"
+						data-lightbox="example-set"
+						data-title="Click the right half of the image to move forward."><img
+						class="example-image" src="{{MEDIA_URL}}{{imagen.imagen}}" alt="" /></a>
+						{%endfor%}
+				</div>
+			</div>
+		</div>
+	</section>
+{%block javascript%}
+
+	<script src="{{STATIC_URL}}js/jquery-1.11.0.min.js"></script>
+	<script src="{{STATIC_URL}}js/lightbox.js"></script>
+
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push([ '_setAccount', 'UA-2196019-1' ]);
+		_gaq.push([ '_trackPageview' ]);
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+					: 'http://www')
+					+ '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+{%endblock%}
+	
 	{%ifequal user.id proyecto.cliente_id %} {%if palmares%}
 	<table class="tabla" width="100%" border="2" cellspacing="0"
 		bordercolor="#000000">
 		<tr>
 			<th scope="col">Cortometraje</th>
-			<th align="center" scope="col">A&ntilde;o de producci&oacute;n</th>
-			<th align="center" scope="col">Festival/A&ntilde;o</th>
-			<th align="center" scope="col">Ciudad/Pa&iacute;s</th>
+			<th align="center" scope="col">A&ntildeo de producci&oacuten</th>
+			<th align="center" scope="col">Festival/A&ntildeo</th>
+			<th align="center" scope="col">Ciudad/Pa&iacutes</th>
 			<th align="center" scope="col">Fecha</th>
-			<th scope="col">P&aacute;gina Web</th>
+			<th scope="col">P&aacutegina Web</th>
 			<th scope="col">Estado</th>
 		</tr>
 

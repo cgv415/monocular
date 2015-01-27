@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+
+<title>Lightbox</title>
+
+<meta name="description" lang="en"
+	content="Lightbox is a script used to overlay images on the current page. It's a snap to setup and works on all modern browsers." />
+<meta name="author" content="Lokesh Dhakar">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="img/demopage/favicon.png">
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Karla%7CMontserrat">
+<link rel="stylesheet" href="{{STATIC_URL}}css/lightbox/screen.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/lightbox/lightbox.css">
+</head>
+<body>
+
+	<section id="examples" class="examples-section">
+		<div class="container">
+			<h2>Examples</h2>
+			<hr />
+			<h3 style="clear: both;">Four image set</h3>
+			<div class="image-row">
+				<div class="image-set">
+					<a class="example-image-link" href="{{STATIC_URL}}img/logos/fondoNegro.png"
+						data-lightbox="example-set"
+						data-title="Click the right half of the image to move forward."><img
+						class="example-image" src="{{STATIC_URL}}img/logos/fondoNegro.png" alt="" /></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{{STATIC_URL}}js/jquery-1.11.0.min.js"></script>
+	<script src="{{STATIC_URL}}js/lightbox.js"></script>
+
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push([ '_setAccount', 'UA-2196019-1' ]);
+		_gaq.push([ '_trackPageview' ]);
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+					: 'http://www')
+					+ '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+</body>
+</html>
