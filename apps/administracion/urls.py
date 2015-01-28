@@ -58,4 +58,5 @@ urlpatterns = [
    url(r'^crearImagen/',CrearImagen.as_view(), name="create-imagen"),
    
    url(r'^avanzado/', 'apps.administracion.views.Avanzado', name="avanzado"),
+   url(r'^close/', 'apps.administracion.views.Close', name="close"),
    ]

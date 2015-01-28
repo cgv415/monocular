@@ -199,7 +199,7 @@ class ModificarImagen(UpdateView):
     template_name='administracion/modificar.html'
     model = Galeria
     fields=['activo','proyecto','imagen']
-    success_url = '/administracion/proyectoslist'
+    success_url = '/administracion/close'
     
 
 class DeleteImagen(DeleteView):
@@ -209,3 +209,6 @@ class DeleteImagen(DeleteView):
 
 def Avanzado(request):
     return render_to_response('/admin/',context_instance=RequestContext(request))
+
+def Close(request):
+    return render_to_response('administracion/close.html',context_instance=RequestContext(request))
