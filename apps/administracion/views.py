@@ -193,7 +193,7 @@ class CrearImagen(CreateView):
     template_name='administracion/registrar.html'
     model = Galeria
     fields=['activo','proyecto','imagen']
-    success_url = '/administracion/proyectoslist'
+    success_url = '/administracion/close'
 
 class ModificarImagen(UpdateView):
     template_name='administracion/modificar.html'
@@ -205,7 +205,7 @@ class ModificarImagen(UpdateView):
 class DeleteImagen(DeleteView):
     template_name='administracion/delete.html'
     model = Galeria
-    success_url = '/administracion/proyectoslist'
+    success_url = '/administracion/close'
 
 def Avanzado(request):
     return render_to_response('/admin/',context_instance=RequestContext(request))

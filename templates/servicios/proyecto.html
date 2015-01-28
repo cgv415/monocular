@@ -105,7 +105,7 @@
 			        </tr>
                     {%if user.is_staff%}
 				    <tr>
-                    <td width="11%" rowspan="3" valign="top"><a href="/administracion/crearImagen"><img
+                    <td width="11%" rowspan="3" valign="top"><a href="/administracion/crearImagen" target="blank"><img
 						src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" /></a></td>
                     {%for imagen in galeria%}					
                <td width="23%"> <a class="example-image-link" href="{{MEDIA_URL}}{{imagen.imagen}}"
@@ -116,11 +116,11 @@
 			        </tr>
 				    <tr>
 				      {%for imagen in galeria%}					
-               <td width="23%"> <a href="/administracion/modificarImagen/{{proyecto.id}}"
+               <td width="23%"> <a href="/administracion/modificarImagen/{{imagen.id}}" target="blank"
 										class="enlace" target="_blank"><img src="{{STATIC_URL}}img/btn/pencil.png"
 											width="15" height="15" /><span class="tam12"></a>
-                <a href="/administracion/deleteImagen/{{proyecto.id}}"
-										class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png"
+                <a href="/administracion/deleteImagen/{{imagen.id}}"
+										class="tam12"  target="blank"><img src="{{STATIC_URL}}img/btn/minus.png"
 											width="15" height="15" /></a>
 				{%if imagen.activo%}
                <img src="{{STATIC_URL}}img/btn/eye.png"
