@@ -6,45 +6,44 @@
 <title>{%block titulo%} {%endblock%}</title> {%block head%} {%endblock%}
 {% comment %} {%endcomment %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/base.css">
-<link rel="stylesheet"
-	href="{{STATIC_URL}}css/bootstrap/bootstrap.min.css">
 </head>
 <body oncontextmenu="return false" onselectstart="return false"
 	ondragstart="return false">
 
-	<nav class="navbar-fixed-top">
-		<div style="background-color: #000000; border: #000000;">
-
-			<div align="center" style="overflow-x: hidden; text-align: right;">
-
-
-				<table width="96%" border="0" cellspacing="2" cellpadding="2">
-					<tr>
-						<td width="52" rowspan="2" align="right"></td>
-						<td width="180" rowspan="2" align="right"><a href="/inicio">
+	<div align="center" style="background-color: #000000; border: #000000;">
+	  <table width="100%" border="0">
+	    <tr>
+	      <td width="9%">&nbsp;</td>
+	      <td width="15%">&nbsp;</td>
+	      <td width="55%">&nbsp;</td>
+	      <td width="10%">&nbsp;</td>
+	      <td width="11%">&nbsp;</td>
+        </tr>
+	    <tr>
+	      <td rowspan="3">&nbsp;</td>
+	      <td rowspan="3"><a href="/inicio">
 								<img src="{{STATIC_URL}}img/logos/fondonegro.png" width="180"
 								height="110" />
 						</a></td>
-						<td width="582" rowspan="2" align="center"><div id="menu">
-								<ul>
-									<li class="nivel1"><a href="/inicio" class="nivel1">INICIO</a>
-									</li>
-									<li class="nivel1"><a href="/servicios" class="nivel1">SERVICIOS</a>
-										<ul class="dos">
-											<li><a href="/servicios/produccion" class="nivel1">Producci&oacuten</a></li>
-											<li><a href="#" class="nivel1">PostProducci&oacuten</a></li>
-											<li><a href="/servicios/publicidad" class="nivel1">Publicidad</a></li>
-											<li><a href="/servicios/distribucion" class="nivel1">Distribuci&oacuten</a></li>
-										</ul></li>
-									<li class="nivel1"><a href="/portfolio" class="nivel1">PORTFOLIO</a>
-									</li>
-									<li class="nivel1"><a href="/noticias/page/0"
-										class="nivel1">NOTICIAS</a></li>
-									<li class="nivel1"><a href="/contacto" class="menuHeader">CONTACTO</a><br />
-									</li>
-								</ul>
-							</div>
-						<td width="121" rowspan="2" align="left" valign="middle"><a
+	      <td rowspan="3"><div id="header">
+			<ul class="nav">
+				<li><a href="/inicio">Inicio</a></li>
+				<li><a href="/servicios">Servicios</a>
+					<ul>
+						<li><a href="/servicios/produccion">Produccion</a></li>
+						<li><a href="/servicios/distribucion">Distribucion</a></li>
+						<li><a href="/servicios/publicidad">Publicidad</a></li>
+						<li><a href="#">PostProduccion</a></li>
+					</ul>
+				</li>
+				<li><a href="/noticias">Noticias</a>
+				</li>
+				<li><a href="/portfolio">PortFolio</a>
+				</li>
+				<li><a href="/contacto">Contacto</a></li>
+			</ul>
+		</div></td>
+	      <td rowspan="3"><a
 							class="redes-sociales" target="_blank"
 							href="https://www.facebook.com/pages/Monocular-Films/636013676504940?ref=notif&notif_t=fbpage_admin"
 							title="Facebook"><img
@@ -55,26 +54,29 @@
 								height="26" /></a> <a class="redes-sociales" target="_blank"
 							href="https://vimeo.com/user36352296" title="Vimeo"> <img
 								src="{{STATIC_URL}}img/social/vimeo.png" width="26" height="21" /></a></td>
-						<td width="65" align="center" valign="middle">{%if user.is_active%}<a href="/administracion/logout"
-							class="menuFooter">Logout</a>
-						</td>
-					</tr>
-					<tr>
-						<td width="65" align="center" valign="middle">{%if user.is_staff%}<a
-							href="/administracion/admin" class="menuFooter">Admin</a>
-                            {%endif%}</td>
-					</tr>
-					{%endif%}
-				</table>
-			</div>
-		</div>
-	</nav>
-	<div class="row" style="padding-top: 9%;"></div>
-
+	      <td height="42" align="center"><a href="/administracion/logout"
+							class="menuFooter">Logout</a></td>
+        </tr>
+	    <tr>
+	      <td height="39" align="center"><a
+							href="/administracion/admin" class="menuFooter">Admin</a></td>
+        </tr>
+	    <tr>
+	      <td height="20">&nbsp;</td>
+        </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+        </tr>
+      </table>
+</div>
+<br />
 		{%block contenido%} {%endblock%} {%block javascript%} {%endblock%}
-
-		<div
-			style="background-color: #000000; text-decoration: none; color: #FFF; font-weight: normal; text-align: left;">
+<br />
+<div style="background-color: #000000; text-decoration: none; color: #FFF; font-weight: normal; text-align: left;">
 
 			<div align="center" style="overflow-x: hidden">
 				<table width="70%" border="0" cellspacing="0" cellpadding="0"
@@ -157,6 +159,7 @@
 						<td colspan="5" rowspan="2" style="text-align: right">&nbsp;</td>
 						<td height="24" colspan="4" style="text-align: center">&nbsp;</td>
 					</tr>
+
 					<tr>
 						<td colspan="4" style="text-align: left">&nbsp;</td>
 					</tr>
