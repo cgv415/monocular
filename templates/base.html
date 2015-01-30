@@ -6,10 +6,11 @@
 <title>{%block titulo%} {%endblock%}</title> {%block head%} {%endblock%}
 {% comment %} {%endcomment %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/base.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/main.js"></script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false"
 	ondragstart="return false">
-
 	<div align="center" style="background-color: #000000; border: #000000;">
 	  <table width="100%" border="0">
 	    <tr>
@@ -73,6 +74,7 @@
       </table>
 </div>
 <br />
+
 		{%block contenido%} {%endblock%} {%block javascript%} {%endblock%}
 <br />
 <div style="background-color: #000000; text-decoration: none; color: #FFF; font-weight: normal; text-align: left;">
