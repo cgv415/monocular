@@ -1,13 +1,13 @@
-<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %}
 
 {%block titulo%} Cliente {%endblock%}
-
+{%block contenido%}
 <div align="center">
   <table width="100%" border="0">
+  
     <tr>
-      <td width="27%" rowspan="11">&nbsp;</td>
+      <td width="27%" rowspan="13">&nbsp;</td>
       <td colspan="3">&nbsp;</td>
       <td width="18%" align="right">&nbsp;</td>
       <td width="4%" align="center">&nbsp;</td>
@@ -15,8 +15,7 @@
     </tr>
     <tr>
       <td height="21" colspan="3">&nbsp;</td>
-      <td colspan="2" rowspan="10">&nbsp;</td>
-      <td>&nbsp;</td>
+      <td colspan="3" rowspan="12">&nbsp;</td>
     </tr>
     <tr>
       <td align="left"><h4>Datos de Usuario:</h4></td>
@@ -25,12 +24,12 @@
     </tr>
     <tr>
       <td align="left"><h5>Usuario:</h5></td>
-      <td>{{user.username}}</td>
+      <td>{{cliente.user_username}}</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
       <td align="left"><h5>Nombre:</h5></td>
-      <td>{{user.first_name|capfirst}}</td>
+      <td>{{cliente.user.first_name|capfirst}}</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -51,33 +50,23 @@
     <tr>
       <td align="left"><h5>Telefono Contacto:</h5></td>
       <td>{{cliente.telefono}}</td>
-      <td rowspan="6">&nbsp;</td>
+      <td rowspan="8">&nbsp;</td>
     </tr>
     <tr>
-      <td colspan="3">&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
     </tr>
     <tr>
-      <td colspan="3">&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
     </tr>
     {%for proyecto in proyectos%}
     <tr>
-      <td height="28">&nbsp;</td>
-      
-      <td colspan="3">&nbsp;</td>
-      <td></td>
-      <td></td>
+      <td colspan="2"><a href="servicios/ficha/{{proyecto.id}}">{{proyecto.titulo}}</a></td>
     </tr>
+    {%endfor%}
     <tr>
-      <td>&nbsp;</td>
-      <td width="16%" valign="bottom">&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
     </tr>
-    	{%empty%}
-        <tr><td>&nbsp;</td></tr>
-       {%endfor%} 
-    <tr>
-      <td colspan="6">&nbsp;</td>
-    </tr>
-  </table>
 
+  </table>
 </div>
 <p>{%endblock%} </p>

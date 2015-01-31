@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %}
 
@@ -7,50 +6,45 @@
 {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
 {% endblock %} {% block contenido %} 
-<div align="center">
+<div align="center" class="list">
   <table width="100%" border="0">
     <tr>
-      <td width="27%" rowspan="11">&nbsp;</td>
-      <td colspan="3">&nbsp;</td>
-      <td width="18%" align="right">&nbsp;</td>
-      <td width="4%" align="center">&nbsp;</td>
-      <td width="1%">&nbsp;</td>
+      <td width="443" rowspan="10">&nbsp;</td>
+      <td colspan="3"class="tam22">Datos de Festival:</td>
+      <td width="203" align="right">&nbsp;</td>
+      <td width="38" align="center">&nbsp;</td>
+      <td width="2">&nbsp;</td>
     </tr>
     <tr>
-      <td height="21" colspan="3">&nbsp;</td>
-      <td colspan="2" rowspan="10">&nbsp;</td>
-      <td>&nbsp;</td>
+      <td colspan="3" align="center"></td>
+      <td colspan="2" rowspan="9">&nbsp;</td>
+      <td height="21">&nbsp;</td>
     </tr>
     <tr>
-      <td align="left"><h4>Datos de Festival:</h4></td>
-      <td width="34%">&nbsp;</td>
-      <td width="0%">&nbsp;</td>
+      <td align="left" class="22">Nombre Festival:</td>
+      <td width="347">{{festival.nombre}}</td>
+      <td width="22">&nbsp;</td>
     </tr>
     <tr>
-      <td align="left"><h5>Nombre Festival:</h5></td>
-      <td>{{festival.nombre}}</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td align="left"><h5>Ciudad del Festival:</h5></td>
+      <td align="left" class"22">Ciudad del Festival:</td>
       <td>{{festival.ciudad|capfirst}}</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td align="left"><h5>Año de Celebracion:</h5></td>
+      <td align="left" class"22">Año de Celebracion:</td>
       <td>{{festival.anyo|capfirst}}</td>
       <td>&nbsp;</td>
     </tr>
     {%ifnotequal festival.fecha ''%}
     <tr>
-      <td align="left"><h5>Fecha:</h5></td>
+      <td align="left" class"22">Fecha:</td>
       <td>{{festival.fecha|capfirst}}</td>
       <td>&nbsp;</td>
     </tr>
     {%endifnotequal%}
     {%ifnotequal festival.web ''%}
     <tr>
-      <td align="left"><h5>Página Web:</h5></td>
+      <td align="left" class"22">Página Web:</td>
       <td>{{festival.web|capfirst}}</td>
       <td>&nbsp;</td>
     </tr>
@@ -65,24 +59,7 @@
     <tr>
       <td colspan="3">&nbsp;</td>
     </tr>
-    {%for proyecto in proyectos%}
-    <tr>
-      <td height="28">&nbsp;</td>
-      
-      <td colspan="3">&nbsp;</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td width="16%" valign="bottom">&nbsp;</td>
-    </tr>
-    	{%empty%}
-        <tr><td>&nbsp;</td></tr>
-       {%endfor%} 
-    <tr>
-      <td colspan="6">&nbsp;</td>
-    </tr>
+    
   </table>
 
 </div>

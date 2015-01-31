@@ -1,23 +1,23 @@
-<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %}
 
-{%block titulo%} Lista de Proyectos {%endblock%}
+{%block titulo%} Lista de proyectos {%endblock%}
 
 {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
-{% endblock %} {% block contenido %}{%if user.is_staff%}
-<div align="center">
+{% endblock %} {% block contenido %}
+{%if user.is_staff%}
+<div align="center" class="list">
 	<table width="100%" border="0">
 		<tr>
 			<td width="6%" height="39">&nbsp;</td>
-			<td width="19%"></td>
-			<td width="28%" align="center"><h2>PROYECTOS</h2></td>
-			<td width="42%"><h5>
-					<a href="/administracion/registrarCorto"><img
+		  <td width="21%"></td>
+			<td width="35%" align="left"><h2>PROYECTOS</h2></td>
+			<td width="33%"><h5>
+					<a href="/administracion/registrarProyecto"><img
 						src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" />
 						Añadir Proyecto</a>
-				</h5></td>
+		  </h5></td>
 			<td width="5%">&nbsp;</td>
 		</tr>
 		<tr>
@@ -32,30 +32,33 @@
 		<tr>
 			<td rowspan="3">&nbsp;</td>
 			<td height="29" colspan="3" align="center">
-				<table width="58%" border="1">
+				<table width="53%" border="0">
 					{%for proyecto in object_list%}
 					<tr>
-						<td width="54%" height="33"><h6 class="margen">
+						<td width="72%" height="33"><h6 class="margen">
 								{%if proyecto.activo%}
-								<a href="/servicios/ficha/{{proyecto.id}}">{{proyecto.titulo}}</a>
+								<a href="/servicios/ficha/{{proyecto.id}}" class="tam12">{{proyecto.titulo}}</a>
 								{%else%}
-								<a href="/servicios/ficha/{{proyecto.id}}"><font color="ff0000">{{proyecto.titulo}}</a>
+								<a href="/servicios/ficha/{{proyecto.id}}" class="tam12"><font color="ff0000">{{proyecto.titulo}}</a>
 								{%endif%}
 							</h6></td>
-						<td width="46%" align="left"><table width="78%" border="0">
+						<td width="28%" align="left"><table width="84%" border="0">
 								<tr>
-									<td width="45%" height="24" align="center"><a
+									<td width="61%" height="24" align="center"><a
 										href="/administracion/modificarProyecto/{{proyecto.id}}"
 										class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png"
 											width="15" height="15" /><span class="tam12">Modificar
 										</span></a></td>
-									<td width="55%" align="center"><a
+									<td width="39%" align="center"><a
 										href="/administracion/eliminarProyecto/{{proyecto.id}}"
 										class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png"
 											width="15" height="15" />Borrar</a></td>
 								</tr>
 							</table></td>
 					</tr>
+					<tr>
+					  <td height="33" colspan="2"><hr /></td>
+				  </tr>
 					{%endfor%}
 				</table>
 			</td>
@@ -72,4 +75,5 @@
 
 {%else%}
 <meta http-equiv="refresh" content="0; url=http://example.com/" />
-{%endif%} {% endblock %}
+{%endif%}
+{%endblock%}

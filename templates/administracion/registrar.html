@@ -1,8 +1,10 @@
-<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %}
 
 {%block titulo%} Registro {%endblock%}
+{%block head%}
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
+{%endblock%}
 {%block contenido%}
 {%if user.is_staff%}
 <div align="center">

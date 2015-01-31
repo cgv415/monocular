@@ -1,32 +1,32 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta charset="ISO-8859-1">
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 <title>{%block titulo%} {%endblock%}</title> {%block head%} {%endblock%}
 {% comment %} {%endcomment %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/base.css">
+<link rel="icon" type="image/png" href="{{STATIC_URL}}imG/logos/icon.png" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/main.js"></script>
 </head>
-<body oncontextmenu="return false" onselectstart="return false"
-	ondragstart="return false">
-	<div align="center" style="background-color: #000000; border: #000000;">
+<body>
+	<div align="center" class="cabecera">
 	  <table width="100%" border="0">
 	    <tr>
-	      <td width="9%">&nbsp;</td>
-	      <td width="15%">&nbsp;</td>
-	      <td width="55%">&nbsp;</td>
-	      <td width="10%">&nbsp;</td>
-	      <td width="11%">&nbsp;</td>
+	      <td width="8%" rowspan="4">&nbsp;</td>
+	      <td colspan="6"></td>
+	      <td width="10%" rowspan="4">&nbsp;</td>
         </tr>
 	    <tr>
-	      <td rowspan="3">&nbsp;</td>
-	      <td rowspan="3"><a href="/inicio">
-								<img src="{{STATIC_URL}}img/logos/fondonegro.png" width="180"
+	      <td height="12" colspan="6"></td>
+        </tr>
+	    <tr>
+	      <td width="15%" rowspan="2"><a href="/inicio">
+	        <img src="{{STATIC_URL}}img/logos/fondonegro.png" width="180"
 								height="110" />
-						</a></td>
-	      <td rowspan="3"><div id="header">
+          </a></td>
+	      <td colspan="4" rowspan="2" align="left" valign="middle"><div id="header">
 			<ul class="nav">
 				<li><a href="/inicio">Inicio</a></li>
 				<li><a href="/servicios">Servicios</a>
@@ -37,14 +37,14 @@
 						<li><a href="#">PostProduccion</a></li>
 					</ul>
 				</li>
-				<li><a href="/noticias">Noticias</a>
+				<li><a href="/noticias/page/0">Noticias</a>
 				</li>
 				<li><a href="/portfolio">PortFolio</a>
 				</li>
 				<li><a href="/contacto">Contacto</a></li>
 			</ul>
 		</div></td>
-	      <td rowspan="3"><a
+	      <td width="10%" height="80"><a
 							class="redes-sociales" target="_blank"
 							href="https://www.facebook.com/pages/Monocular-Films/636013676504940?ref=notif&notif_t=fbpage_admin"
 							title="Facebook"><img
@@ -55,21 +55,10 @@
 								height="26" /></a> <a class="redes-sociales" target="_blank"
 							href="https://vimeo.com/user36352296" title="Vimeo"> <img
 								src="{{STATIC_URL}}img/social/vimeo.png" width="26" height="21" /></a></td>
-	      <td height="42" align="center"><a href="/administracion/logout" class="menuFooter"><img src="{{STATIC_URL}}img/btn/logout.png"></a></td>
         </tr>
 	    <tr>
-	      <td height="39" align="center"><a
-							href="/administracion/admin" class="menuFooter"><img src="{{STATIC_URL}}img/btn/wheel.png"></a></td>
-        </tr>
-	    <tr>
-	      <td height="20">&nbsp;</td>
-        </tr>
-	    <tr>
-	      <td>&nbsp;</td>
-	      <td>&nbsp;</td>
-	      <td>&nbsp;</td>
-	      <td>&nbsp;</td>
-	      <td>&nbsp;</td>
+	      <td align="center">{%if user.is_active%}<a href="/administracion/logout" class="menuFooter"><img src="{{STATIC_URL}}img/btn/_logout.png" width="16" height="16"> </a>{%endif%}{%if user.is_staff%}<a
+							href="/administracion/admin" class="menuFooter"><img src="{{STATIC_URL}}img/btn/settings.png" width="16" height="16"></a>{%endif%}</td>
         </tr>
       </table>
 </div>
@@ -83,15 +72,15 @@
 				<table width="70%" border="0" cellspacing="0" cellpadding="0"
 					align="center">
 					<tr>
-					  <td colspan="2" rowspan="9">&nbsp;</td>
+					  <td colspan="2" rowspan="8">&nbsp;</td>
 					  <td colspan="5"
 							style="text-align: center; font-size: 16px; font-weight: bold; color: #FFFFFF;">&nbsp;</td>
-					  <td colspan="2" rowspan="9" style="text-align: right">&nbsp;</td>
-					  <td colspan="2" rowspan="9" style="text-align: center">&nbsp;</td>
-					  <td width="5%" rowspan="9" style="text-align: center">&nbsp;</td>
+					  <td colspan="2" rowspan="8" style="text-align: right">&nbsp;</td>
+					  <td colspan="2" rowspan="8" style="text-align: center">&nbsp;</td>
+					  <td width="5%" rowspan="8" style="text-align: center">&nbsp;</td>
 					  <td colspan="4"
 							style="text-align: center; font-size: 16px; font-weight: bold; color: #FFFFFF;">&nbsp;</td>
-					  <td width="1%" colspan="2" rowspan="9">&nbsp;</td>
+					  <td width="1%" colspan="2" rowspan="8">&nbsp;</td>
 				  </tr>
 					<tr>
 						<td colspan="5"
@@ -162,19 +151,15 @@
 						<td style="text-align: left">&nbsp;</td>
 					</tr>
 					<tr>
-						<td colspan="5" rowspan="2" style="text-align: right">&nbsp;</td>
-						<td height="24" colspan="4" style="text-align: center">&nbsp;</td>
+						<td height="24" colspan="5" style="text-align: right">&nbsp;</td>
+						<td colspan="4" rowspan="2" style="text-align: center">&nbsp;</td>
 					</tr>
 
 					<tr>
-						<td colspan="4" style="text-align: left">&nbsp;</td>
-					</tr>
-					<tr>
 						<td colspan="5" style="text-align: right">&nbsp;</td>
-						<td colspan="4">&nbsp;</td>
 					</tr>
 				</table>
 			</div>
-		</div>
+</div>
 </body>
 </html>

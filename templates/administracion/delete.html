@@ -1,12 +1,13 @@
-<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %}
 
 {%block titulo%} Borrado {%endblock%}
-
+{%block head%}
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
+{%endblock%}
 {% block contenido %}
 {%if user.is_staff%}
-<div align="center">
+<div align="center" class="list">
 	<table width="100%" border="0">
 		<tr>
 			<td width="13%" rowspan="3">&nbsp;</td>

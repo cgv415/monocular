@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %}
 
@@ -8,25 +7,63 @@
 <link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Karla%7CMontserrat">
-<link rel="stylesheet" href="{{STATIC_URL}}css/lightbox/screen.css">
 <link rel="stylesheet" href="{{STATIC_URL}}css/lightbox/lightbox.css">
 {% endblock %} {% block contenido %}
 
 <div align="center">
-	<table width="991" border="0" align="center">
+	<table width="100%" border="0" align="center">
 		<tr>
-			<td height="64" colspan="4" align="center"><h2>{{proyecto.titulo|upper}}</h2></td>
+			<td height="64" colspan="5" align="center"><h2>{{proyecto.titulo|upper}}</h2></td>
+		</tr>
+        {%if palmares%}
+		<tr>
+			<td colspan="2" rowspan="2"></td>
+			<td height="8" colspan="3"><h2>Palmares:</h2></td> 
 		</tr>
 		<tr>
-			<td width="91"></td>{%if palmares%}
-			<td height="82" colspan="3"><h2>Palmares:</h2> {%for estado in estados%}
-				<h3>{{estado.estado|upper}} - {{estado.festival.anyo}}
-					{{estado.festival|upper}},{{estado.festival.ciudad|upper}}</h3>
-				{%endfor%}</td> {%endif%}
-		</tr>
+		  <td height="9" colspan="3">&nbsp;</td>
+	  </tr>
+      		{%for estado in estados%}
+        		{%if user.is_staff%}
 		<tr>
-			<td></td>
-			<td width="403" height="71">{% ifnotequal proyecto.anyo '' %}
+		  <td width="123" align="right"><a href="/administracion/eliminarEstado/{{estado.id}}" target="blank"><img src="{{STATIC_URL}}img/btn/minus.png" width="16" height="16" /></td>
+		  <td width="92" align="center"><a href="/administracion/modificarEstado/{{estado.id}}" target="blank"><img src="{{STATIC_URL}}img/btn/pencil.png" width="16" height="16" /></td>
+		  <td height="19" colspan="3">
+          			{%if estado.activo%}
+						{{estado.estado|upper}} - {{estado.festival.anyo}}
+						{{estado.festival|upper}},{{estado.festival.ciudad|upper}}
+               		 {%else%}<font color="ff0000">
+               	 	    {{estado.estado|upper}} - {{estado.festival.anyo}}
+						{{estado.festival|upper}},{{estado.festival.ciudad|upper}}<font>
+               		 {%endif%}
+				</td>
+	  </tr>
+      			{%else%}
+                	{%if estado.activo%}
+      	<tr>
+        			
+      		<td colspan="2"></td>
+		  	<td height="40" colspan="3">
+            		
+						{{estado.estado|upper}} - {{estado.festival.anyo}}
+						{{estado.festival|upper}},{{estado.festival.ciudad|upper}}
+       	  </td>
+                    
+	  	</tr>
+        			{%endif%}
+      			{%endif%}
+      		{%endfor%}
+      {%endif%}
+      {%if user.is_staff%} <tr>
+      <td colspan="2"></td>
+		  	<td height="40" colspan="3"><a href="/administracion/registrarEstado" 
+            target="blank"><img src="{{STATIC_URL}}img/btn/plus.png" width="16" height="16" />
+       	  </td>
+      </tr>
+      {%endif%}
+		<tr>
+		  <td colspan="2"></td>
+			<td width="396" height="71">{% ifnotequal proyecto.anyo '' %}
 				<h5>
 					<b>A&ntilde;o:</b> {{proyecto.anyo}}
 				</h5> {% endifnotequal %} {% ifnotequal proyecto.pais '' %}
@@ -55,8 +92,8 @@
 					<b>G&eacute;nero:</b> {{proyecto.genero}}
 				</h5> {% endifnotequal %}
 			</td>
-			<td width="20"></td>
-			<td width="459" rowspan="4" align="center"><p>
+			<td width="23"></td>
+			<td width="522" rowspan="4" align="center"><p>
 					<a href="{{proyecto.trailer}}" target="_blank"
 						class="redes-sociales"><img
 						src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="imagen del proyecto"
@@ -68,14 +105,14 @@
 				</p></td>
 		</tr>
 		<tr>
-			<td></td>
+			<td colspan="2"></td>
 			<td height="80"><strong><h5>
 						<strong>Sinopsis:</strong> {{proyecto.sinopsis}}
 					</h5></td>
 			<td height="80">&nbsp;</td>
 		</tr>
 		<tr>
-			<td rowspan="2"></td>
+			<td colspan="2" rowspan="2"></td>
 			<td height="48" colspan="2">{% ifnotequal proyecto.observaciones '' %}
 				<h5>
 					<b>Observaciones:</b> {{proyecto.observaciones}}
@@ -86,7 +123,7 @@
 			<td height="21" colspan="2">&nbsp;</td>
 		</tr>
 		<tr>
-			<td colspan="3"></td>
+			<td colspan="4"></td>
 			<td height="21" align="center">&nbsp;</td>
 		</tr>
 	</table>
@@ -109,8 +146,7 @@
 						src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" /></a></td>
                     {%for imagen in galeria%}					
                <td width="23%"> <a class="example-image-link" href="{{MEDIA_URL}}{{imagen.imagen}}"
-						data-lightbox="example-set"
-						data-title="Click the right half of the image to move forward."><img
+						data-lightbox="example-set"><img
 						class="example-image" src="{{MEDIA_URL}}{{imagen.imagen}}" alt="" /></a></td>
 				{%endfor%}
 			        </tr>
@@ -137,8 +173,7 @@
 				      	{%for imagen in galeria%}	
                       		{%if imagen.activo%}				
                               <td width="23%"> <a class="example-image-link" href="{{MEDIA_URL}}{{imagen.imagen}}"
-                                data-lightbox="example-set"
-                                data-title="Click the right half of the image to move forward."><img
+                                data-lightbox="example-set"><img
                                 class="example-image" src="{{MEDIA_URL}}{{imagen.imagen}}" alt="" /></a>
                               </td>
                               {%endif%}
@@ -175,30 +210,43 @@
 {%endblock%}
 	
 	{%ifequal user.id proyecto.cliente_id %} {%if palmares%}
-	<table class="tabla" width="100%" border="2" cellspacing="0"
+	<table class="tabla" width="100%" border="0" cellspacing="0"
 		bordercolor="#000000">
 		<tr>
-			<th scope="col">Cortometraje</th>
-			<th align="center" scope="col">A&ntildeo de producci&oacuten</th>
-			<th align="center" scope="col">Festival/A&ntildeo</th>
-			<th align="center" scope="col">Ciudad/Pa&iacutes</th>
-			<th align="center" scope="col">Fecha</th>
-			<th scope="col">P&aacutegina Web</th>
-			<th scope="col">Estado</th>
+			<th width="10%" align="left" scope="col"></th>
+			<th width="10%" align="left" scope="col">Cortometraje</th>
+			<th width="13%" align="left" scope="col">A&ntildeo de producci&oacuten</th>
+			<th width="14%" align="left" scope="col">Festival/A&ntildeo</th>
+			<th width="15%" align="left" scope="col">Ciudad/Pa&iacutes</th>
+			<th width="13%" align="left" scope="col">Fecha</th>
+			<th width="12%" align="left" scope="col">P&aacutegina Web</th>
+			<th width="13%" align="left" scope="col">Estado</th>
 		</tr>
+		<tr>
+		  <th colspan="2" scope="col">&nbsp;</th>
+		  <th align="center" scope="col">&nbsp;</th>
+		  <th align="center" scope="col">&nbsp;</th>
+		  <th align="center" scope="col">&nbsp;</th>
+		  <th align="center" scope="col">&nbsp;</th>
+		  <th scope="col">&nbsp;</th>
+		  <th scope="col">&nbsp;</th>
+      </tr>
 
 		{%for estado in estados%}
+        	{%if estado.activo%}
 		<tr>
-			<td>{{proyecto.titulo}}</td>
-			<td>{{proyecto.anyo}}</td>
-			<td><h6>{{estado.festival}}/{{estado.festival.anyo}}</h6></td>
-			<td><h6>{{estado.festival.ciudad}}/{{estado.festival.pais}}</h6></td>
-			<td>{{estado.festival.fecha}}</td>
-			<td>{{estado.festival.web}}</td>
-			<td>{{estado.estado}}</td>
+			<td height="21" align="left"></td>
+			<td align="left" class="tam10">{{proyecto.titulo}}</td>
+			<td class="tam12">{{proyecto.anyo}}</td>
+			<td class="tam12">{{estado.festival}}/ {{estado.festival.anyo}}</td>
+			<td class="tam12">{{estado.festival.ciudad}}/ {{estado.festival.pais}}</td>
+			<td class="tam12">{{estado.festival.fecha}}</td>
+			<td class="tam12">{{estado.festival.web}}</td>
+			<td class="tam12">{{estado.estado}}</td>
 		</tr>
+        	{%endif%}
 		<tr>
-			<td colspan="7">&nbsp;</td>
+			<td colspan="8">&nbsp;</td>
 		</tr>
 		{%endfor%} {%endif %}
 	</table>

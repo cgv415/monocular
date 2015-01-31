@@ -1,83 +1,89 @@
-<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %}
 
 {%block titulo%} Administracion {%endblock%}
 
 {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/admin.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
 {% endblock %} {% block contenido %} 
 
 {%if user.is_staff%}
-<div align="center">
+<div align="center" class="list">
 	<table width="100%" border="0">
 		<tr>
-			<td width="41%">&nbsp;</td>
-			<td width="32%"><h4>
+			<td width="27%">&nbsp;</td>
+			<td width="31%"><h4>
 					<strong>Panel de administracion.</strong>
 				</h4></td>
-			<td width="17%"><h6 class="georgia">Bienvenido,
+			<td width="20%"><h6 class="georgia">Bienvenido,
 					{{user.username|capfirst}}</h6></td>
-			<td width="10%">{%if user.is_superuser%}
-				<form action="/admin/" style="padding: 0; display: inline">
-					<input name="button" type="submit" class="boton" id="button"
-						value="Avanzado" />
-				</form>{%endif%}
+			<td width="22%">{%if user.is_superuser%}
+				<a href="/admin/"><img src="{{STATIC_URL}}img/btn/advanced.png"></a>{%endif%}
 			</td>
 		</tr>
 	</table>
-	<p>&nbsp;</p>
-	<table width="34%" border="0">
+  <p>&nbsp;</p>
+	<table width="100%" border="0">
 		<tr>
-			<td width="9%" rowspan="9">&nbsp;</td>
-			<td colspan="4" align="center" class="georgia"></td>
+			<td width="9%" rowspan="13">&nbsp;</td>
+			<td colspan="5" align="center" class="georgia"></td>
 		</tr>
 		<tr>
-			<td colspan="2" rowspan="8" class="georgia">&nbsp;</td>
+			<td colspan="2" rowspan="12" class="georgia">&nbsp;</td>
 		</tr>
 		<tr>
-			<td width="34%" height="28" class="georgia"><a
+			<td width="32%" height="13" class="georgia"><a
 				href="/administracion/clienteslist">Clientes</a></td>
-			<td width="41%" class="georgia"><a
+			<td width="41%" colspan="2" class="georgia"><a
 				href="/administracion/registrarCliente"><img
 					src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />
 					Añadir</a></td>
 		</tr>
 		<tr>
-			<td height="26" class="georgia"><a
+		  <td height="13" colspan="2" class="georgia"><hr /></td>
+		  <td class="georgia">&nbsp;</td>
+      </tr>
+		<tr>
+			<td height="11" class="georgia"><a
 				href="/administracion/noticiaslist" class="verdana">Noticias</a></td>
-			<td class="georgia"><a href="/administracion/registrarNoticia"><img
+			<td colspan="2" class="georgia"><a href="/administracion/registrarNoticia"><img
 					src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />
 					Añadir</a></td>
 		</tr>
 		<tr>
-			<td height="29" class="georgia"><a
+		  <td height="13" colspan="2" class="georgia"><hr /></td>
+		  <td height="13" class="georgia">&nbsp;</td>
+      </tr>
+		<tr>
+			<td height="13" class="georgia"><a
 				href="/administracion/proyectoslist" class="georgia">Proyectos</a></td>
-			<td class="georgia"><a href="/administracion/registrarProyecto"><img
+			<td colspan="2" class="georgia"><a href="/administracion/registrarProyecto"><img
 					src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
 		</tr>
 		<tr>
-			<td height="30" class="georgia"><a
+		  <td height="14" colspan="2" class="georgia"><hr /></td>
+		  <td height="14" class="georgia">&nbsp;</td>
+      </tr>
+		<tr>
+			<td height="13" class="georgia"><a
 				href="/administracion/festivaleslist">Festivales</a></td>
-			<td class="georgia"><a href="/administracion/registrarFestival"><img
+			<td colspan="2" class="georgia"><a href="/administracion/registrarFestival"><img
 					src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
 		</tr>
 		<tr>
-			<td height="27" class="georgia"><a
-				href="/administracion/estadoslist">Estado_Proyecto</a></td>
-			<td class="georgia"><a href="/administracion/registrarEstado"><img
-					src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
-		</tr>
+		  <td height="15" colspan="2" class="georgia"><hr /></td>
+		  <td height="15" class="georgia">&nbsp;</td>
+      </tr>
 		<tr>
-			<td height="27" class="georgia"><a
+			<td height="12" class="georgia"><a
 				href="/administracion/publicidadDetails" class="georgia">Publicidad</a></td>
-			<td class="georgia"><a href="/administracion/createAnuncio"><img
+			<td colspan="2" class="georgia"><a href="/administracion/createAnuncio"><img
 					src="{{STATIC_URL}}img/btn/plus.png" width="10" height="10" />Añadir</a></td>
 		</tr>
 		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
+		  <td height="14" colspan="2" class="georgia"><hr /></td>
+		  <td height="14" class="georgia">&nbsp;</td>
+      </tr>
 	</table>
 </div>
 {%else%}

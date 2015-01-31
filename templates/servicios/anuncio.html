@@ -1,12 +1,26 @@
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
-{%endcomment %} {% block head %}
-<link rel="stylesheet" href="{{STATIC_URL}}css/festival.css">
+{%endcomment %} 
+{%block titulo%} Anuncio {%endblock%}
+{% block head %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
 {% endblock %} {% block contenido %}
-
-<div class="contenido">
-	<u><h1>{{anuncio.titulo}}</h1></u> <img
-		src="{{MEDIA_URL}}{{anuncio.imagen}}"><br> <a
-		href="{{anuncio.video}}">Trailer</a>
+<div align="center">
+  <table width="100%" border="0">
+    <tr>
+      <td width="21%">&nbsp;</td>
+      <td width="52%" align="center" class="tam22"><strong>{{anuncio.titulo|capfirst}}</strong></td>
+      <td width="27%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><img src="{{MEDIA_URL}}{{anuncio.imagen}}" /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><a href="{{anuncio.video}}">Ver Anuncio</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
 </div>
-
 {%endblock%}

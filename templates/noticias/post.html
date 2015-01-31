@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %}
 
@@ -19,7 +18,7 @@
 				</h6>
 				<h6>{{noticia.fecha}}</h6></td>
 			<td width="62%" align="justify" valign="top"><h4 class="titulosPost">&nbsp;</h4>
-				<h4 class="titulos">{{noticia.texto}}</h4></td>
+				<h4 class="titulos">{{noticia.texto|safe}}</h4></td>
 		</tr>
 		<tr>
 			<td colspan="2">&nbsp;</td>

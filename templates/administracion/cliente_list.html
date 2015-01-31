@@ -1,21 +1,19 @@
-<!DOCTYPE html>
 {% extends 'base.html' %} {% comment %} Aqui van los comentarios
 {%endcomment %}
 
-{%block titulo%} Lista de Clientes {%endblock%}
+{%block titulo%} Lista de clientes {%endblock%}
 
 {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
-{% endblock %} {% block contenido %} 
-
+{% endblock %} {% block contenido %}
 {%if user.is_staff%}
-<div align="center">
+<div align="center" class="list">
 	<table width="100%" border="0">
 		<tr>
-			<td width="25%" height="39">&nbsp;</td>
-			<td width="9%"></td>
-			<td width="18%"><h2>Clientes</h2></td>
-			<td width="43%"><h5>
+			<td width="6%" height="39">&nbsp;</td>
+		  <td width="21%"></td>
+			<td width="35%" align="left"><h2>CLIENTES</h2></td>
+			<td width="33%"><h5>
 					<a href="/administracion/registrarCliente"><img
 						src="{{STATIC_URL}}img/btn/plus.png" width="15" height="15" />
 						Añadir Cliente</a>
@@ -33,29 +31,33 @@
 
 		<tr>
 			<td rowspan="3">&nbsp;</td>
-			<td height="29" colspan="3">
-				<table width="72%" border="1">
+			<td height="29" colspan="3" align="center">
+				<table width="53%" border="0">
 					{%for cliente in object_list%}
 					<tr>
-						<td width="68%"><h6>{%if cliente.activo%}
+						<td width="72%" height="33"><h6 class="margen">
+								{%if cliente.activo%}
 								<a href="/administracion/cliente/{{cliente.id}}" class="margen">{{cliente.usuario.username}}</a>
 								{%else%}<a href="/administracion/cliente/{{cliente.id}}" class="margen"><font color="ff0000">{{cliente.usuario.username}}</font></a>
 								{%endif%}
 							</h6></td>
-						<td width="32%" align="center"><table width="100%" border="0">
+						<td width="28%" align="left"><table width="84%" border="0">
 								<tr>
-									<td width="59%" align="center"><a
+									<td width="62%" height="24" align="center"><a
 										href="/administracion/modificarCliente/{{cliente.id}}"
 										class="enlace"><img src="{{STATIC_URL}}img/btn/pencil.png"
 											width="15" height="15" /><span class="tam12">Modificar
 										</span></a></td>
-									<td width="41%" align="center"><a
+									<td width="38%" align="center"><a
 										href="/administracion/eliminarCliente/{{cliente.id}}"
 										class="tam12"><img src="{{STATIC_URL}}img/btn/minus.png"
 											width="15" height="15" />Borrar</a></td>
 								</tr>
 							</table></td>
 					</tr>
+					<tr>
+					  <td height="33" colspan="2"><hr /></td>
+				  </tr>
 					{%endfor%}
 				</table>
 			</td>
@@ -72,4 +74,5 @@
 
 {%else%}
 <meta http-equiv="refresh" content="0; url=http://example.com/" />
-{%endif%} {% endblock %}
+{%endif%}
+{%endblock%}
