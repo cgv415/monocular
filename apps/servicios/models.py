@@ -55,6 +55,7 @@ class Festival(models.Model):
     
 #Modelo para los estados de los cortos
 class Estado_Proyecto(models.Model):
+    activo = models.BooleanField(default=True)
     proyecto = models.ForeignKey(Proyecto)
     festival = models.ForeignKey(Festival)
     estado = models.CharField(max_length=30,null=True,blank=True,choices=ESTADOS)

@@ -48,7 +48,7 @@ INSTALLED_APPS = (
     'apps.administracion',
     'apps.portfolio',
     #'tinymce'
-    #'ckeditor'
+    'ckeditor'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,11 +111,11 @@ MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-
+CKEDITOR_UPLOAD_PATH = "uploads/"
 #STATICFILES_DIRS = (join(PATH, "static"),)
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 #STATIC_ROOT= 'C:/workspace/luna/monocular/static/'
-#STATIC_ROOT= 'C:/workspace/lunajee/mono//mono/static/'
+#STATIC_ROOT= os.path.join(BASE_DIR, 'static/')
 
 STATIC_URL = '/static/'
 # Aadir para poder ver los archivos estticos

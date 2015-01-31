@@ -6,7 +6,7 @@ from apps.administracion.views import RegistrarCliente, ClientesList,\
     ModificarFestival, DeleteFestival, RegistrarNoticia, NoticiasList,\
     ModificarNoticia, DeleteNoticia, EstadosList, ModificarEstado, DeleteEstado,\
     RegistrarEstado, PublicidadDetails, UpdateAnuncio, DeleteAnuncio,\
-    CreateAnuncio, RegistrarUsuario, RegistrarUsuarioEmpleado, \
+    CreateAnuncio, RegistrarUsuario, \
     ModificarImagen, CrearImagen, DeleteImagen
 
 # from django.contrib.auth.views import logout
@@ -15,9 +15,7 @@ urlpatterns = [
    # url(r'^$' , 'apps.inicio.views.index'),
    url(r'^admin/$' , 'apps.administracion.views.Principal', name="principal"),
    url(r'^registrarUsuario/',RegistrarUsuario.as_view(), name="registrar_Usuario"),
-   url(r'^registrarUsuarioEmpleado/',RegistrarUsuarioEmpleado.as_view(), name="registrar_UsuarioEmpleado"),
-   
-   
+    
    url(r'^$', login, {'template_name': 'administracion/login.html', }, name="login"),
    url(r'^logout/$' , 'django.contrib.auth.views.logout_then_login', name='logout'),
 
