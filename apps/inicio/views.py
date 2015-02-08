@@ -31,7 +31,7 @@ def contacto(request):
             asunto = 'Mensaje de contacto de' + ' ' + nombre+  ', (' + mail+')'
             mensaje = form.cleaned_data['mensaje'] +'\n De: '+ mail + '\n telefono: ' + tlfn
             #send_mail(asunto,mensaje,['carlosgarrido993@gmail.com'])
-            email=EmailMessage(asunto,mensaje,to=['monocularfilm@gmail.com'])
+            email=EmailMessage(asunto,mensaje,to=['carlosgarrido993@gmail.com'])
             email.send()
             emailCopy=EmailMessage(asunto,mensaje,to=[mail])
             emailCopy.send()

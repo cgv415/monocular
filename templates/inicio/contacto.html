@@ -5,11 +5,61 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
+<script>
+    function validacion() {
+var nombre = document.getElementById("id_nombre");
+if(nombre.value== "" || nombre.value== null) {
+alert("Porfavor, ingrese su nombre/Razon social");
+nombre.style.border = "2px solid red";
+return false;
+} else {
+nombre.style.border = "";
+}
+
+var numero=document.getElementById('id_telefono');
+  var expresionRegular1=/^([0-9]+){9}$/;//<--- con esto vamos a validar el numero
+  var expresionRegular2=/\s/;//<--- con esto vamos a validar que no tenga espacios en blanco
+ 
+  if(numero.value=='' || expresionRegular2.test(numero.value)|| !expresionRegular1.test(numero.value)){
+     alert("Porfavor, ingrese un telefono valido");
+	numero.style.border = "2px solid red";
+	return false;
+  } else {
+numero.style.border = "";
+}
+
+email = document.getElementById("id_mail");
+if(email.value== "" || email.value== null) {
+alert("Porfavor, ingrese un email valido");
+email.style.border = "2px solid red";
+return false;
+} else {
+email.style.border = "";
+}
+
+var mensaje = document.getElementById("id_mensaje");
+if(mensaje.value== "" || mensaje.value== null) {
+alert("Porfavor, ingrese su mensaje");
+mensaje.style.border = "2px solid red";
+return false;
+} else {
+mensaje.style.border = "";
+}
+
+
+}
+
+</script>
+{%if exito%}
+<script>
+    alert("Su mensaje se ha enviado con exito, le hemos mandado una copia del mensaje a su email.");
+</script>
+{%endif%}
 {% endblock %} {% block contenido %} 
 {%load staticfiles%}
 
-<div align="center">
-	<form id="form" name="form" method="post" action="/contacto">
+<div align="center"> 
+	<form id="form" name="form" method="post" action="/contacto" onsubmit="return validacion()">
 		<input type='hidden' name='csrfmiddlewaretoken'
 			value='DbziNF6tzxZmMfmZu7lQSYyeiipr3PHu' /> {% csrf_token%}
 
