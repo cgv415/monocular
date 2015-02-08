@@ -59,11 +59,15 @@ def Ficha(request,offset):
     cod = int(offset)
     proyectoR = Proyecto.objects.filter(id=cod)[0]
     estados = Estado_Proyecto.objects.filter(proyecto_id=cod)
+    estadosUser = Estado_Proyecto.objects.filter(proyecto_id=cod,activo=True)
     palmares = True;
+    palmaresUser =True;
     if estados.count()==0:
         palmares=False
+    if estadosUser.count()==0:
+        palmaresUser=False
     galeria = Galeria.objects.filter(proyecto=proyectoR).order_by('-id')
-    return render_to_response('servicios/proyecto.html',{'palmares':palmares,'proyecto':proyectoR,'estados':estados,'galeria':galeria},context_instance=RequestContext(request))
+    return render_to_response('servicios/proyecto.html',{'palmaresUser':palmaresUser,'palmares':palmares,'proyecto':proyectoR,'estados':estados,'galeria':galeria},context_instance=RequestContext(request))
 
 #Muestra un Festival
 def FestivalView(request,offset):

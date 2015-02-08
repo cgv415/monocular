@@ -14,19 +14,16 @@
 	<div align="center" class="cabecera">
 	  <table width="100%" border="0">
 	    <tr>
-	      <td width="8%" rowspan="4">&nbsp;</td>
-	      <td colspan="6"></td>
-	      <td width="10%" rowspan="4">&nbsp;</td>
+	      <td width="9%" rowspan="3" valign="top">&nbsp;</td>
+	      <td colspan="3"></td>
+	      <td width="6%" rowspan="3" valign="top">&nbsp;</td>
         </tr>
 	    <tr>
-	      <td height="12" colspan="6"></td>
-        </tr>
-	    <tr>
-	      <td width="15%" rowspan="2"><a href="/inicio">
-	        <img src="{{STATIC_URL}}img/logos/fondonegro.png" width="180"
-								height="110" />
+	      <td width="16%" rowspan="2" valign="top"><a href="/inicio">
+	        <img src="{{STATIC_URL}}img/logos/fondonegro2.png" width="150"
+								height="85" border="0" />
           </a></td>
-	      <td colspan="4" rowspan="2" align="left" valign="middle"><div id="header">
+	      <td width="47%" rowspan="2" align="center" valign="top"><div id="header">
 			<ul class="nav">
 				<li><a href="/inicio">Inicio</a></li>
 				<li><a href="/servicios">Servicios</a>
@@ -44,7 +41,7 @@
 				<li><a href="/contacto">Contacto</a></li>
 			</ul>
 		</div></td>
-	      <td width="10%" height="80"><a
+	      <td width="22%" align="left"><a
 							class="redes-sociales" target="_blank"
 							href="https://www.facebook.com/pages/Monocular-Films/636013676504940?ref=notif&notif_t=fbpage_admin"
 							title="Facebook"><img
@@ -54,11 +51,11 @@
 								src="{{STATIC_URL}}img/social/twitter.png" width="31"
 								height="26" /></a> <a class="redes-sociales" target="_blank"
 							href="https://vimeo.com/user36352296" title="Vimeo"> <img
-								src="{{STATIC_URL}}img/social/vimeo.png" width="26" height="21" /></a></td>
+								src="{{STATIC_URL}}img/social/vimeo.png" width="36" height="26" /></a></td>
         </tr>
 	    <tr>
-	      <td align="center">{%if user.is_active%}<a href="/administracion/logout" class="menuFooter"><img src="{{STATIC_URL}}img/btn/_logout.png" width="16" height="16"> </a>{%endif%}{%if user.is_staff%}<a
-							href="/administracion/admin" class="menuFooter"><img src="{{STATIC_URL}}img/btn/settings.png" width="16" height="16"></a>{%endif%}</td>
+	      <td height="103" align="left" valign="top">{%if user.is_active%}<a href="/administracion/logout" class="redes-sociales"><img src="{{STATIC_URL}}img/btn/_logout.png" width="16" height="16"> </a>{%endif%}{%if user.is_staff%}<a
+							href="/administracion/admin" class="redes-sociales"><img src="{{STATIC_URL}}img/btn/settings.png" width="16" height="16"></a>{%else%}{%if user.is_active%}<a href="/servicios/mificha" class="redes-sociales"><img src="{{STATIC_URL}}img/btn/user.png" width="16" height="16"></a>{%endif%}{%endif%}</td>
         </tr>
       </table>
 </div>
@@ -139,7 +136,7 @@
 					</tr>
 					<tr>
 						<td style="text-align: center"><img
-							src="{{STATIC_URL}}img/social/vimeo.png" width="26" height="21" /></td>
+							src="{{STATIC_URL}}img/social/vimeo.png" width="36" height="26" /></td>
 						<td style="text-align: left"><a class="menuFooter"
 							href="https://vimeo.com/user36352296" target="_blank">Vimeo</a></td>
 						<td style="text-align: center"><img

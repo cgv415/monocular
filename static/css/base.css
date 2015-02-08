@@ -102,8 +102,11 @@ text-decoration:none;
 }
 
 .cabecera{
-	background-color: #000000; 
+	height:100px;
+	background-color: #000000;
 	border: #000000;"
+	
+	
 }
 
 .margen{

@@ -19,66 +19,59 @@
 			</tr>
 			<tr>
 				<td width="1%" rowspan="17">&nbsp;</td>
-				<td colspan="5" bgcolor="#000000" class="cabeceraTabla">Contacta
+				<td colspan="5" align="center" class="cabeceras">Contacta
 					con Monocular</td>
 				<td width="1%" rowspan="14">&nbsp;</td>
 			</tr>
 			<tr>
-				<td width="5%" rowspan="16">&nbsp;</td>
+				<td width="8%" rowspan="16">&nbsp;</td>
 				<td colspan="4">&nbsp;</td>
 			</tr>
 			<tr>
 				<td width="38%" bgcolor="#FFFFFF" class="negrita"><p>
 						<label for="id_nombre">Nombre/Raz&oacute;n Social:</label>
 					</p></td>
-				<td width="6%">&nbsp;</td>
-				<td colspan="2" rowspan="7" align="left" valign="top"><p>
+				<td width="6%" rowspan="12">&nbsp;</td>
+				<td colspan="2" rowspan="7" align="center" valign="middle"><p>
 						<img src="{% static "img/logos/fondoBlanco.png" %}" width="275"
-							height="250" />
-					</p></td>
+							height="160" />
+			  </p></td>
 			</tr>
 			<tr>
 				<td bgcolor="#FFFFFF" class="negrita"><p>
 						<input name="nombre" type="text" id="id_nombre" size="40" />
 					</p></td>
-				<td width="6%">&nbsp;</td>
 			</tr>
 			<tr>
 				<td bgcolor="#FFFFFF" class="negrita"><p>
 						<label for="telefono">Tel&eacute;fono de contacto:</label>
 					</p></td>
-				<td width="6%">&nbsp;</td>
 			</tr>
 			<tr>
 				<td bgcolor="#FFFFFF" class="negrita"><p>
 						<input name="telefono" type="text" id="id_telefono" maxlength="9" />
 					</p></td>
-				<td width="6%">&nbsp;</td>
 			</tr>
 			<tr>
 				<td bgcolor="#FFFFFF" class="negrita"><p>
 						<label for="id_mail">Correo electr&oacute;nico:</label>
 					</p></td>
-				<td width="6%">&nbsp;</td>
 			</tr>
 			<tr>
 				<td bgcolor="#FFFFFF" class="negrita"><p>
 						<input name="mail" type="email" id="id_mail" size="25" />
 					</p></td>
-				<td width="6%">&nbsp;</td>
 			</tr>
 			<tr>
 				<td height="40" bgcolor="#FFFFFF" class="negrita"><label
 					for="id_mensaje">Observaciones:</label></td>
-				<td width="6%">&nbsp;</td>
 			</tr>
 			<tr>
 				<td height="31" rowspan="5" bgcolor="#FFFFFF" class="negrita"><textarea
 						name="mensaje" cols="45" rows="5" class="tamanoFijo"
 						id="id_mensaje"></textarea></td>
-				<td width="6%" rowspan="5">&nbsp;</td>
-				<td align="left" valign="top">&nbsp;</td>
-				<td align="left" valign="top">&nbsp;</td>
+				<td width="16%" align="left" valign="top">&nbsp;</td>
+				<td width="30%" align="left" valign="top">&nbsp;</td>
 			</tr>
 			<tr>
 				<td align="left" valign="top"><strong>Empresa:</strong></td>
@@ -98,7 +91,8 @@
 			</tr>
 			<tr>
 				<td colspan="2">&nbsp;</td>
-				<td colspan="2" align="left" valign="top">&nbsp;</td>
+				<td align="left" valign="top"><strong>NIF:</strong></td>
+				<td align="left" valign="top">{{informacion.cif}}</td>
 				<td width="1%">&nbsp;</td>
 			</tr>
 			<tr>
