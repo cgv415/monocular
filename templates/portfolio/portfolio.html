@@ -88,7 +88,28 @@
 
 		</tr>
 	</table>
-
-
+	<table width="654" height="115" border="0">
+	  <tr>
+	    <td colspan="2" align="center" class="titular">Colaboraciones</td>
+      </tr>
+	  <tr>
+	    <td height="32">&nbsp;</td>
+      </tr>
+	  <tr>
+      {%for proyecto in colaboraciones %}
+      <td align="center">
+				<p>
+					<a href="/servicios/ficha/{{proyecto.id}}" class="redes-sociales"><img
+						src="{{MEDIA_URL}}{{proyecto.imagen}}" alt="" width="120"
+						height="170" /></a><a href="ficha/{{proyecto.id}}"
+						class="redes-sociales"></a>
+				</p>
+				<p class="titulo">
+					<a href="ficha/{{proyecto.id}}" class="titulos">{{proyecto.titulo}}</a>
+				</p>
+			</td>
+      {%endfor%}
+      </tr>
+  </table>
 </div>
 {%endblock%}
