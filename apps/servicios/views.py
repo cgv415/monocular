@@ -67,7 +67,7 @@ def Ficha(request,offset):
     if estadosUser.count()==0:
         palmaresUser=False
     galeria = Galeria.objects.filter(proyecto=proyectoR).order_by('-id')
-    return render_to_response('servicios/proyecto.html',{'palmaresUser':palmaresUser,'palmares':palmares,'proyecto':proyectoR,'estados':estados,'galeria':galeria},context_instance=RequestContext(request))
+    return render_to_response('servicios/proyecto.html',{'estadosUser':estadosUser,'palmaresUser':palmaresUser,'palmares':palmares,'proyecto':proyectoR,'estados':estados,'galeria':galeria},context_instance=RequestContext(request))
 
 #Muestra un Festival
 def FestivalView(request,offset):

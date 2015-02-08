@@ -8,6 +8,7 @@
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Karla%7CMontserrat">
 <link rel="stylesheet" href="{{STATIC_URL}}css/lightbox/lightbox.css">
+
 {% endblock %} {% block contenido %}
 
 <div align="center">
@@ -46,7 +47,14 @@
       </tr>
       		{%else%}
             {%if palmaresUser%}
-                	{%for estado in estadoUser%}
+            <tr>
+			<td colspan="2" rowspan="2"></td>
+			<td height="8" colspan="3"><h2>Palmares:</h2></td> 
+		</tr>
+		<tr>
+		  <td height="9" colspan="3">&nbsp;</td>
+	  </tr>
+                	{%for estado in estadosUser%}
       	<tr>
         			
       		<td colspan="2"></td>
