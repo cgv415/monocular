@@ -237,3 +237,13 @@ a.redes-sociales:hover img {
 	border:white;
 	
 }
+
+#cookie{
+	position:fixed;
+	bottom:0px;
+	left:2%;
+	width:95%;
+	opacity: 0.8;
+	background: #000000;
+	color: #e2e2e2;
+}

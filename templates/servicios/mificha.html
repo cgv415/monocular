@@ -2,6 +2,17 @@
 {%endcomment %}
 
 {%block titulo%} Mi ficha {%endblock%}
+{%block head%}
+<link rel="stylesheet" href="{{STATIC_URL}}css/servicios.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#button").click(function(){
+        $("#cookie").hide();
+    });
+});
+</script>
+{%endblock%}
 {% block contenido %} 
 <div align="center">
 	<table width="100%" border="0">
@@ -69,14 +80,14 @@
 			<td width="10%"><a href="/servicios/ficha/{{proyecto.id}}"><img
 					src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100" height="120"></a>
 			</td>
-			<td colspan="3"><h5>
-					<a href="proyecto/{{proyecto.id}}">{{proyecto.titulo}}</a>
-				</h5></td>
+			<td colspan="3"></td>
 			<td rowspan="2"></td>
 			<td rowspan="2"></td>
 		</tr>
 		<tr>
-			<td colspan="2">&nbsp;</td>
+			<td colspan="3"><h5>
+					<a href="proyecto/{{proyecto.id}}">{{proyecto.titulo}}</a>
+				</h5></td>
 			<td width="11%" valign="bottom">&nbsp;</td>
 			<td width="15%" valign="bottom">&nbsp;</td>
 		</tr>
@@ -99,4 +110,8 @@
 	</table>
 
 </div>
-<p>{%endblock%}</p>
+<div id="cookie">
+Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación. Si continua navegando, consideramos que acepta su uso.
+<button id="button">Click me</button>
+</div>
+{%endblock%}
